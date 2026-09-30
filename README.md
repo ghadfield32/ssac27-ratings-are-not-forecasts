@@ -30,15 +30,25 @@ python -m venv .venv
 
 | Path | Contents |
 |---|---|
-| `reproduce.py` | the one command; needs numpy and pandas only |
+| `reproduce.py` | the quick command; needs numpy and pandas only |
 | `data/` | per-game evaluation tables and frozen parameters; see [DATA.md](DATA.md) |
-| `pipeline/` | the code, as of the evaluation commit, that built the possession ledger, fitted the ratings and produced the tables. For transparency; it is not needed to reproduce the numbers, and it needs NBA.com play-by-play that is not redistributed here |
+| `source_data/` | git submodule: the NBA.com source data and derived runs the tables are built from |
+| `rebuild_tables.py` | regenerates `data/*.csv` from `source_data/` and requires an exact match |
+| `pipeline/` | the code, as of evaluation commit `e3140577b`, that built the possession ledger, fitted the ratings and produces the tables |
 | `abstract.md` | the submitted abstract |
+
+## Where the numbers come from
+
+```bash
+git clone --recurse-submodules <this repository>
+python rebuild_tables.py        # source_data/ -> data/*.csv, checked to 1e-9 (needs requirements-rebuild.txt)
+python reproduce.py             # data/*.csv -> every number in the abstract
+```
 
 ## Licence
 
 - Code: MIT (see `LICENSE`).
-- Data: derived from NBA.com statistics; see [DATA.md](DATA.md) for attribution and terms.
+- Data: NBA.com statistics and tables derived from them; see [DATA.md](DATA.md) and `source_data/README.md` for attribution and terms.
 
 ## Relation to prior work
 
