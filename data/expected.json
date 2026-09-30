@@ -1,0 +1,504 @@
+{
+ "track_a": {
+  "development": {
+   "pooled": {
+    "pregame_v1": {
+     "rmse": 6.682508728656136,
+     "interval_coverage": 0.7999251590370463
+    },
+    "B0_home_only": {
+     "rmse": 7.242082140671299,
+     "interval_coverage": 0.7999251590370463
+    },
+    "B1_prev_v2": {
+     "rmse": 6.822317091541275,
+     "interval_coverage": 0.7999251590370463
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.405612641856893,
+     "interval_coverage": 0.7999251590370463
+    }
+   },
+   "2016-17": {
+    "pregame_v1": {
+     "rmse": 6.542659451709997,
+     "interval_coverage": 0.8008474576271186
+    },
+    "B0_home_only": {
+     "rmse": 7.093021641669885,
+     "interval_coverage": 0.8076271186440678
+    },
+    "B1_prev_v2": {
+     "rmse": 6.614600021214404,
+     "interval_coverage": 0.8076271186440678
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.3411393378606435,
+     "interval_coverage": 0.8101694915254237
+    }
+   },
+   "2017-18": {
+    "pregame_v1": {
+     "rmse": 6.421684451384137,
+     "interval_coverage": 0.8214592274678112
+    },
+    "B0_home_only": {
+     "rmse": 6.9724326602441895,
+     "interval_coverage": 0.8206008583690987
+    },
+    "B1_prev_v2": {
+     "rmse": 6.562673600657423,
+     "interval_coverage": 0.8240343347639485
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.1939102586067705,
+     "interval_coverage": 0.8060085836909872
+    }
+   },
+   "2018-19": {
+    "pregame_v1": {
+     "rmse": 6.6593728083630435,
+     "interval_coverage": 0.8099243061396131
+    },
+    "B0_home_only": {
+     "rmse": 7.24622172833003,
+     "interval_coverage": 0.7931034482758621
+    },
+    "B1_prev_v2": {
+     "rmse": 6.815733152896771,
+     "interval_coverage": 0.8065601345668629
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.385407595324052,
+     "interval_coverage": 0.8090832632464255
+    }
+   },
+   "2019-20": {
+    "pregame_v1": {
+     "rmse": 6.474759713287924,
+     "interval_coverage": 0.8071705426356589
+    },
+    "B0_home_only": {
+     "rmse": 7.003290179431621,
+     "interval_coverage": 0.8168604651162791
+    },
+    "B1_prev_v2": {
+     "rmse": 6.528074640137408,
+     "interval_coverage": 0.8178294573643411
+    },
+    "B2_prev_incumbent": {
+     "rmse": 6.967917130090889,
+     "interval_coverage": 0.8246124031007752
+    }
+   },
+   "2020-21": {
+    "pregame_v1": {
+     "rmse": 7.1532545809863075,
+     "interval_coverage": 0.7688634192932188
+    },
+    "B0_home_only": {
+     "rmse": 7.695176574151032,
+     "interval_coverage": 0.7736389684813754
+    },
+    "B1_prev_v2": {
+     "rmse": 7.389328275014489,
+     "interval_coverage": 0.7679083094555874
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.832444309392041,
+     "interval_coverage": 0.778414517669532
+    }
+   },
+   "2021-22": {
+    "pregame_v1": {
+     "rmse": 7.130308978722779,
+     "interval_coverage": 0.7716933445661331
+    },
+    "B0_home_only": {
+     "rmse": 7.784680186732234,
+     "interval_coverage": 0.7708508845829823
+    },
+    "B1_prev_v2": {
+     "rmse": 7.320129938411037,
+     "interval_coverage": 0.7674810446503791
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.760711606865383,
+     "interval_coverage": 0.780960404380792
+    }
+   },
+   "2022-23": {
+    "pregame_v1": {
+     "rmse": 6.37999311254256,
+     "interval_coverage": 0.8167625308134757
+    },
+    "B0_home_only": {
+     "rmse": 6.873110570685817,
+     "interval_coverage": 0.8159408381265407
+    },
+    "B1_prev_v2": {
+     "rmse": 6.495892333606697,
+     "interval_coverage": 0.8069022185702547
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.3145185386311375,
+     "interval_coverage": 0.7912900575184881
+    }
+   }
+  },
+  "holdout": {
+   "pooled": {
+    "pregame_v1": {
+     "rmse": 7.075904310718456,
+     "interval_coverage": 0.7625514403292181
+    },
+    "B0_home_only": {
+     "rmse": 7.944095579386771,
+     "interval_coverage": 0.7621399176954733
+    },
+    "B1_prev_v2": {
+     "rmse": 7.301386311828349,
+     "interval_coverage": 0.7687242798353909
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.855848629445646,
+     "interval_coverage": 0.7732510288065844
+    }
+   },
+   "2023-24": {
+    "pregame_v1": {
+     "rmse": 7.125015396782493,
+     "interval_coverage": 0.756578947368421
+    },
+    "B0_home_only": {
+     "rmse": 7.9347221126942875,
+     "interval_coverage": 0.7639802631578947
+    },
+    "B1_prev_v2": {
+     "rmse": 7.290028307634767,
+     "interval_coverage": 0.7738486842105263
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.852316987762822,
+     "interval_coverage": 0.7787828947368421
+    }
+   },
+   "2024-25": {
+    "pregame_v1": {
+     "rmse": 7.026368212535187,
+     "interval_coverage": 0.7685337726523888
+    },
+    "B0_home_only": {
+     "rmse": 7.953473414075483,
+     "interval_coverage": 0.7602965403624382
+    },
+    "B1_prev_v2": {
+     "rmse": 7.312745343112982,
+     "interval_coverage": 0.7635914332784185
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.859384498439985,
+     "interval_coverage": 0.7677100494233937
+    }
+   }
+  }
+ },
+ "track_b": {
+  "development": {
+   "pooled": {
+    "pregame_v1": {
+     "rmse": 6.700614878183415,
+     "interval_coverage": 0.7999251590370463
+    },
+    "B0_home_only": {
+     "rmse": 7.242082140671299,
+     "interval_coverage": 0.7999251590370463
+    },
+    "B1_prev_v2": {
+     "rmse": 6.828427933425077,
+     "interval_coverage": 0.7999251590370463
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.321800865347512,
+     "interval_coverage": 0.7999251590370463
+    }
+   },
+   "2016-17": {
+    "pregame_v1": {
+     "rmse": 6.565886064497922,
+     "interval_coverage": 0.809322033898305
+    },
+    "B0_home_only": {
+     "rmse": 7.093021641669885,
+     "interval_coverage": 0.8076271186440678
+    },
+    "B1_prev_v2": {
+     "rmse": 6.619134724189432,
+     "interval_coverage": 0.8084745762711865
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.2089070805883235,
+     "interval_coverage": 0.8033898305084746
+    }
+   },
+   "2017-18": {
+    "pregame_v1": {
+     "rmse": 6.419927279067326,
+     "interval_coverage": 0.8137339055793992
+    },
+    "B0_home_only": {
+     "rmse": 6.9724326602441895,
+     "interval_coverage": 0.8206008583690987
+    },
+    "B1_prev_v2": {
+     "rmse": 6.558889451854685,
+     "interval_coverage": 0.8111587982832618
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.140927841616684,
+     "interval_coverage": 0.8042918454935623
+    }
+   },
+   "2018-19": {
+    "pregame_v1": {
+     "rmse": 6.657231825068534,
+     "interval_coverage": 0.8116063919259883
+    },
+    "B0_home_only": {
+     "rmse": 7.24622172833003,
+     "interval_coverage": 0.7931034482758621
+    },
+    "B1_prev_v2": {
+     "rmse": 6.789796134666319,
+     "interval_coverage": 0.8074011774600505
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.295202803508084,
+     "interval_coverage": 0.8031959629941127
+    }
+   },
+   "2019-20": {
+    "pregame_v1": {
+     "rmse": 6.5140457479273906,
+     "interval_coverage": 0.8081395348837209
+    },
+    "B0_home_only": {
+     "rmse": 7.003290179431621,
+     "interval_coverage": 0.8168604651162791
+    },
+    "B1_prev_v2": {
+     "rmse": 6.555664334793378,
+     "interval_coverage": 0.811046511627907
+    },
+    "B2_prev_incumbent": {
+     "rmse": 6.919052848405272,
+     "interval_coverage": 0.8236434108527132
+    }
+   },
+   "2020-21": {
+    "pregame_v1": {
+     "rmse": 7.163924032682628,
+     "interval_coverage": 0.7717287488061128
+    },
+    "B0_home_only": {
+     "rmse": 7.695176574151032,
+     "interval_coverage": 0.7736389684813754
+    },
+    "B1_prev_v2": {
+     "rmse": 7.407470354511882,
+     "interval_coverage": 0.766953199617956
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.791928281529633,
+     "interval_coverage": 0.7688634192932188
+    }
+   },
+   "2021-22": {
+    "pregame_v1": {
+     "rmse": 7.149832242662261,
+     "interval_coverage": 0.7641112047177759
+    },
+    "B0_home_only": {
+     "rmse": 7.784680186732234,
+     "interval_coverage": 0.7708508845829823
+    },
+    "B1_prev_v2": {
+     "rmse": 7.326716496936113,
+     "interval_coverage": 0.7641112047177759
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.661345486418674,
+     "interval_coverage": 0.7885425442291492
+    }
+   },
+   "2022-23": {
+    "pregame_v1": {
+     "rmse": 6.420184686858757,
+     "interval_coverage": 0.8184059161873459
+    },
+    "B0_home_only": {
+     "rmse": 6.873110570685817,
+     "interval_coverage": 0.8159408381265407
+    },
+    "B1_prev_v2": {
+     "rmse": 6.515297468338172,
+     "interval_coverage": 0.8274445357436319
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.202224061198921,
+     "interval_coverage": 0.8069022185702547
+    }
+   }
+  },
+  "holdout": {
+   "pooled": {
+    "pregame_v1": {
+     "rmse": 7.112516880785048,
+     "interval_coverage": 0.7699588477366255
+    },
+    "B0_home_only": {
+     "rmse": 7.944095579386771,
+     "interval_coverage": 0.7621399176954733
+    },
+    "B1_prev_v2": {
+     "rmse": 7.334317942134236,
+     "interval_coverage": 0.7658436213991769
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.760696014857107,
+     "interval_coverage": 0.7781893004115227
+    }
+   },
+   "2023-24": {
+    "pregame_v1": {
+     "rmse": 7.142725017943878,
+     "interval_coverage": 0.772203947368421
+    },
+    "B0_home_only": {
+     "rmse": 7.9347221126942875,
+     "interval_coverage": 0.7639802631578947
+    },
+    "B1_prev_v2": {
+     "rmse": 7.295500878926457,
+     "interval_coverage": 0.7705592105263158
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.718820050360841,
+     "interval_coverage": 0.7804276315789473
+    }
+   },
+   "2024-25": {
+    "pregame_v1": {
+     "rmse": 7.082129810054406,
+     "interval_coverage": 0.7677100494233937
+    },
+    "B0_home_only": {
+     "rmse": 7.953473414075483,
+     "interval_coverage": 0.7602965403624382
+    },
+    "B1_prev_v2": {
+     "rmse": 7.372994089308529,
+     "interval_coverage": 0.7611202635914333
+    },
+    "B2_prev_incumbent": {
+     "rmse": 7.8024156648679535,
+     "interval_coverage": 0.7759472817133443
+    }
+   }
+  }
+ },
+ "promotion_bootstrap": {
+  "track_a": {
+   "B0_home_only": {
+    "ci_low": -0.9887330674618349,
+    "ci_high": -0.7473773992709365
+   },
+   "B1_prev_v2": {
+    "ci_low": -0.2865929147312513,
+    "ci_high": -0.1622426062746214
+   },
+   "B2_prev_incumbent": {
+    "ci_low": -0.8961930962223152,
+    "ci_high": -0.6557359190122134
+   }
+  },
+  "track_b": {
+   "B0_home_only": {
+    "ci_low": -0.9503580999514234,
+    "ci_high": -0.7113708849543215
+   },
+   "B1_prev_v2": {
+    "ci_low": -0.2820929504622561,
+    "ci_high": -0.15906049819097173
+   },
+   "B2_prev_incumbent": {
+    "ci_low": -0.7569720557815075,
+    "ci_high": -0.5328686425283183
+   }
+  }
+ },
+ "recalibration": {
+  "track_b": {
+   "pregame_v1": {
+    "dev_slope": 0.997,
+    "rescaled_rmse": 7.113
+   },
+   "B1_prev_v2": {
+    "dev_slope": 0.897,
+    "rescaled_rmse": 7.334
+   },
+   "B2_prev_incumbent": {
+    "dev_slope": 0.471,
+    "rescaled_rmse": 7.471
+   },
+   "B1_prev_v2-B2_prev_incumbent": {
+    "point": -0.137,
+    "ci_low": -0.187,
+    "ci_high": -0.088
+   },
+   "pregame_v1-B1_prev_v2": {
+    "point": -0.221,
+    "ci_low": -0.282,
+    "ci_high": -0.158
+   },
+   "pregame_v1-B2_prev_incumbent": {
+    "point": -0.359,
+    "ci_low": -0.441,
+    "ci_high": -0.275
+   }
+  },
+  "track_a": {
+   "pregame_v1": {
+    "dev_slope": 0.954,
+    "rescaled_rmse": 7.078
+   },
+   "B1_prev_v2": {
+    "dev_slope": 0.86,
+    "rescaled_rmse": 7.299
+   },
+   "B2_prev_incumbent": {
+    "dev_slope": 0.447,
+    "rescaled_rmse": 7.466
+   },
+   "B1_prev_v2-B2_prev_incumbent": {
+    "point": -0.167,
+    "ci_low": -0.216,
+    "ci_high": -0.118
+   },
+   "pregame_v1-B1_prev_v2": {
+    "point": -0.221,
+    "ci_low": -0.277,
+    "ci_high": -0.16
+   },
+   "pregame_v1-B2_prev_incumbent": {
+    "point": -0.388,
+    "ci_low": -0.466,
+    "ci_high": -0.31
+   }
+  }
+ },
+ "_source": {
+  "d2_evaluation": "reports/nba_value/player_impact_value/d2_evaluation.json (contract 420003edd)",
+  "recalibration": "reports/ssac27/analysis/pmi_recalibrated_contrast_output.txt (post hoc; 3-decimal precision, so checked to 5e-4)"
+ }
+}
