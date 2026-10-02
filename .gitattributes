@@ -1,10 +1,13 @@
-* text=auto eol=lf
-*.csv text eol=lf
-
-# The four bound inputs are hashed byte-for-byte by supplement_analysis.py against
-# input_bindings.json. Any `text`/`eol` filtering normalises CRLF to LF in the
-# repository and in every clone, changing their SHA-256 and breaking the binding.
-# `eol` must be unset as well as `text`, because setting `eol` implies text
-# conversion even when `text` is unset. Store these four files exactly as reviewed.
-*.csv -text -eol
-*.json -text -eol
+# Byte fidelity is a release gate for this repository.
+#
+# supplement_analysis.py hashes its four inputs against input_bindings.json, and
+# REVIEW.md records SHA-256 values for the reviewed artifacts. Any EOL
+# normalisation makes the committed bytes differ from the reviewed bytes, so a
+# clean clone cannot reproduce them. That defect was real: the bound inputs and
+# several reviewed artifacts were stored LF while their reviewed hashes were of
+# the CRLF working-tree forms, so the recorded hashes did not survive a clone.
+#
+# Store every file exactly as authored. Do not convert line endings: `text` and
+# `eol` are both unset, because setting `eol` implies text conversion even when
+# `text` is unset.
+* -text -eol
