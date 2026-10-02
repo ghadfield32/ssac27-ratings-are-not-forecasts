@@ -11,9 +11,10 @@ paper:
 status:
   science_frozen: true
   holdout_spent: true
-  abstract_frozen: true
+  abstract_frozen: true                    # as tagged at ssac27-abstract-submission-20261001
+  reframe_pending_review: true             # the reframed abstract has NOT had its own independent review
   clean_reproduction_passed: true
-  independent_review_passed: true
+  independent_review_passed: true          # scoped to the first revised abstract (reviewed, tagged at 0afe1de4), not the reframe
   release_hygiene_review_passed: true
   rights_inventory_complete: true
   rights_review_passed: false
@@ -36,10 +37,11 @@ identities:
   rc1_tag: ssac27-pmi-rc-20261001
   rc2_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a
   rc2_tag: ssac27-pmi-rc2-20261001
-  abstract_sha256: dfd2ef23fedf2eff60d3d24061e46e0dfc164c57b187ee71d4accc4c9758259f
-  abstract_txt_sha256: c13d0479a377b8e101a2126a51f1470474f9115047762fbc841572fd36a0a2a0
-  manuscript_sha256: f8d4b7c8482dab1673c6d48adde2baccec88503f4073af997809dad4c8a7e9fb
-  claim_ledger_sha256: 4deed12647b3ddf5ffd36baa545eddcb9c65a11a11624a9364e26ce0b1af85cf
+  abstract_sha256: a5fbc39e84f001832ade0b895d5bfb3ca18584e56d73b6a29975ab3131081c15
+  abstract_txt_sha256: cd3e334e94d2634c4dafeb13b56d47965895258b3debff877ae6242fd7d4f26a
+  abstract_pdf_sha256: ebb9fd070c04022be0b80b33243386994c58b1e40e0332a5add3f31718acbf91
+  manuscript_sha256: 0d5566268d7d9b3ec2beb89e64ef5c141d7e8aa14ee8cc6b666f491c08b04fd6
+  claim_ledger_sha256: 0c7b19378dd147a7562b6979c07289bdb208f7fdc77c18e2a501be1df8e20643
   published_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a
   public_remote: https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts
   public_branch: main

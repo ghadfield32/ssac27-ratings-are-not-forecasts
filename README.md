@@ -6,6 +6,41 @@ This is the public supporting repository for the SSAC27 abstract candidate. The 
 
 A standing data-rights risk remains open: the tracked evaluation tables are derived from NBA.com data, and this repository does not claim a redistribution licence for those derived tables. See [RIGHTS.md](RIGHTS.md), [DATA.md](DATA.md), and [PUBLICATION_DECISION.md](PUBLICATION_DECISION.md). Publication occurred on explicit operator authorization with that risk recorded rather than silently cleared.
 
+## The question
+
+Teams use player-impact ratings to compare players, but **a rating is not a forecast**. Turning one into a pregame game forecast also requires correct statistical units, an estimate of who will play, a calibrated forecast scale, and information that existed before tipoff. This study asks how much each of those choices changes the apparent value of an in-house rating model.
+
+## The main result
+
+An apparent large advantage from rebuilding the ratings **shrinks substantially** once forecast scale is audited, while the gain from weekly updating **survives**.
+
+| Forecast | Original RMSE | Dev. slope (ideal 1) | Post-hoc rescaled RMSE |
+|---|---:|---:|---:|
+| Home court only | 7.944 | N/A | N/A |
+| Prior-season legacy | 7.761 | 0.47 | 7.471 |
+| Prior-season reconciled | 7.334 | 0.90 | 7.334 |
+| Weekly reconciled | 7.113 | 1.00 | 7.113 |
+
+*2,430 evaluation games; home margin per 100 combined possessions. Calibration slope is undefined for the constant home-court-only baseline. Lower RMSE is better; a slope near 1 indicates well-scaled forecasts.*
+
+The legacy model was not merely less accurate — it was **badly scaled**. Rescaling on development seasons only moves it from 7.761 to 7.471, cutting its disadvantage against the reconciled model from about 0.43 to 0.14 RMSE. Weekly updating still adds 0.22. Calibration therefore reverses which component appears more important, which is the paper's central claim.
+
+## Read the paper
+
+| Artifact | Purpose |
+|---|---|
+| [abstract.txt](abstract.txt) | Plain-text abstract, exact submission source |
+| [abstract.md](abstract.md) | Rendered abstract with the table |
+| [MANUSCRIPT.md](MANUSCRIPT.md) | Evidence-bound manuscript |
+| [CLAIM_LEDGER.md](CLAIM_LEDGER.md) | Every claim mapped to its evidence and limitation |
+| [PRIOR_WORK.md](PRIOR_WORK.md) | Nearest prior work and the novelty boundary |
+
+## Release state
+
+The repository is public under explicit operator authorization. **The paper has not been submitted to Sloan; no submission receipt exists.** The reviewed snapshot is tag `ssac27-pmi-rc2-20261001` (`a5110b11`). A reviewed abstract revision is tagged `ssac27-abstract-submission-20261001` (`0afe1de4`); the abstract has since been reframed for readability and that reframe has **not** yet had its own independent review — see [RELEASE_CANDIDATE.json](RELEASE_CANDIDATE.json).
+
+A standing data-rights risk remains open: the tracked evaluation tables are derived from NBA.com data, and this repository does not claim a redistribution licence for them. See [RIGHTS.md](RIGHTS.md), [DATA.md](DATA.md), and [PUBLICATION_DECISION.md](PUBLICATION_DECISION.md). Publication occurred on explicit operator authorization with that risk recorded rather than silently cleared.
+
 ## What this repository supports
 
 The package reproduces the saved-forecast results reported in the abstract and the post hoc robustness supplement. It does not claim a raw-source refit, betting-market superiority, coaching effects, or financial/operational returns.

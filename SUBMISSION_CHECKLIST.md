@@ -6,7 +6,7 @@
 
 - [x] Author: Geoffrey Hadfield, World Model Sports LLC, CEO/founder.
 - [x] Final title and four-section abstract prepared.
-- [x] Abstract under 500 words under both ordinary and conservative local counts (425 ordinary / 403 aggressive, title and body included).
+- [x] Abstract under 500 words under both ordinary and conservative local counts (475 ordinary / 449 aggressive for the reframed abstract; 425 / 403 for the tagged first revision, title and body included).
 - [x] One abstract table only.
 - [x] Original saved-forecast reproduction passes.
 - [x] Supplemental analysis passes and is labelled post hoc.

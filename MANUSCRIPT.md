@@ -62,10 +62,12 @@ Table 1 reports the operational Track B. The weekly candidate has the lowest fro
 
 | Forecast | Original RMSE | Development slope | Development-rescaled RMSE, post hoc |
 |---|---:|---:|---:|
-| Home court only | 7.944 | - | Not rescaled |
+| Home court only | 7.944 | N/A | N/A |
 | Prior-season legacy | 7.761 | 0.471 | 7.471 |
 | Prior-season reconciled | 7.334 | 0.897 | 7.334 |
 | Weekly reconciled | 7.113 | 0.997 | 7.113 |
+
+Calibration slope is undefined for the constant home-court-only baseline; lower RMSE is better and a slope near 1 indicates well-scaled forecasts.
 
 In diagnostic Track A, weekly RMSE is 7.076 versus 7.301 for prior-season reconciled ratings. Realized participation is withheld from the operational result. Track differences should not be interpreted as a clean treatment effect.
 

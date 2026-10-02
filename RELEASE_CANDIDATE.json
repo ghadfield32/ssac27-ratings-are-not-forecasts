@@ -21,8 +21,8 @@
   },
   "content_identity": {
     "payload_manifest": "SHA256SUMS",
-    "payload_manifest_sha256": "446fc94b7e240a35e81ae1249137aaa5411f55a430b1c2da8a994c3874cd6e79",
-    "payload_files": 71,
+    "payload_manifest_sha256": "0caf851b124b4ebbaba0f28d12a2c451359c1fad048fd2adb2b1e473d32ed47d",
+    "payload_files": 73,
     "gitlink_entries": 0,
     "excluded_from_manifest": [
       "SHA256SUMS",
@@ -32,10 +32,11 @@
     "note": "digest of the current working tree's manifest, not of the RC2 snapshot above"
   },
   "current_hashes_after_post_review_improvement": {
-    "abstract.md": "dfd2ef23fedf2eff60d3d24061e46e0dfc164c57b187ee71d4accc4c9758259f",
-    "abstract.txt": "c13d0479a377b8e101a2126a51f1470474f9115047762fbc841572fd36a0a2a0",
-    "MANUSCRIPT.md": "f8d4b7c8482dab1673c6d48adde2baccec88503f4073af997809dad4c8a7e9fb",
-    "CLAIM_LEDGER.md": "4deed12647b3ddf5ffd36baa545eddcb9c65a11a11624a9364e26ce0b1af85cf",
+    "abstract.md": "a5fbc39e84f001832ade0b895d5bfb3ca18584e56d73b6a29975ab3131081c15",
+    "abstract.txt": "cd3e334e94d2634c4dafeb13b56d47965895258b3debff877ae6242fd7d4f26a",
+    "abstract.pdf": "ebb9fd070c04022be0b80b33243386994c58b1e40e0332a5add3f31718acbf91",
+    "MANUSCRIPT.md": "0d5566268d7d9b3ec2beb89e64ef5c141d7e8aa14ee8cc6b666f491c08b04fd6",
+    "CLAIM_LEDGER.md": "0c7b19378dd147a7562b6979c07289bdb208f7fdc77c18e2a501be1df8e20643",
     "supplement_analysis.py": "5ee695524201cd6f4c0551afeabeb530d988bdfd7a73b55271ca6c523d1622db",
     "input_bindings.json": "56e0d89c46526ee2d84a50fe208d3f670ab6bed24d1a00e81d5dafe8ee128403",
     "supplement/supplement_results.json": "b3341e455526bfd5fbf9b5153e7272adc9fcacfaa813a6958bea564875520994"
