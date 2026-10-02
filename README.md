@@ -28,7 +28,7 @@ The supplement validates both evaluation tables, refuses missing/inconsistent se
 
 ## Study boundary
 
-The distributed synthetic regression suite runs with `python -m pytest test_supplement.py -q`. The executed author run passed all 14 tests. `requirements-dev.txt` records the test dependency; this observed environment has not been verified in a fresh clone or installed environment.
+The distributed synthetic regression suite runs with `python -m pytest test_supplement.py -q`. It has passed all 14 tests in a fresh clone of this package, using the environment built from `pyproject.toml` + `uv.lock`. See `REPRODUCTION_RECEIPT.json`.
 
 The operational target is home net points per 100 combined possessions, not an ordinary point spread. Track B projects participation using earlier team games. Track A uses realized participation and is diagnostic only. The original models and offsets were frozen before the 2023-24/2024-25 evaluation read. Every later recalibration, robustness analysis and manuscript revision is post hoc; those seasons are now exposed.
 
@@ -56,6 +56,15 @@ Do not run a submodule command expecting a working public data repository, or cl
 | `FUTURE_STUDY_CONTRACT.md` | Controlled comparison and untouched future validation; unexecuted |
 | `SUBMISSION_CHECKLIST.md` | Local checks and remaining operator/external gates |
 | `AUTHORS.json` | Operator-supplied author metadata; public URL/receipt unset |
+| `RIGHTS.md` | Rights and data disposition; not publication-cleared (gate G1) |
+| `INDEPENDENT_REVIEW.md` | Reviews of record (RC1 science, RC2 freeze) |
+| `RELEASE_STATUS.yaml` | Single source of truth for release state |
+| `PUBLICATION_DECISION.md` | The publication gate; currently NOT_APPROVED_FOR_PUBLICATION |
+| `DATA_INVENTORY.json` | Per-artifact publication inventory |
+| `REPRODUCTION_RECEIPT.json` | Clean-clone reproduction evidence |
+| `SHA256SUMS` | Payload manifest |
+| `pyproject.toml`, `uv.lock` | Locked reproduction environment |
+| `source_data/README.md` | What upstream data was used privately and why it is not bundled |
 
 ## Prior work
 
@@ -63,4 +72,4 @@ Ridge RAPM and out-of-sample testing precede this study (Sill, 2010). L-RAPM use
 
 ## Publication
 
-The current local package has no configured remote. Publication is a separate operator-controlled action after the exact payload, third-party data permissions and conference compliance are resolved. Include prominent NBA.com attribution where permitted. A code licence cannot grant rights to third-party data. The source-data placeholder and unsupported submitted/pinned-tag claims must be removed or replaced by verified facts before release.
+The current local package has no configured remote. Publication is a separate operator-controlled action after the exact payload, third-party data permissions and conference compliance are resolved. Include prominent NBA.com attribution where permitted. A code licence cannot grant rights to third-party data. Rights are recorded in RIGHTS.md and remain unresolved (gate G1); the candidate has zero gitlinks and no submodule.

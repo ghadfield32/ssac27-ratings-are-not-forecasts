@@ -3,10 +3,12 @@
   "inventory_version": "2026-10-01-RC2",
   "paper": "Ratings Are Not Forecasts: Accounting, Calibration, and Information Timing in NBA Player-Impact Forecasting",
   "counts": {
-    "tracked_files_total": 68,
+    "tracked_files_total": 74,
     "files_requiring_operator_public_decision": 4,
-    "files_recommended_public_under_code_licence": 64,
-    "gitlinks": 0
+    "files_recommended_public_under_code_licence": 70,
+    "payload_files_in_manifest": 71,
+    "gitlinks": 0,
+    "count_rule": "tracked_files_total = git ls-files | count. files_recommended_public_under_code_licence = tracked_files_total minus the 4 files requiring an operator decision. payload_files_in_manifest = tracked_files_total minus SHA256SUMS, RELEASE_CANDIDATE.json and REPRODUCTION_RECEIPT.json, which are excluded from their own manifest."
   },
   "disposition_vocabulary": {
     "PUBLIC_PROPOSED": "recommended for the public candidate; original WMS code or document, no third-party row content",
@@ -63,7 +65,7 @@
       "contains_player_or_source_level_data": false,
       "proposed": "PUBLIC_PROPOSED",
       "reason": "The possession ledger, RAPM fit/evaluate and IO code that produced the evaluation tables. Included for auditability of how the derived tables were built. Not required for L1.",
-      "count": 22,
+      "count": 23,
       "files_glob": "pipeline/**"
     },
     {
@@ -109,6 +111,8 @@
         "THIRD_PARTY_NOTICES.md",
         "REPRODUCE.md",
         "REVIEW.md",
+        "INDEPENDENT_REVIEW.md",
+        "RIGHTS.md",
         "RELEASE_STATUS.yaml",
         "PUBLICATION_DECISION.md",
         "RELEASE_CANDIDATE.json",

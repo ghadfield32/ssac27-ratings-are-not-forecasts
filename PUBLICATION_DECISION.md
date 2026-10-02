@@ -14,8 +14,8 @@ publication bytes is outside the authorization of any agent session.**
 
 ## Why it is not approved
 
-Four gates are open. None of them is a code defect; all four are decisions or
-evidence that only the operator can supply.
+Three gates are open. None of them is a code defect; they are decisions or
+review the operator or a reviewer must complete.
 
 | Gate | State | Why it blocks publication |
 |---|---|---|

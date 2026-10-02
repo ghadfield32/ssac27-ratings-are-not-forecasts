@@ -1,13 +1,18 @@
-"""Rebuild data/pmi_games_track_{a,b}.csv from the source data in source_data/ and check they match.
-
-    git submodule update --init      # fetches source_data/ (about 270 MB)
-    python rebuild_tables.py
+"""Rebuild data/pmi_games_track_{a,b}.csv from an externally supplied source checkout.
 
 This is the "where did the numbers come from" path. It runs the evaluation code in pipeline/ (the
 code exactly as of the evaluation commit e3140577b) over the raw and derived inputs in source_data/:
 the season release runs (reconciled possessions and stints), the v2 and weekly pregame rating fits,
 the NBA.com fact tables and the play-by-play whose sha256 hashes the season manifests seal. It then
 requires the rebuilt per-game tables to equal the published ones. Exit status 1 on any difference.
+
+The upstream source is NOT bundled in this package and is NOT a git submodule: this candidate
+contains no .gitmodules and no gitlink, so `git submodule update --init` does nothing here. Supply
+the source checkout yourself at source_data/ (see source_data/README.md). That is an external,
+privately held input, so this path is not part of the public reproduction level.
+
+    # with an external source checkout placed at source_data/:
+    python rebuild_tables.py
 
 Extra dependencies beyond requirements.txt: see requirements-rebuild.txt.
 """
@@ -27,7 +32,11 @@ sys.path.insert(0, str(ROOT / "pipeline"))
 sys.stdout.reconfigure(encoding="utf-8")
 
 if not (SRC / "MANIFEST.sha256").exists():
-    sys.exit("source_data/ is empty: run `git submodule update --init` first")
+    sys.exit(
+        "source_data/ is empty. The upstream source is not bundled in this package and is NOT a "
+        "git submodule, so `git submodule update --init` will not fetch it. Place an external "
+        "source checkout at source_data/ (see source_data/README.md)."
+    )
 
 import scripts.nba_value.analysis.evaluate_player_impact as E  # noqa: E402
 import scripts.nba_value.calibration.fit_rapm_corrected as F  # noqa: E402

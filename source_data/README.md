@@ -1,9 +1,9 @@
 # Upstream source data — not bundled
 
 This directory previously held a Git submodule pointer. It was **empty** and its
-remote was a placeholder (`github.com/YOUR-ACCOUNT/ssac27-pmi-source-data.git`),
-which made a clone look like it needed a second repository that has never
-existed. The pointer and `.gitmodules` have been removed. This note replaces them.
+remote pointed at an unconfigured placeholder repository that has never existed,
+which made a clone look like it needed a second repository. The pointer and
+`.gitmodules` have been removed. This note replaces them.
 
 ## What was used privately
 

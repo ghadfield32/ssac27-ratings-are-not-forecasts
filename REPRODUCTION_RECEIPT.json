@@ -17,10 +17,10 @@
     "test_isolation": "pytest was run with a dedicated --basetemp. The host's shared pytest temp directory contains locked entries from unrelated suites; without a dedicated basetemp, pytest's teardown reports a spurious PermissionError after the tests have already passed. This does not affect the package."
   },
 
-  "method": {
-    "isolation": "git clone of the frozen candidate into a separate directory; commands run from an unrelated working directory (C:/c/tmp) to prove no dependence on the package path",
-    "clone_source": "local frozen candidate repository",
-    "remote_in_clone": "none relevant; the clone's origin is the local path, not a network host",
+    "method": {
+    "isolation": "git clone of the frozen candidate into a separate directory; commands run from a working directory outside the package (a host scratch path, not a path inside the package) to prove no dependence on the package location",
+    "clone_source": "the local frozen candidate repository at D:\\c\\ssac27_public\\pmi",
+    "remote_in_clone": "the clone's origin is the local repository path; no network host is involved",
     "network_used": false
   },
 
@@ -85,7 +85,7 @@
   "what_this_does_not_prove": [
     "L3 raw-source refit: never executed",
     "permission to redistribute the derived evaluation tables",
-    "a hermetic fresh-environment install (no transitive lock)",
+    "the environment is a host-level venv on the author's workstation, not a container image: the lock pins packages, not the operating system",
     "that the spent 2023-24/2024-25 holdout is fresh validation",
     "an anonymous clone from a public network URL (no public remote exists)"
   ]
