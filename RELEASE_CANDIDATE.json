@@ -21,7 +21,7 @@
   },
   "content_identity": {
     "payload_manifest": "SHA256SUMS",
-    "payload_manifest_sha256": "bad13add66406f003ef11f7e3ccb41e5558faef83e7a110a2e1614064fadde07",
+    "payload_manifest_sha256": "cc743bf9003e841278c34b17d5615921fddbaf3d85e408551cee6134263bbf19",
     "payload_files": 71,
     "gitlink_entries": 0,
     "excluded_from_manifest": [
