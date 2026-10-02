@@ -1,0 +1,63 @@
+# Universal release status — PMI
+#
+# Single source of truth for "how done is this paper". This file exists so that
+# "done" is never ambiguous between: model done / paper done / reviewed /
+# public / submitted.
+#
+# Rule: a `true` here must name the evidence that established it. A field that
+# has not been checked is `false`, not omitted. An absent field reads as "not
+# applicable"; an explicit `false` reads as "checked and the answer is no".
+
+paper:
+  title: "Ratings Are Not Forecasts: Accounting, Calibration, and Information Timing in NBA Player-Impact Forecasting"
+  author: Geoffrey Hadfield
+  affiliation: World model Sports LLC
+  role: CEO/founder
+  identity: PMI
+  repository_slug: pmi-ratings-forecasts
+  author_confirmation: "operator supplied 2026-10-01; confirm paper-specific coauthors before release"
+
+status:
+  # The frozen reported experiment (models, offsets, split) was fixed before the
+  # 2023-24/2024-25 holdout was read. That is what "science_frozen" means here.
+  # It does NOT mean the holdout is reusable: see holdout_spent.
+  science_frozen: true
+  holdout_spent: true            # 2023-24 and 2024-25 are exposed; not untouched validation
+  abstract_frozen: true          # 402 words incl. title/body/table; four sections; one table
+  clean_reproduction_passed: false   # set by REPRODUCTION_RECEIPT.json after a clean-clone run
+  independent_review_passed: true    # INDEPENDENT_REVIEW.md: APPROVE, PMI-R01 closed
+  rights_review_passed: false        # RIGHTS.md is explicitly NOT publication-cleared
+  user_publication_approval: false   # P6 — Geoffrey's explicit approval. NOT GIVEN.
+  public_repository_created: false
+  public_reproduction_passed: false
+  submitted: false
+
+reproduction_levels:
+  L1_reported_statistics_replay: true       # reproduce.py from the four tracked data files
+  L2_evaluation_table_reconstruction: true  # LOCAL_SOURCE_RECONSTRUCTION.json, local source checkout
+  L3_raw_source_refit: false                # never executed; do not imply it from code presence
+
+identities:
+  source_main: e9aa1568b3344bab5bde0e2ae0babcbd75e78822
+  reviewed_source_commit: 42f363919f235148394f2f6e36f728c6b06f8a47
+  source_gitlink_revision: 88473250c289ff8019a9ae6a389107d6d12d98c3
+  abstract_sha256: d7429ed27b16c598e90b2ea2382e40f6719c22ef2aa875a19c843ee867f4b66e
+  manuscript_sha256: 1733a1ca6102211295b66c205e9611f29c174cf6891fce05a54ad119300d05d0
+  data_manifest: input_bindings.json
+  release_commit: null       # set by RELEASE_CANDIDATE.json
+  public_tag: null
+  public_remote: null        # deliberately none; see PUBLICATION_DECISION.md
+
+blockers:
+  - id: PMI-G1
+    what: data redistribution rights
+    detail: "Tracked evaluation tables are NBA.com-derived. RIGHTS.md = not publication-cleared. Operator decision required."
+  - id: PMI-G2
+    what: empty source_data gitlink
+    detail: "mode 160000 sha 88473250… with placeholder remote github.com/YOUR-ACCOUNT/ssac27-pmi-source-data.git. Inert; must be resolved or removed before any public push."
+  - id: PMI-G3
+    what: no hermetic environment lock
+    detail: "requirements-verified.txt self-describes as a direct-dependency snapshot, not a transitive lock."
+  - id: PMI-G4
+    what: operator publication approval
+    detail: "P6. Nothing public until Geoffrey approves an exact commit."

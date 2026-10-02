@@ -1,0 +1,1708 @@
+{
+  "analysis_status": "post_hoc_fixed_prediction_diagnostics",
+  "seed": 20261001,
+  "resamples": 2000,
+  "calendar_block_days": [
+    7,
+    14,
+    28
+  ],
+  "input_sha256": {
+    "data/pmi_games_track_a.csv": "705ea1426a4df5e7a25c93884bff50a8df7eb2e1d8409e78132b87756a583b25",
+    "data/pmi_games_track_b.csv": "56140b6a42e7ddbd85c4ea1fa8d39e55873819a784132a4da5a4cab27f047bea",
+    "data/frozen_parameters.json": "27fff863b7b1f1ad8d291add2fb58059ac6bf93e6bc8dddf3399d195269e70f2",
+    "data/expected.json": "60574fda6307db7c043a2e994449cb97f65625ef00566d1b869aa352091e149d"
+  },
+  "limitations": [
+    "Holdout is spent; no fresh validation or model refit.",
+    "Nonoverlapping calendar-cluster sensitivity does not resolve fitting uncertainty, recurrent-team dependence or new-season generalization.",
+    "Track A uses realized participation; only Track B is operational pregame.",
+    "Holdout calibration regressions/bins and existing subgroup flags are descriptive, not deployable routing rules.",
+    "Accounting and regularisation changed jointly; no isolated accounting effect.",
+    "Intervals are unadjusted exploratory comparisons; no multiplicity-controlled discovery claim."
+  ],
+  "tracks": {
+    "track_a": {
+      "population": {
+        "rows": 10466,
+        "matched_development": 8017,
+        "matched_holdout": 2430,
+        "unmatched_by_season": {
+          "2016-17": 3,
+          "2017-18": 2,
+          "2018-19": 2,
+          "2019-20": 2,
+          "2020-21": 2,
+          "2021-22": 2,
+          "2022-23": 2,
+          "2023-24": 2,
+          "2024-25": 2
+        }
+      },
+      "development_scale": {
+        "B2_prev_incumbent": {
+          "intercept": 1.063991944703456,
+          "slope": 0.4469884391371899
+        },
+        "B1_prev_v2": {
+          "intercept": 1.0557443645251137,
+          "slope": 0.8602938070936699
+        },
+        "pregame_v1": {
+          "intercept": 1.0404498769738375,
+          "slope": 0.9540305139555386
+        }
+      },
+      "variants": {
+        "as_frozen": {
+          "metrics": {
+            "B0_home_only": {
+              "n": 2430,
+              "mse": 63.1086545753819,
+              "rmse": 7.94409557944653,
+              "mae": 6.329084806429424,
+              "bias_actual_minus_prediction": -0.1158302833300252,
+              "calibration_intercept": null,
+              "calibration_slope": null,
+              "coverage_80": 0.7621399176954733,
+              "mean_interval_width": 18.096463070882812,
+              "interval_score_80": 28.173984890684178,
+              "below_interval_fraction": 0.1168724279835391,
+              "above_interval_fraction": 0.12098765432098765
+            },
+            "B2_prev_incumbent": {
+              "n": 2430,
+              "mse": 61.71435768918768,
+              "rmse": 7.855848629472673,
+              "mae": 6.222426309276635,
+              "bias_actual_minus_prediction": 0.027239670717081596,
+              "calibration_intercept": 0.4732587305509708,
+              "calibration_slope": 0.5253287736964961,
+              "coverage_80": 0.7732510288065844,
+              "mean_interval_width": 18.75595392605421,
+              "interval_score_80": 27.669756333155192,
+              "below_interval_fraction": 0.11440329218106995,
+              "above_interval_fraction": 0.11234567901234568
+            },
+            "B1_prev_v2": {
+              "n": 2430,
+              "mse": 53.310242075467634,
+              "rmse": 7.301386311890889,
+              "mae": 5.72762057745873,
+              "bias_actual_minus_prediction": -0.038366141496634046,
+              "calibration_intercept": 0.044335011795554324,
+              "calibration_slope": 0.9177302431339149,
+              "coverage_80": 0.7687242798353909,
+              "mean_interval_width": 17.028583082026007,
+              "interval_score_80": 26.05412939102598,
+              "below_interval_fraction": 0.12016460905349795,
+              "above_interval_fraction": 0.1111111111111111
+            },
+            "pregame_v1": {
+              "n": 2430,
+              "mse": 50.068421815302685,
+              "rmse": 7.075904310779131,
+              "mae": 5.546290579849705,
+              "bias_actual_minus_prediction": -0.02813305508149724,
+              "calibration_intercept": -0.03152335398367944,
+              "calibration_slope": 1.0034072992970473,
+              "coverage_80": 0.7625514403292181,
+              "mean_interval_width": 16.498489809663795,
+              "interval_score_80": 25.219830507522715,
+              "below_interval_fraction": 0.12839506172839507,
+              "above_interval_fraction": 0.10905349794238683
+            }
+          },
+          "calendar_cluster_sensitivity": {
+            "7": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 25,
+                "2024-25": 25
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -13.040232760079228,
+                  "mse_percentile_95": [
+                    -15.326546115638001,
+                    -10.787031167666775
+                  ],
+                  "rmse_difference": -0.8681912686673998,
+                  "rmse_percentile_95": [
+                    -1.0138316841654087,
+                    -0.7243212121962166
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.2418202601649213,
+                  "mse_percentile_95": [
+                    -4.280353130116286,
+                    -2.2009439504743353
+                  ],
+                  "rmse_difference": -0.22548200111175554,
+                  "rmse_percentile_95": [
+                    -0.2977948546616855,
+                    -0.1533183136463146
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -11.645935873885016,
+                  "mse_percentile_95": [
+                    -13.399123556493697,
+                    -10.036365336377955
+                  ],
+                  "rmse_difference": -0.779944318693544,
+                  "rmse_percentile_95": [
+                    -0.8951041362548711,
+                    -0.6742982554342724
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -8.404115613720094,
+                  "mse_percentile_95": [
+                    -9.959302307824974,
+                    -6.984874664466107
+                  ],
+                  "rmse_difference": -0.5544623175817884,
+                  "rmse_percentile_95": [
+                    -0.6579736358360048,
+                    -0.46437038606412684
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": 0.3289803164700329,
+                "rmse_percentile_95": [
+                  0.20590786944335576,
+                  0.45826391100395314
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            },
+            "14": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 13,
+                "2024-25": 13
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -13.040232760079228,
+                  "mse_percentile_95": [
+                    -15.712181036962237,
+                    -10.575279289973771
+                  ],
+                  "rmse_difference": -0.8681912686673998,
+                  "rmse_percentile_95": [
+                    -1.0315310056107192,
+                    -0.7106469294146159
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.2418202601649213,
+                  "mse_percentile_95": [
+                    -4.426105585578801,
+                    -2.117819137920495
+                  ],
+                  "rmse_difference": -0.22548200111175554,
+                  "rmse_percentile_95": [
+                    -0.3079395654237919,
+                    -0.14769444651295532
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -11.645935873885016,
+                  "mse_percentile_95": [
+                    -13.504161449152317,
+                    -9.852001630905882
+                  ],
+                  "rmse_difference": -0.779944318693544,
+                  "rmse_percentile_95": [
+                    -0.9039191302603181,
+                    -0.6660663776520862
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -8.404115613720094,
+                  "mse_percentile_95": [
+                    -9.930137671346992,
+                    -6.821273279450264
+                  ],
+                  "rmse_difference": -0.5544623175817884,
+                  "rmse_percentile_95": [
+                    -0.6542375662555187,
+                    -0.45353193750379184
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": 0.3289803164700329,
+                "rmse_percentile_95": [
+                  0.18509568459533957,
+                  0.46425412864575083
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            },
+            "28": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 7,
+                "2024-25": 7
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -13.040232760079228,
+                  "mse_percentile_95": [
+                    -15.91778222079089,
+                    -10.754602460123147
+                  ],
+                  "rmse_difference": -0.8681912686673998,
+                  "rmse_percentile_95": [
+                    -1.05042065727304,
+                    -0.7205871760187703
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.2418202601649213,
+                  "mse_percentile_95": [
+                    -4.560771733911408,
+                    -2.161647725687851
+                  ],
+                  "rmse_difference": -0.22548200111175554,
+                  "rmse_percentile_95": [
+                    -0.31697316346017196,
+                    -0.15157412383779173
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -11.645935873885016,
+                  "mse_percentile_95": [
+                    -13.342617595344342,
+                    -10.114198077677763
+                  ],
+                  "rmse_difference": -0.779944318693544,
+                  "rmse_percentile_95": [
+                    -0.8936050475278929,
+                    -0.6812296655819082
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -8.404115613720094,
+                  "mse_percentile_95": [
+                    -9.896640022958522,
+                    -6.933271806531745
+                  ],
+                  "rmse_difference": -0.5544623175817884,
+                  "rmse_percentile_95": [
+                    -0.6605041367501411,
+                    -0.45674584444638316
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": 0.3289803164700329,
+                "rmse_percentile_95": [
+                  0.17405535935285596,
+                  0.46776132251756997
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            }
+          },
+          "per_season": {
+            "2023-24": {
+              "B0_home_only": {
+                "n": 1216,
+                "mse": 62.959815005793956,
+                "rmse": 7.934722112701487,
+                "mae": 6.325400784779646,
+                "bias_actual_minus_prediction": 0.011173623301269796,
+                "calibration_intercept": null,
+                "calibration_slope": null
+              },
+              "B2_prev_incumbent": {
+                "n": 1216,
+                "mse": 61.65888207680393,
+                "rmse": 7.852316987794362,
+                "mae": 6.2168988804970065,
+                "bias_actual_minus_prediction": 0.14305983521862262,
+                "calibration_intercept": 0.5913934884928118,
+                "calibration_slope": 0.5284776368630729
+              },
+              "B1_prev_v2": {
+                "n": 1216,
+                "mse": 53.14451272644734,
+                "rmse": 7.290028307657477,
+                "mae": 5.731989397236139,
+                "bias_actual_minus_prediction": 0.058473695466007176,
+                "calibration_intercept": 0.02568118354136341,
+                "calibration_slope": 1.031671109162923
+              },
+              "pregame_v1": {
+                "n": 1216,
+                "mse": 50.76584440473766,
+                "rmse": 7.1250153968070595,
+                "mae": 5.5943894729123445,
+                "bias_actual_minus_prediction": 0.07741951436065961,
+                "calibration_intercept": 0.007979050421160634,
+                "calibration_slope": 1.068315852974648
+              }
+            },
+            "2024-25": {
+              "B0_home_only": {
+                "n": 1214,
+                "mse": 63.25773935019157,
+                "rmse": 7.953473414187764,
+                "mae": 6.332774897307618,
+                "bias_actual_minus_prediction": -0.24304342209745086,
+                "calibration_intercept": null,
+                "calibration_slope": null
+              },
+              "B2_prev_incumbent": {
+                "n": 1214,
+                "mse": 61.769924694672554,
+                "rmse": 7.859384498462495,
+                "mae": 6.227962844199228,
+                "bias_actual_minus_prediction": -0.08877130130423136,
+                "calibration_intercept": 0.35417736626544444,
+                "calibration_slope": 0.522908623377453
+              },
+              "B1_prev_v2": {
+                "n": 1214,
+                "mse": 53.47624445471697,
+                "rmse": 7.312745343215294,
+                "mae": 5.723244560284654,
+                "bias_actual_minus_prediction": -0.13536551690567172,
+                "calibration_intercept": 0.01764182040980868,
+                "calibration_slope": 0.8430742129828148
+              },
+              "pregame_v1": {
+                "n": 1214,
+                "mse": 49.36985025949301,
+                "rmse": 7.0263682126325415,
+                "mae": 5.498112446436058,
+                "bias_actual_minus_prediction": -0.13385951673031327,
+                "calibration_intercept": -0.09203784526887926,
+                "calibration_slope": 0.9570409409804104
+              }
+            }
+          }
+        },
+        "development_rescaled_post_hoc": {
+          "metrics": {
+            "B0_home_only": {
+              "n": 2430,
+              "mse": 63.1086545753819,
+              "rmse": 7.94409557944653,
+              "mae": 6.329084806429424,
+              "bias_actual_minus_prediction": -0.1158302833300252,
+              "calibration_intercept": null,
+              "calibration_slope": null
+            },
+            "B2_prev_incumbent": {
+              "n": 2430,
+              "mse": 55.73856351976798,
+              "rmse": 7.465826378892559,
+              "mae": 5.880790958215719,
+              "bias_actual_minus_prediction": -0.05187966789033859,
+              "calibration_intercept": -0.23042965606904836,
+              "calibration_slope": 1.1752625520036362
+            },
+            "B1_prev_v2": {
+              "n": 2430,
+              "mse": 53.270549907606174,
+              "rmse": 7.298667680310302,
+              "mae": 5.722768034448185,
+              "bias_actual_minus_prediction": -0.04918836185291397,
+              "calibration_intercept": -0.11702472626725562,
+              "calibration_slope": 1.066763744626133
+            },
+            "pregame_v1": {
+              "n": 2430,
+              "mse": 50.10006187342733,
+              "rmse": 7.07813971841665,
+              "mae": 5.546051011046144,
+              "bias_actual_minus_prediction": -0.032164451612615164,
+              "calibration_intercept": -0.08387085016066792,
+              "calibration_slope": 1.0517559811968558
+            }
+          },
+          "calendar_cluster_sensitivity": {
+            "7": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 25,
+                "2024-25": 25
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -13.008592701954463,
+                  "mse_percentile_95": [
+                    -15.20220059775854,
+                    -10.83787278596753
+                  ],
+                  "rmse_difference": -0.8659558610298728,
+                  "rmse_percentile_95": [
+                    -1.0053602412767169,
+                    -0.7278107471106406
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.170488034178746,
+                  "mse_percentile_95": [
+                    -4.215778616278532,
+                    -2.1303412982233607
+                  ],
+                  "rmse_difference": -0.2205279618936462,
+                  "rmse_percentile_95": [
+                    -0.29380438728191866,
+                    -0.14865024923669537
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -5.638501646340671,
+                  "mse_percentile_95": [
+                    -7.025064345309745,
+                    -4.224545944479464
+                  ],
+                  "rmse_difference": -0.3876866604759108,
+                  "rmse_percentile_95": [
+                    -0.48282735182740977,
+                    -0.2918209887770501
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -2.4680136121619256,
+                  "mse_percentile_95": [
+                    -3.249627540027211,
+                    -1.6709759315058557
+                  ],
+                  "rmse_difference": -0.16715869858226462,
+                  "rmse_percentile_95": [
+                    -0.2178957041402552,
+                    -0.11383983419666688
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": -0.05336926331138159,
+                "rmse_percentile_95": [
+                  -0.13559064859129652,
+                  0.02834327965013568
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            },
+            "14": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 13,
+                "2024-25": 13
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -13.008592701954463,
+                  "mse_percentile_95": [
+                    -15.572215408444649,
+                    -10.645179377199707
+                  ],
+                  "rmse_difference": -0.8659558610298728,
+                  "rmse_percentile_95": [
+                    -1.021692614637617,
+                    -0.7152835924077438
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.170488034178746,
+                  "mse_percentile_95": [
+                    -4.404946118311254,
+                    -2.02445767804188
+                  ],
+                  "rmse_difference": -0.2205279618936462,
+                  "rmse_percentile_95": [
+                    -0.30479697659789373,
+                    -0.14136473227704857
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -5.638501646340671,
+                  "mse_percentile_95": [
+                    -7.271821403327098,
+                    -4.115686051561275
+                  ],
+                  "rmse_difference": -0.3876866604759108,
+                  "rmse_percentile_95": [
+                    -0.4940264351998349,
+                    -0.287286456160472
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -2.4680136121619256,
+                  "mse_percentile_95": [
+                    -3.0948426239346536,
+                    -1.8537897221334736
+                  ],
+                  "rmse_difference": -0.16715869858226462,
+                  "rmse_percentile_95": [
+                    -0.20693946731112509,
+                    -0.12746707063663246
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": -0.05336926331138159,
+                "rmse_percentile_95": [
+                  -0.1346255638061947,
+                  0.025733817150360626
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            },
+            "28": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 7,
+                "2024-25": 7
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -13.008592701954463,
+                  "mse_percentile_95": [
+                    -15.796669317241106,
+                    -10.791440261592218
+                  ],
+                  "rmse_difference": -0.8659558610298728,
+                  "rmse_percentile_95": [
+                    -1.0410582643399784,
+                    -0.7232376209670274
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.170488034178746,
+                  "mse_percentile_95": [
+                    -4.578987024364476,
+                    -1.9953837049468393
+                  ],
+                  "rmse_difference": -0.2205279618936462,
+                  "rmse_percentile_95": [
+                    -0.31827408508933247,
+                    -0.13968080403223715
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -5.638501646340671,
+                  "mse_percentile_95": [
+                    -7.515908021548397,
+                    -4.13366382517556
+                  ],
+                  "rmse_difference": -0.3876866604759108,
+                  "rmse_percentile_95": [
+                    -0.5089465786604419,
+                    -0.2878478216117291
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -2.4680136121619256,
+                  "mse_percentile_95": [
+                    -3.2229756613922946,
+                    -1.7905659302301613
+                  ],
+                  "rmse_difference": -0.16715869858226462,
+                  "rmse_percentile_95": [
+                    -0.2133883081441755,
+                    -0.12246334636589074
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": -0.05336926331138159,
+                "rmse_percentile_95": [
+                  -0.14497649549063268,
+                  0.0197051311862095
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            }
+          },
+          "per_season": {
+            "2023-24": {
+              "B0_home_only": {
+                "n": 1216,
+                "mse": 62.959815005793956,
+                "rmse": 7.934722112701487,
+                "mae": 6.325400784779646,
+                "bias_actual_minus_prediction": 0.011173623301269796,
+                "calibration_intercept": null,
+                "calibration_slope": null
+              },
+              "B2_prev_incumbent": {
+                "n": 1216,
+                "mse": 56.639593245894396,
+                "rmse": 7.525928065421194,
+                "mae": 5.936898828936463,
+                "bias_actual_minus_prediction": 0.07012523530266486,
+                "calibration_intercept": -0.11651286324224168,
+                "calibration_slope": 1.1823071708144837
+              },
+              "B1_prev_v2": {
+                "n": 1216,
+                "mse": 53.40571743444793,
+                "rmse": 7.307921553659969,
+                "mae": 5.741415290310665,
+                "bias_actual_minus_prediction": 0.05186558244569624,
+                "calibration_intercept": -0.1557121847026934,
+                "calibration_slope": 1.1992078760257698
+              },
+              "pregame_v1": {
+                "n": 1216,
+                "mse": 50.85547858416302,
+                "rmse": 7.131302727003182,
+                "mae": 5.593950696814514,
+                "bias_actual_minus_prediction": 0.07437422477509274,
+                "calibration_intercept": -0.04775470801231538,
+                "calibration_slope": 1.1197921212658781
+              }
+            },
+            "2024-25": {
+              "B0_home_only": {
+                "n": 1214,
+                "mse": 63.25773935019157,
+                "rmse": 7.953473414187764,
+                "mae": 6.332774897307618,
+                "bias_actual_minus_prediction": -0.24304342209745086,
+                "calibration_intercept": null,
+                "calibration_slope": null
+              },
+              "B2_prev_incumbent": {
+                "n": 1214,
+                "mse": 54.836049395410726,
+                "rmse": 7.405136689853248,
+                "mae": 5.824590652782091,
+                "bias_actual_minus_prediction": -0.17408556762896477,
+                "calibration_intercept": -0.3462691806559759,
+                "calibration_slope": 1.1698482054408608
+              },
+              "B1_prev_v2": {
+                "n": 1214,
+                "mse": 53.13515969950109,
+                "rmse": 7.2893867848743685,
+                "mae": 5.704090058230081,
+                "bias_actual_minus_prediction": -0.15040878711412478,
+                "calibration_intercept": -0.13059153595193224,
+                "calibration_slope": 0.979984054320898
+              },
+              "pregame_v1": {
+                "n": 1214,
+                "mse": 49.34340065410723,
+                "rmse": 7.0244857928610855,
+                "mae": 5.498072413110115,
+                "bias_actual_minus_prediction": -0.138878644765377,
+                "calibration_intercept": -0.14196642066821227,
+                "calibration_slope": 1.0031554829545124
+              }
+            }
+          }
+        }
+      },
+      "subgroups_post_hoc": {
+        "EARLY_SEASON": {
+          "n": 484,
+          "as_frozen": {
+            "B0_home_only": {
+              "n": 484,
+              "mse": 50.50406056770678,
+              "rmse": 7.1066208965799476,
+              "mae": 5.604149931841929,
+              "bias_actual_minus_prediction": 0.21956778579619496,
+              "calibration_intercept": null,
+              "calibration_slope": null
+            },
+            "B2_prev_incumbent": {
+              "n": 484,
+              "mse": 54.40483677180234,
+              "rmse": 7.375963447021842,
+              "mae": 5.987917301585619,
+              "bias_actual_minus_prediction": 0.36581976167520946,
+              "calibration_intercept": 0.890086452685982,
+              "calibration_slope": 0.4401586660252069
+            },
+            "B1_prev_v2": {
+              "n": 484,
+              "mse": 43.354595715023216,
+              "rmse": 6.584420681808174,
+              "mae": 5.225521502828234,
+              "bias_actual_minus_prediction": 0.301571078440955,
+              "calibration_intercept": 0.524179004214981,
+              "calibration_slope": 0.7775487979894474
+            },
+            "pregame_v1": {
+              "n": 484,
+              "mse": 42.71347566898407,
+              "rmse": 6.535554733072325,
+              "mae": 5.175786654542183,
+              "bias_actual_minus_prediction": 0.33011953181864506,
+              "calibration_intercept": 0.4852284894023912,
+              "calibration_slope": 0.8404485029130129
+            }
+          }
+        },
+        "ROOKIE_HEAVY": {
+          "n": 1215,
+          "as_frozen": {
+            "B0_home_only": {
+              "n": 1215,
+              "mse": 76.05529795929617,
+              "rmse": 8.720968865859811,
+              "mae": 7.017787771758079,
+              "bias_actual_minus_prediction": 0.07853160165808178,
+              "calibration_intercept": null,
+              "calibration_slope": null
+            },
+            "B2_prev_incumbent": {
+              "n": 1215,
+              "mse": 63.86423151461828,
+              "rmse": 7.991509964619845,
+              "mae": 6.287264263340223,
+              "bias_actual_minus_prediction": 0.2546641743139842,
+              "calibration_intercept": 0.4960058876888318,
+              "calibration_slope": 0.73378744553551
+            },
+            "B1_prev_v2": {
+              "n": 1215,
+              "mse": 59.25792910640105,
+              "rmse": 7.6979171927477275,
+              "mae": 5.984494243523786,
+              "bias_actual_minus_prediction": 0.1838910998873326,
+              "calibration_intercept": -0.01882441005612628,
+              "calibration_slope": 1.2074137793824076
+            },
+            "pregame_v1": {
+              "n": 1215,
+              "mse": 54.388224395758144,
+              "rmse": 7.374837245374175,
+              "mae": 5.7006821833701125,
+              "bias_actual_minus_prediction": 0.15413729672529128,
+              "calibration_intercept": -0.0686267439302143,
+              "calibration_slope": 1.2211930988314423
+            }
+          }
+        },
+        "TEAM_CHANGE": {
+          "n": 281,
+          "as_frozen": {
+            "B0_home_only": {
+              "n": 281,
+              "mse": 78.67748929443775,
+              "rmse": 8.870033218339024,
+              "mae": 7.48178540593191,
+              "bias_actual_minus_prediction": -0.020160096052338976,
+              "calibration_intercept": null,
+              "calibration_slope": null
+            },
+            "B2_prev_incumbent": {
+              "n": 281,
+              "mse": 64.4414793176797,
+              "rmse": 8.027545036789249,
+              "mae": 6.472673339920256,
+              "bias_actual_minus_prediction": 0.11446566350544703,
+              "calibration_intercept": 0.3219803277633966,
+              "calibration_slope": 0.7811216221434887
+            },
+            "B1_prev_v2": {
+              "n": 281,
+              "mse": 60.81528867572218,
+              "rmse": 7.798415779869792,
+              "mae": 6.310251978236712,
+              "bias_actual_minus_prediction": -0.023094557055937454,
+              "calibration_intercept": -0.3211478728211216,
+              "calibration_slope": 1.2745409975138076
+            },
+            "pregame_v1": {
+              "n": 281,
+              "mse": 58.223147069156525,
+              "rmse": 7.6304093644546045,
+              "mae": 6.127113982156628,
+              "bias_actual_minus_prediction": -0.09446050093700013,
+              "calibration_intercept": -0.42817073920847687,
+              "calibration_slope": 1.28842512097018
+            }
+          }
+        }
+      },
+      "weekly_calibration_bins_post_hoc": [
+        {
+          "bin": 1,
+          "n": 635,
+          "mean_prediction": -3.569305375491527,
+          "mean_actual": -3.6214287825376377
+        },
+        {
+          "bin": 2,
+          "n": 397,
+          "mean_prediction": -0.5205472384221028,
+          "mean_actual": -1.077950469208816
+        },
+        {
+          "bin": 3,
+          "n": 368,
+          "mean_prediction": 1.117211672696268,
+          "mean_actual": 1.3007243808255433
+        },
+        {
+          "bin": 4,
+          "n": 423,
+          "mean_prediction": 2.666799235083972,
+          "mean_actual": 2.7953477760085104
+        },
+        {
+          "bin": 5,
+          "n": 607,
+          "mean_prediction": 5.52199660933029,
+          "mean_actual": 5.627623319125864
+        }
+      ],
+      "development_bin_cutpoints": [
+        -1.3971655522001885,
+        0.3361173330598117,
+        1.8509089906998109,
+        3.5463373983998117
+      ]
+    },
+    "track_b": {
+      "population": {
+        "rows": 10466,
+        "matched_development": 8017,
+        "matched_holdout": 2430,
+        "unmatched_by_season": {
+          "2016-17": 3,
+          "2017-18": 2,
+          "2018-19": 2,
+          "2019-20": 2,
+          "2020-21": 2,
+          "2021-22": 2,
+          "2022-23": 2,
+          "2023-24": 2,
+          "2024-25": 2
+        }
+      },
+      "development_scale": {
+        "B2_prev_incumbent": {
+          "intercept": 1.0770245708618067,
+          "slope": 0.4713761942054101
+        },
+        "B1_prev_v2": {
+          "intercept": 1.0791976243190269,
+          "slope": 0.8969923349951936
+        },
+        "pregame_v1": {
+          "intercept": 1.0803195075420988,
+          "slope": 0.9966716279147294
+        }
+      },
+      "variants": {
+        "as_frozen": {
+          "metrics": {
+            "B0_home_only": {
+              "n": 2430,
+              "mse": 63.1086545753819,
+              "rmse": 7.94409557944653,
+              "mae": 6.329084806429424,
+              "bias_actual_minus_prediction": -0.1158302833300252,
+              "calibration_intercept": null,
+              "calibration_slope": null,
+              "coverage_80": 0.7621399176954733,
+              "mean_interval_width": 18.096463070882812,
+              "interval_score_80": 28.173984890684178,
+              "below_interval_fraction": 0.1168724279835391,
+              "above_interval_fraction": 0.12098765432098765
+            },
+            "B2_prev_incumbent": {
+              "n": 2430,
+              "mse": 60.228402635630566,
+              "rmse": 7.76069601489651,
+              "mae": 6.133552684667196,
+              "bias_actual_minus_prediction": -0.05502357846288338,
+              "calibration_intercept": 0.3942786540627394,
+              "calibration_slope": 0.5603270959604885,
+              "coverage_80": 0.7781893004115227,
+              "mean_interval_width": 18.47288100747243,
+              "interval_score_80": 27.474446014298596,
+              "below_interval_fraction": 0.1111111111111111,
+              "above_interval_fraction": 0.11069958847736626
+            },
+            "B1_prev_v2": {
+              "n": 2430,
+              "mse": 53.79221967700166,
+              "rmse": 7.33431794218124,
+              "mae": 5.753181444152595,
+              "bias_actual_minus_prediction": -0.06712896158004156,
+              "calibration_intercept": -0.011911518861531894,
+              "calibration_slope": 0.9465985536663785,
+              "coverage_80": 0.7658436213991769,
+              "mean_interval_width": 16.99325949867317,
+              "interval_score_80": 26.149976325055558,
+              "below_interval_fraction": 0.11934156378600823,
+              "above_interval_fraction": 0.11481481481481481
+            },
+            "pregame_v1": {
+              "n": 2430,
+              "mse": 50.58789638014796,
+              "rmse": 7.1125168808339545,
+              "mae": 5.5779676630838715,
+              "bias_actual_minus_prediction": -0.07684071516915841,
+              "calibration_intercept": -0.11683365113227284,
+              "calibration_slope": 1.0383177507471288,
+              "coverage_80": 0.7699588477366255,
+              "mean_interval_width": 16.652868802696375,
+              "interval_score_80": 25.34925252200871,
+              "below_interval_fraction": 0.12345679012345678,
+              "above_interval_fraction": 0.10658436213991769
+            }
+          },
+          "calendar_cluster_sensitivity": {
+            "7": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 25,
+                "2024-25": 25
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -12.520758195233974,
+                  "mse_percentile_95": [
+                    -14.666821169052588,
+                    -10.512515326855704
+                  ],
+                  "rmse_difference": -0.8315786986125779,
+                  "rmse_percentile_95": [
+                    -0.9645374659054617,
+                    -0.7063766867583563
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.2043232968537154,
+                  "mse_percentile_95": [
+                    -4.191715533578792,
+                    -2.1721294623170038
+                  ],
+                  "rmse_difference": -0.2218010613472874,
+                  "rmse_percentile_95": [
+                    -0.2911711817779682,
+                    -0.15072694551873284
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -9.640506255482727,
+                  "mse_percentile_95": [
+                    -11.657029172892601,
+                    -7.6473039611699996
+                  ],
+                  "rmse_difference": -0.6481791340625636,
+                  "rmse_percentile_95": [
+                    -0.7841438132080149,
+                    -0.5180467569354638
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -6.436182958629011,
+                  "mse_percentile_95": [
+                    -8.128921583857327,
+                    -4.901155500273037
+                  ],
+                  "rmse_difference": -0.42637807271527617,
+                  "rmse_percentile_95": [
+                    -0.5345659491186688,
+                    -0.3278843746184299
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": 0.20457701136798878,
+                "rmse_percentile_95": [
+                  0.09364932959243984,
+                  0.3264332955413113
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            },
+            "14": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 13,
+                "2024-25": 13
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -12.520758195233974,
+                  "mse_percentile_95": [
+                    -15.02018143896332,
+                    -10.253294628700806
+                  ],
+                  "rmse_difference": -0.8315786986125779,
+                  "rmse_percentile_95": [
+                    -0.9850969993275118,
+                    -0.6896035991365006
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.2043232968537154,
+                  "mse_percentile_95": [
+                    -4.381494770047032,
+                    -2.0465775785248597
+                  ],
+                  "rmse_difference": -0.2218010613472874,
+                  "rmse_percentile_95": [
+                    -0.3033674470759844,
+                    -0.14347348101702423
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -9.640506255482727,
+                  "mse_percentile_95": [
+                    -11.893848550773889,
+                    -7.307439817269456
+                  ],
+                  "rmse_difference": -0.6481791340625636,
+                  "rmse_percentile_95": [
+                    -0.7978507063706505,
+                    -0.4965234742719638
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -6.436182958629011,
+                  "mse_percentile_95": [
+                    -8.226482728814714,
+                    -4.684854865301581
+                  ],
+                  "rmse_difference": -0.42637807271527617,
+                  "rmse_percentile_95": [
+                    -0.5401225768829575,
+                    -0.31485964780226655
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": 0.20457701136798878,
+                "rmse_percentile_95": [
+                  0.07075573872918457,
+                  0.3303907407272337
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            },
+            "28": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 7,
+                "2024-25": 7
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -12.520758195233974,
+                  "mse_percentile_95": [
+                    -15.317452222515623,
+                    -10.27563263121593
+                  ],
+                  "rmse_difference": -0.8315786986125779,
+                  "rmse_percentile_95": [
+                    -1.0019788950653299,
+                    -0.6855009463945975
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.2043232968537154,
+                  "mse_percentile_95": [
+                    -4.378639533719484,
+                    -2.202854535334006
+                  ],
+                  "rmse_difference": -0.2218010613472874,
+                  "rmse_percentile_95": [
+                    -0.30305904896595914,
+                    -0.15546839171252727
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -9.640506255482727,
+                  "mse_percentile_95": [
+                    -11.432895419911558,
+                    -8.095265673704695
+                  ],
+                  "rmse_difference": -0.6481791340625636,
+                  "rmse_percentile_95": [
+                    -0.7640512343062494,
+                    -0.5471931956228058
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -6.436182958629011,
+                  "mse_percentile_95": [
+                    -7.982029321352028,
+                    -5.063860317140843
+                  ],
+                  "rmse_difference": -0.42637807271527617,
+                  "rmse_percentile_95": [
+                    -0.5314314750588582,
+                    -0.3364269673384215
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": 0.20457701136798878,
+                "rmse_percentile_95": [
+                  0.06864283361575807,
+                  0.3314676604034931
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            }
+          },
+          "per_season": {
+            "2023-24": {
+              "B0_home_only": {
+                "n": 1216,
+                "mse": 62.959815005793956,
+                "rmse": 7.934722112701487,
+                "mae": 6.325400784779646,
+                "bias_actual_minus_prediction": 0.011173623301269796,
+                "calibration_intercept": null,
+                "calibration_slope": null
+              },
+              "B2_prev_incumbent": {
+                "n": 1216,
+                "mse": 59.58018296981023,
+                "rmse": 7.718820050358101,
+                "mae": 6.114677545645166,
+                "bias_actual_minus_prediction": 0.07643032862223109,
+                "calibration_intercept": 0.49871644286401823,
+                "calibration_slope": 0.5849568528210348
+              },
+              "B1_prev_v2": {
+                "n": 1216,
+                "mse": 53.22433307453139,
+                "rmse": 7.295500878934317,
+                "mae": 5.717572826110618,
+                "bias_actual_minus_prediction": 0.057570077310180906,
+                "calibration_intercept": -0.05112971602674121,
+                "calibration_slope": 1.104891055452918
+              },
+              "pregame_v1": {
+                "n": 1216,
+                "mse": 51.01852068214,
+                "rmse": 7.142725017956383,
+                "mae": 5.600701543816114,
+                "bias_actual_minus_prediction": 0.037093427662050725,
+                "calibration_intercept": -0.09112716849981214,
+                "calibration_slope": 1.1213304786054445
+              }
+            },
+            "2024-25": {
+              "B0_home_only": {
+                "n": 1214,
+                "mse": 63.25773935019157,
+                "rmse": 7.953473414187764,
+                "mae": 6.332774897307618,
+                "bias_actual_minus_prediction": -0.24304342209745086,
+                "calibration_intercept": null,
+                "calibration_slope": null
+              },
+              "B2_prev_incumbent": {
+                "n": 1214,
+                "mse": 60.877690208643365,
+                "rmse": 7.802415664949117,
+                "mae": 6.152458919470152,
+                "bias_actual_minus_prediction": -0.18669404882161414,
+                "calibration_intercept": 0.28276779006368136,
+                "calibration_slope": 0.5425946571342088
+              },
+              "B1_prev_v2": {
+                "n": 1214,
+                "mse": 54.36104184224371,
+                "rmse": 7.372994089394329,
+                "mae": 5.788848725486241,
+                "bias_actual_minus_prediction": -0.19203343546019846,
+                "calibration_intercept": -0.03397645279017936,
+                "calibration_slope": 0.8467991528106191
+              },
+              "pregame_v1": {
+                "n": 1214,
+                "mse": 50.156562647674875,
+                "rmse": 7.082129810140088,
+                "mae": 5.555196329500341,
+                "bias_actual_minus_prediction": -0.190962558400419,
+                "calibration_intercept": -0.16983892164339454,
+                "calibration_slope": 0.9795040906377083
+              }
+            }
+          }
+        },
+        "development_rescaled_post_hoc": {
+          "metrics": {
+            "B0_home_only": {
+              "n": 2430,
+              "mse": 63.1086545753819,
+              "rmse": 7.94409557944653,
+              "mae": 6.329084806429424,
+              "bias_actual_minus_prediction": -0.1158302833300252,
+              "calibration_intercept": null,
+              "calibration_slope": null
+            },
+            "B2_prev_incumbent": {
+              "n": 2430,
+              "mse": 55.823076058535726,
+              "rmse": 7.471484193822251,
+              "mae": 5.880501614681499,
+              "bias_actual_minus_prediction": -0.08716745022933597,
+              "calibration_intercept": -0.28607069046537104,
+              "calibration_slope": 1.1887046966914008
+            },
+            "B1_prev_v2": {
+              "n": 2430,
+              "mse": 53.78884461402606,
+              "rmse": 7.334087851534508,
+              "mae": 5.7520745709444485,
+              "bias_actual_minus_prediction": -0.07214557103290956,
+              "calibration_intercept": -0.1296064942248979,
+              "calibration_slope": 1.05530283452361
+            },
+            "pregame_v1": {
+              "n": 2430,
+              "mse": 50.591009675695695,
+              "rmse": 7.112735737794263,
+              "mae": 5.577992408628272,
+              "bias_actual_minus_prediction": -0.07697048697185513,
+              "calibration_intercept": -0.1205878850640225,
+              "calibration_slope": 1.0417851995240728
+            }
+          },
+          "calendar_cluster_sensitivity": {
+            "7": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 25,
+                "2024-25": 25
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -12.517644899686267,
+                  "mse_percentile_95": [
+                    -14.658126707215262,
+                    -10.515800545314768
+                  ],
+                  "rmse_difference": -0.8313598416522714,
+                  "rmse_percentile_95": [
+                    -0.9638719802296492,
+                    -0.706599982406515
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.1978349383303453,
+                  "mse_percentile_95": [
+                    -4.209408467116684,
+                    -2.179332510813508
+                  ],
+                  "rmse_difference": -0.22135211374024433,
+                  "rmse_percentile_95": [
+                    -0.29019634336876465,
+                    -0.1508247806703275
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -5.23206638284006,
+                  "mse_percentile_95": [
+                    -6.683189151414148,
+                    -3.8017174106616984
+                  ],
+                  "rmse_difference": -0.3587484560279899,
+                  "rmse_percentile_95": [
+                    -0.4533152623121812,
+                    -0.2627453768851332
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -2.0342314445097145,
+                  "mse_percentile_95": [
+                    -2.865709440722899,
+                    -1.2004231069864921
+                  ],
+                  "rmse_difference": -0.13739634228774555,
+                  "rmse_percentile_95": [
+                    -0.19036408093919863,
+                    -0.08200863352925968
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": -0.08395577145249877,
+                "rmse_percentile_95": [
+                  -0.16328112780476872,
+                  -0.0034132872396703336
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            },
+            "14": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 13,
+                "2024-25": 13
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -12.517644899686267,
+                  "mse_percentile_95": [
+                    -15.010791193578044,
+                    -10.256354916699934
+                  ],
+                  "rmse_difference": -0.8313598416522714,
+                  "rmse_percentile_95": [
+                    -0.9845316570408917,
+                    -0.6898635123389292
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.1978349383303453,
+                  "mse_percentile_95": [
+                    -4.431334042415863,
+                    -2.0170547003724884
+                  ],
+                  "rmse_difference": -0.22135211374024433,
+                  "rmse_percentile_95": [
+                    -0.30530084797813084,
+                    -0.14130258351395295
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -5.23206638284006,
+                  "mse_percentile_95": [
+                    -6.906326873497166,
+                    -3.6441342651100603
+                  ],
+                  "rmse_difference": -0.3587484560279899,
+                  "rmse_percentile_95": [
+                    -0.4697302335412592,
+                    -0.2526186790921846
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -2.0342314445097145,
+                  "mse_percentile_95": [
+                    -2.7646328430591667,
+                    -1.3871735587636649
+                  ],
+                  "rmse_difference": -0.13739634228774555,
+                  "rmse_percentile_95": [
+                    -0.18317272721709357,
+                    -0.09581697567548164
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": -0.08395577145249877,
+                "rmse_percentile_95": [
+                  -0.16486240463142515,
+                  -0.0052361920262020125
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            },
+            "28": {
+              "nonempty_clusters_by_season": {
+                "2023-24": 7,
+                "2024-25": 7
+              },
+              "contrasts": {
+                "pregame_v1-B0_home_only": {
+                  "mse_difference": -12.517644899686267,
+                  "mse_percentile_95": [
+                    -15.309941521437738,
+                    -10.278241990778204
+                  ],
+                  "rmse_difference": -0.8313598416522714,
+                  "rmse_percentile_95": [
+                    -1.0013778049296758,
+                    -0.6855574405448969
+                  ]
+                },
+                "pregame_v1-B1_prev_v2": {
+                  "mse_difference": -3.1978349383303453,
+                  "mse_percentile_95": [
+                    -4.480323829405174,
+                    -2.0922966659767948
+                  ],
+                  "rmse_difference": -0.22135211374024433,
+                  "rmse_percentile_95": [
+                    -0.30860850986986865,
+                    -0.1472149346840791
+                  ]
+                },
+                "pregame_v1-B2_prev_incumbent": {
+                  "mse_difference": -5.23206638284006,
+                  "mse_percentile_95": [
+                    -7.047954967841489,
+                    -3.66543251541163
+                  ],
+                  "rmse_difference": -0.3587484560279899,
+                  "rmse_percentile_95": [
+                    -0.47636472056579954,
+                    -0.25350719989606985
+                  ]
+                },
+                "B1_prev_v2-B2_prev_incumbent": {
+                  "mse_difference": -2.0342314445097145,
+                  "mse_percentile_95": [
+                    -2.8548691997833355,
+                    -1.3363552004372743
+                  ],
+                  "rmse_difference": -0.13739634228774555,
+                  "rmse_percentile_95": [
+                    -0.18866171442405283,
+                    -0.09267192804634737
+                  ]
+                }
+              },
+              "accounting_plus_regularisation_gain_minus_update_gain": {
+                "rmse_difference": -0.08395577145249877,
+                "rmse_percentile_95": [
+                  -0.16352184979973083,
+                  -0.019668491698010358
+                ],
+                "interpretation": "positive means the accounting-plus-regularisation contrast is larger; not a causal decomposition"
+              }
+            }
+          },
+          "per_season": {
+            "2023-24": {
+              "B0_home_only": {
+                "n": 1216,
+                "mse": 62.959815005793956,
+                "rmse": 7.934722112701487,
+                "mae": 6.325400784779646,
+                "bias_actual_minus_prediction": 0.011173623301269796,
+                "calibration_intercept": null,
+                "calibration_slope": null
+              },
+              "B2_prev_incumbent": {
+                "n": 1216,
+                "mse": 56.4010174119349,
+                "rmse": 7.510061079108139,
+                "mae": 5.906819318323537,
+                "bias_actual_minus_prediction": 0.041934080680092835,
+                "calibration_intercept": -0.2115383605590161,
+                "calibration_slope": 1.2409554407113952
+              },
+              "B1_prev_v2": {
+                "n": 1216,
+                "mse": 53.48317259458998,
+                "rmse": 7.313219030945947,
+                "mae": 5.727711564762925,
+                "bias_actual_minus_prediction": 0.05279088690146568,
+                "calibration_intercept": -0.18850593010087072,
+                "calibration_slope": 1.2317731293198173
+              },
+              "pregame_v1": {
+                "n": 1216,
+                "mse": 51.02638279735069,
+                "rmse": 7.143275355000022,
+                "mae": 5.600886309582576,
+                "bias_actual_minus_prediction": 0.037007156896347315,
+                "calibration_intercept": -0.0951815506274958,
+                "calibration_slope": 1.1250751473196154
+              }
+            },
+            "2024-25": {
+              "B0_home_only": {
+                "n": 1214,
+                "mse": 63.25773935019157,
+                "rmse": 7.953473414187764,
+                "mae": 6.332774897307618,
+                "bias_actual_minus_prediction": -0.24304342209745086,
+                "calibration_intercept": null,
+                "calibration_slope": null
+              },
+              "B2_prev_incumbent": {
+                "n": 1214,
+                "mse": 55.244182577700954,
+                "rmse": 7.432643041186692,
+                "mae": 5.854140554031814,
+                "bias_actual_minus_prediction": -0.2164816689985825,
+                "calibration_intercept": -0.3760508213991934,
+                "calibration_slope": 1.1510862529849453
+              },
+              "B1_prev_v2": {
+                "n": 1214,
+                "mse": 54.095020211747865,
+                "rmse": 7.354931693207481,
+                "mae": 5.776477713874213,
+                "bias_actual_minus_prediction": -0.19728785509238256,
+                "calibration_intercept": -0.13926290716066714,
+                "calibration_slope": 0.9440427969935296
+              },
+              "pregame_v1": {
+                "n": 1214,
+                "mse": 50.15491930013352,
+                "rmse": 7.0820137884738354,
+                "mae": 5.555060791197931,
+                "bias_actual_minus_prediction": -0.19113590290573831,
+                "calibration_intercept": -0.17338050367906052,
+                "calibration_slope": 0.9827751319529985
+              }
+            }
+          }
+        }
+      },
+      "subgroups_post_hoc": {
+        "EARLY_SEASON": {
+          "n": 484,
+          "as_frozen": {
+            "B0_home_only": {
+              "n": 484,
+              "mse": 50.50406056770678,
+              "rmse": 7.1066208965799476,
+              "mae": 5.604149931841929,
+              "bias_actual_minus_prediction": 0.21956778579619496,
+              "calibration_intercept": null,
+              "calibration_slope": null
+            },
+            "B2_prev_incumbent": {
+              "n": 484,
+              "mse": 53.825635261909916,
+              "rmse": 7.33659561798999,
+              "mae": 5.903658410594926,
+              "bias_actual_minus_prediction": 0.3564462691547997,
+              "calibration_intercept": 0.8825822451503874,
+              "calibration_slope": 0.4437305403877224
+            },
+            "B1_prev_v2": {
+              "n": 484,
+              "mse": 44.28045806633678,
+              "rmse": 6.654356322465516,
+              "mae": 5.267286664442563,
+              "bias_actual_minus_prediction": 0.31311021694094404,
+              "calibration_intercept": 0.5584114090146667,
+              "calibration_slope": 0.7520119547868764
+            },
+            "pregame_v1": {
+              "n": 484,
+              "mse": 42.99429375234307,
+              "rmse": 6.557003412561493,
+              "mae": 5.164058036049363,
+              "bias_actual_minus_prediction": 0.3129817755426218,
+              "calibration_intercept": 0.4652831286774832,
+              "calibration_slope": 0.8460504372722994
+            }
+          }
+        },
+        "ROOKIE_HEAVY": {
+          "n": 1215,
+          "as_frozen": {
+            "B0_home_only": {
+              "n": 1215,
+              "mse": 71.18995649107697,
+              "rmse": 8.43741408792273,
+              "mae": 6.701412223665403,
+              "bias_actual_minus_prediction": 0.08928062619561271,
+              "calibration_intercept": null,
+              "calibration_slope": null
+            },
+            "B2_prev_incumbent": {
+              "n": 1215,
+              "mse": 63.40724245575115,
+              "rmse": 7.962866472304502,
+              "mae": 6.223076280127726,
+              "bias_actual_minus_prediction": 0.08531605689168623,
+              "calibration_intercept": 0.45178193707493,
+              "calibration_slope": 0.6627632370457088
+            },
+            "B1_prev_v2": {
+              "n": 1215,
+              "mse": 57.96337676075138,
+              "rmse": 7.6133682927303195,
+              "mae": 5.891523496317203,
+              "bias_actual_minus_prediction": 0.08664816306782264,
+              "calibration_intercept": -0.037224110108264465,
+              "calibration_slope": 1.114132198618245
+            },
+            "pregame_v1": {
+              "n": 1215,
+              "mse": 53.05571756433392,
+              "rmse": 7.283935582110396,
+              "mae": 5.611755075911738,
+              "bias_actual_minus_prediction": 0.0866880458090211,
+              "calibration_intercept": -0.08167314166273863,
+              "calibration_slope": 1.155128650878044
+            }
+          }
+        },
+        "TEAM_CHANGE": {
+          "n": 128,
+          "as_frozen": {
+            "B0_home_only": {
+              "n": 128,
+              "mse": 47.9024455836534,
+              "rmse": 6.921159265878326,
+              "mae": 5.610654706158989,
+              "bias_actual_minus_prediction": -0.8002579987745113,
+              "calibration_intercept": null,
+              "calibration_slope": null
+            },
+            "B2_prev_incumbent": {
+              "n": 128,
+              "mse": 47.980615827135054,
+              "rmse": 6.926804156834164,
+              "mae": 5.739247409983339,
+              "bias_actual_minus_prediction": -0.23878072888312657,
+              "calibration_intercept": 0.030260427294169834,
+              "calibration_slope": 0.48383464044848756
+            },
+            "B1_prev_v2": {
+              "n": 128,
+              "mse": 43.132582933926926,
+              "rmse": 6.567540097626122,
+              "mae": 5.22060092281393,
+              "bias_actual_minus_prediction": -0.5349602660392903,
+              "calibration_intercept": -0.3109960082316456,
+              "calibration_slope": 0.726007471275805
+            },
+            "pregame_v1": {
+              "n": 128,
+              "mse": 41.541386880869425,
+              "rmse": 6.445260807823794,
+              "mae": 5.1233628624208,
+              "bias_actual_minus_prediction": -0.43329403331879546,
+              "calibration_intercept": -0.2975154178247535,
+              "calibration_slope": 0.8102971978812659
+            }
+          }
+        }
+      },
+      "weekly_calibration_bins_post_hoc": [
+        {
+          "bin": 1,
+          "n": 618,
+          "mean_prediction": -3.2917504557616577,
+          "mean_actual": -3.4156346400556634
+        },
+        {
+          "bin": 2,
+          "n": 396,
+          "mean_prediction": -0.37949052456842675,
+          "mean_actual": -0.7077494817512625
+        },
+        {
+          "bin": 3,
+          "n": 395,
+          "mean_prediction": 1.0239517034858385,
+          "mean_actual": 0.9036237220037974
+        },
+        {
+          "bin": 4,
+          "n": 409,
+          "mean_prediction": 2.4996844827575244,
+          "mean_actual": 2.257895808582396
+        },
+        {
+          "bin": 5,
+          "n": 612,
+          "mean_prediction": 5.382326003012456,
+          "mean_actual": 5.653974949908006
+        }
+      ],
+      "development_bin_cutpoints": [
+        -1.2700238196212044,
+        0.39463716411879557,
+        1.768683251598795,
+        3.3773441689787953
+      ]
+    }
+  }
+}

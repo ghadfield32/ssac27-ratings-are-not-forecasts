@@ -1,0 +1,9 @@
+{
+  "contract": "PMI reviewed frozen snapshot; not a prospective issuance receipt",
+  "input_sha256": {
+    "data/pmi_games_track_a.csv": "705ea1426a4df5e7a25c93884bff50a8df7eb2e1d8409e78132b87756a583b25",
+    "data/pmi_games_track_b.csv": "56140b6a42e7ddbd85c4ea1fa8d39e55873819a784132a4da5a4cab27f047bea",
+    "data/frozen_parameters.json": "27fff863b7b1f1ad8d291add2fb58059ac6bf93e6bc8dddf3399d195269e70f2",
+    "data/expected.json": "60574fda6307db7c043a2e994449cb97f65625ef00566d1b869aa352091e149d"
+  }
+}

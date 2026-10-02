@@ -1,0 +1,4 @@
+# Existing environment used for saved-forecast reproduction and the supplement.
+# This is a direct-dependency snapshot, not a complete transitive environment lock.
+numpy==2.3.5
+pandas==2.3.3

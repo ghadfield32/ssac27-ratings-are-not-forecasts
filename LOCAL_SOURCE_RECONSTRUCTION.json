@@ -1,0 +1,16 @@
+{
+  "status": "local_table_reconstruction_passed",
+  "source_head": "88473250c289ff8019a9ae6a389107d6d12d98c3",
+  "source_manifest_entries_verified": 11959,
+  "source_manifest_sha256": "31e8728ce6783ff24895a4203e98291239d353f82adacc6a0da5c339e50e40b4",
+  "original_runner_sha256": "8ca897961c9a7dfa2d4ac59f2293cab01c5d801f831e9ebe76d03d5b3a645255",
+  "execution_configuration": "exactly one SRC global changed in memory to the existing local source checkout; original scientific functions unchanged",
+  "configured_runner_sha256": "57d33b595dc771b5e97afac8d188e52b0d31d4db107d0a14b5be585c700fd40d",
+  "input_sha256_unchanged": {
+    "pmi_games_track_a.csv": "705ea1426a4df5e7a25c93884bff50a8df7eb2e1d8409e78132b87756a583b25",
+    "pmi_games_track_b.csv": "56140b6a42e7ddbd85c4ea1fa8d39e55873819a784132a4da5a4cab27f047bea",
+    "frozen_parameters.json": "27fff863b7b1f1ad8d291add2fb58059ac6bf93e6bc8dddf3399d195269e70f2",
+    "expected.json": "60574fda6307db7c043a2e994449cb97f65625ef00566d1b869aa352091e149d"
+  },
+  "boundary": "archived fitted runs to tables, not raw-only refitting, permission clearance or anonymous public clone"
+}

@@ -1,0 +1,117 @@
+/**
+ * DATA_INVENTORY — PMI
+ *
+ * File-level classification of candidate tracked artifacts. Every candidate
+ * tracked file must carry exactly one class. `PUBLICATION_DECISION_REQUIRED`
+ * means the file's presence in a public release is an operator decision, not an
+ * engineering one.
+ *
+ * Classes:
+ *   ORIGINAL_WMS            - written by World Model Sports LLC
+ *   THIRD_PARTY_RAW         - raw third-party provider content
+ *   DERIVED                 - computed from third-party content by WMS
+ *   AGGREGATE               - reduced summary carrying no row-level provider content
+ *   PRIVATE_ONLY            - must not be tracked in a public candidate
+ *   PUBLICATION_DECISION_REQUIRED - present locally; public release needs approval
+ */
+{
+  "inventory_version": "2026-10-01",
+  "note": "Attribution is not permission. MIT covers original code only.",
+
+  "entries": [
+    {
+      "path": "data/pmi_games_track_a.csv",
+      "class": "DERIVED",
+      "detail": "Per-game evaluation table, actual-participation diagnostic. 10,466 rows. Derived from NBA.com play-by-play/box via the possession ledger.",
+      "contains_provider_row_content": true,
+      "public_release": "PUBLICATION_DECISION_REQUIRED",
+      "gate": "G1",
+      "sha256": "705ea1426a4df5e7a25c93884bff50a8df7eb2e1d8409e78132b87756a583b25"
+    },
+    {
+      "path": "data/pmi_games_track_b.csv",
+      "class": "DERIVED",
+      "detail": "Per-game evaluation table, projected-participation operational track. 10,466 rows.",
+      "contains_provider_row_content": true,
+      "public_release": "PUBLICATION_DECISION_REQUIRED",
+      "gate": "G1",
+      "sha256": "56140b6a42e7ddbd85c4ea1fa8d39e55873819a784132a4da5a4cab27f047bea"
+    },
+    {
+      "path": "data/frozen_parameters.json",
+      "class": "DERIVED",
+      "detail": "Development-only offsets h and residual quantiles, frozen before the holdout was read. Aggregate numeric constants; no provider rows.",
+      "contains_provider_row_content": false,
+      "public_release": "PUBLICATION_DECISION_REQUIRED",
+      "gate": "G1",
+      "sha256": "27fff863b7b1f1ad8d291add2fb58059ac6bf93e6bc8dddf3399d195269e70f2"
+    },
+    {
+      "path": "data/expected.json",
+      "class": "AGGREGATE",
+      "detail": "Committed expected values used to check the reported statistics. Summary numbers only.",
+      "contains_provider_row_content": false,
+      "public_release": "PUBLICATION_DECISION_REQUIRED",
+      "gate": "G1",
+      "sha256": "60574fda6307db7c043a2e994449cb97f65625ef00566d1b869aa352091e149d"
+    },
+    {
+      "path": "source_data/",
+      "class": "THIRD_PARTY_RAW",
+      "detail": "EMPTY submodule gitlink (mode 160000, sha 88473250…) with placeholder remote. Contains no bytes.",
+      "contains_provider_row_content": false,
+      "public_release": "PUBLICATION_DECISION_REQUIRED",
+      "gate": "G2"
+    },
+    {
+      "path": "pipeline/**",
+      "class": "ORIGINAL_WMS",
+      "detail": "Original WMS pipeline source (possession ledger, RAPM fit/evaluate, IO). 22 files.",
+      "contains_provider_row_content": false,
+      "public_release": "ELIGIBLE_UNDER_CODE_LICENCE"
+    },
+    {
+      "path": "reproduce.py, rebuild_tables.py, supplement_analysis.py, make_figures.py, test_supplement.py",
+      "class": "ORIGINAL_WMS",
+      "detail": "Reproduction, rebuild, supplement, figure, and test code.",
+      "contains_provider_row_content": false,
+      "public_release": "ELIGIBLE_UNDER_CODE_LICENCE"
+    },
+    {
+      "path": "abstract.md, abstract.txt, MANUSCRIPT.md, DATA.md, README.md, CLAIM_LEDGER.md, PRIOR_WORK.md, FUTURE_STUDY_CONTRACT.md, SUBMISSION_CHECKLIST.md, AUTHORS.json, input_bindings.json, LOCAL_SOURCE_RECONSTRUCTION.json, supplement/**",
+      "class": "ORIGINAL_WMS",
+      "detail": "Authored documents and executed result summaries. `supplement/` figures are generated from the derived tables.",
+      "contains_provider_row_content": false,
+      "public_release": "ELIGIBLE_UNDER_CODE_LICENCE"
+    },
+    {
+      "path": "LICENSE",
+      "class": "ORIGINAL_WMS",
+      "detail": "MIT, covering original code only.",
+      "public_release": "ELIGIBLE_UNDER_CODE_LICENCE"
+    },
+    {
+      "path": "requirements*.txt, .gitignore, .gitattributes, .gitmodules",
+      "class": "ORIGINAL_WMS",
+      "detail": "Environment and repository metadata.",
+      "public_release": "ELIGIBLE_UNDER_CODE_LICENCE"
+    }
+  ],
+
+  "not_tracked_and_must_not_be": [
+    "raw play-by-play",
+    "raw rotations / lineups",
+    "bulk box scores",
+    "player-level NBA source tables",
+    "private preservation archive (D:\\c\\ssac27_pmi_preservation)",
+    "credentials, caches, secrets",
+    "absolute local paths"
+  ],
+
+  "operator_summary": {
+    "files_requiring_a_public_release_decision": 5,
+    "files_eligible_under_the_code_licence": "all other tracked files",
+    "blocking_gate": "G1",
+    "blocking_gate_reason": "The 5 decision files carry or reduce NBA.com-derived content. RIGHTS.md is not cleared. This is Geoffrey's decision, not an engineering one."
+  }
+}
