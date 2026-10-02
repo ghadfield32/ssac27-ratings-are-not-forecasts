@@ -1,7 +1,8 @@
 {
   "$comment": "Release-candidate identity for the PMI local candidate. This file is deliberately NOT in SHA256SUMS, together with REPRODUCTION_RECEIPT.json: a file cannot contain the digest of the commit that contains it. The candidate's identity is therefore content-addressed (payload manifest) plus an annotated tag, not a self-referential hash. Publication status is governed by PUBLICATION_DECISION.md.",
 
-  "status": "LOCAL_CANDIDATE_READY_FOR_OPERATOR_REVIEW",
+  "status": "PUBLISHED_UNDER_OPERATOR_AUTHORIZATION",
+  "state_note": "The reviewed RC2 snapshot is published and immutable under its tag. The abstract, manuscript and claim ledger were subsequently improved (more verified facts) and have NOT yet been independently re-reviewed; a post-review check is pending before the Sloan form is submitted.",
 
   "identity": "PMI",
   "title": "Ratings Are Not Forecasts: Accounting, Calibration, and Information Timing in NBA Player-Impact Forecasting",
@@ -10,23 +11,33 @@
   "repository_slug_suggestion": "pmi-ratings-forecasts",
 
   "addressable_identity": {
-    "annotated_tag": "ssac27-pmi-rc2-20261001",
-    "prior_candidate": { "tag": "ssac27-pmi-rc-20261001", "commit": "9e9a3ff3edd84a4054fd885338eb29887543eeb2" },
+    "published_tag": "ssac27-pmi-rc2-20261001",
     "how_to_resolve": "git rev-parse ssac27-pmi-rc2-20261001",
-    "note": "the tag is created at the freeze boundary; its target commit is the candidate"
+    "note": "the tag is the immutable reviewed snapshot; the repository's main branch has advanced with release-record corrections and post-review improvements"
+  },
+
+  "reviewed_rc2_snapshot": {
+    "tag": "ssac27-pmi-rc2-20261001",
+    "commit": "a5110b1190d18d30c378b9ef30f21d132ecf636a",
+    "payload_manifest_sha256": "09b6ea924d85cbfb11969f82bf4d5612db64547de53aa67c22906f4e5b286b01",
+    "abstract_md_sha256": "d7429ed27b16c598e90b2ea2382e40f6719c22ef2aa875a19c843ee867f4b66e",
+    "note": "immutable. This is the exact bytes the RC2 freeze review examined. Do not move this tag."
   },
 
   "content_identity": {
     "payload_manifest": "SHA256SUMS",
-    "payload_manifest_sha256": "986460859962f4cb7f68e1a5f398a0b5a3f53ce1b8a3b0afa40ce24a8c16606b",
+    "payload_manifest_sha256": "5a6ddce01055b36d1df5401163b1620d0b7f5b7c23f9d2f586c9d511d42e90ae",
     "payload_files": 71,
     "gitlink_entries": 0,
-    "excluded_from_manifest": ["SHA256SUMS", "REPRODUCTION_RECEIPT.json", "RELEASE_CANDIDATE.json"]
+    "excluded_from_manifest": ["SHA256SUMS", "REPRODUCTION_RECEIPT.json", "RELEASE_CANDIDATE.json"],
+    "note": "digest of the current working tree's manifest, not of the RC2 snapshot above"
   },
 
-  "reviewed_hashes": {
-    "abstract.md": "d7429ed27b16c598e90b2ea2382e40f6719c22ef2aa875a19c843ee867f4b66e",
-    "MANUSCRIPT.md": "23823fb7e3eac1008f3425235b231e4ec4fb5ea29d2b80855fffd928d49ff607",
+  "current_hashes_after_post_review_improvement": {
+    "abstract.md": "8404f77c5f3cfbb805c32d047a248bf58060ace4e21dec5099e2b1c60ded409e",
+    "abstract.txt": "a2199908444aee31b60d391309e1b5fe95b9eb3ecfc6c14de7d5e5ea209a3c1e",
+    "MANUSCRIPT.md": "218140a942c66452079d32a829498b5367cd1d769a770944e78b41e2728775f1",
+    "CLAIM_LEDGER.md": "0a9bd652044f68590c3c5a26a0117eeebfc47a27ce7947fb4f76b53fb71b9838",
     "supplement_analysis.py": "5ee695524201cd6f4c0551afeabeb530d988bdfd7a73b55271ca6c523d1622db",
     "input_bindings.json": "56e0d89c46526ee2d84a50fe208d3f670ab6bed24d1a00e81d5dafe8ee128403",
     "supplement/supplement_results.json": "b3341e455526bfd5fbf9b5153e7272adc9fcacfaa813a6958bea564875520994"
@@ -41,11 +52,15 @@
     "deterministic_vs_reviewed": true
   },
 
-  "publication_decision": "NOT_APPROVED_FOR_PUBLICATION",
-  "public_remote": null,
+  "publication_decision": "PUBLISHED_ON_OPERATOR_AUTHORIZATION",
+  "public_remote": "https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts",
   "open_gates": [
-    "G1_data_redistribution_rights",
-    "G4_operator_approval"
+    "G1_data_redistribution_rights_unresolved_standing_risk",
+    "G6_sloan_submission_not_made"
+  ],
+  "pending": [
+    "independent re-review of the post-review abstract/manuscript/ledger improvements",
+    "regenerate SHA256SUMS for the improved tree"
   ],
   "resolved_in_rc2": [
     "G2_empty_source_data_gitlink",

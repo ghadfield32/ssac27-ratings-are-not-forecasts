@@ -54,16 +54,16 @@ Original offsets and 10th/90th residual quantiles were estimated on development 
 
 ## 5. Original results
 
-Table 1 reports the operational Track B. The weekly candidate has the lowest frozen RMSE of the four declared models. Against prior-season reconciled ratings, the original paired game-bootstrap interval is approximately [-0.282, -0.159]. Evaluation MAE is 5.578 for weekly and 5.753 for prior-season reconciled ratings. Results favor the weekly candidate under the original bounded comparison, not against every plausible sports forecasting model.
+Table 1 reports the operational Track B. The weekly candidate has the lowest frozen RMSE of the four declared models, both pooled and in each evaluation season. Against the three declared baselines the original paired game-bootstrap intervals are approximately [-0.950, -0.711] against home court alone, [-0.757, -0.533] against prior-season legacy ratings and [-0.282, -0.159] against prior-season reconciled ratings. Evaluation MAE is 5.578 for weekly and 5.753 for prior-season reconciled ratings. Results favor the weekly candidate under the original bounded comparison, not against every plausible sports forecasting model.
 
 **Table 1. Operational evaluation, 2,430 matched games.** Units: home net points per 100 combined possessions. Rescaling was added after evaluation exposure.
 
-| Forecast | Original RMSE | Development-rescaled RMSE, post hoc |
-|---|---:|---:|
-| Home court only | 7.944 | Not rescaled |
-| Prior-season legacy | 7.761 | 7.471 |
-| Prior-season reconciled | 7.334 | 7.334 |
-| Weekly reconciled | 7.113 | 7.113 |
+| Forecast | Original RMSE | Development slope | Development-rescaled RMSE, post hoc |
+|---|---:|---:|---:|
+| Home court only | 7.944 | - | Not rescaled |
+| Prior-season legacy | 7.761 | 0.471 | 7.471 |
+| Prior-season reconciled | 7.334 | 0.897 | 7.334 |
+| Weekly reconciled | 7.113 | 0.997 | 7.113 |
 
 In diagnostic Track A, weekly RMSE is 7.076 versus 7.301 for prior-season reconciled ratings. Realized participation is withheld from the operational result. Track differences should not be interpreted as a clean treatment effect.
 
@@ -71,7 +71,7 @@ The weekly residual-quantile interval covers 77.0% of evaluation games rather th
 
 ## 6. Post hoc calibration and robustness
 
-After reading the evaluation, we fitted linear forecast scale and intercept on development games only and applied them to evaluation games. This uses no evaluation labels in coefficient estimation, but the decision to add this analysis was post hoc. The legacy development slope is 0.471. Its RMSE falls from 7.761 to 7.471 after rescaling. Reconciled prior-season ratings still outperform rescaled legacy forecasts by approximately 0.137, and weekly updating outperforms the rescaled prior-season reconciled forecast by approximately 0.221. The earlier paired game-bootstrap recalibration intervals exclude zero for both contrasts.
+After reading the evaluation, we fitted linear forecast scale and intercept on development games only and applied them to evaluation games. This uses no evaluation labels in coefficient estimation, but the decision to add this analysis was post hoc. The legacy development slope is 0.471, against 0.897 for prior-season reconciled and 0.997 for weekly reconciled ratings: the legacy forecast is the badly scaled one. Its RMSE falls from 7.761 to 7.471 after rescaling. Reconciled prior-season ratings still outperform rescaled legacy forecasts by approximately 0.137, weekly updating outperforms the rescaled prior-season reconciled forecast by approximately 0.221, and weekly updating outperforms the rescaled legacy forecast by approximately 0.359. The earlier paired game-bootstrap recalibration intervals exclude zero for all three contrasts.
 
 The new supplement adds joint calendar-cluster sensitivity, preserving all 7-, 14- and 28-day results. Nonoverlapping blocks are anchored to Monday within each season, paired model squared errors travel together, and blocks are resampled independently within season. Original season game weights are fixed when combining each resampled season mean. There are 2,000 resamples with seed 20261001. These are exploratory fixed-prediction sensitivities, not a replacement for the original frozen inference or a complete solution to dependence.
 

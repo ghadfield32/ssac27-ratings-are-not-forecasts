@@ -10,9 +10,9 @@ Original code/evaluation: `e3140577b`; original evaluation contract: `420003edd`
 | Weekly fitting strictly earlier than issuance | Owner RUNDOC section 3f; frozen fitting/evaluation source | Historical event-date replay; external available-at receipts not proved |
 | 8,017 development/2,430 evaluation matched games | `data/*.csv`, frozen report; both reproduced | Selected admitted/matched population |
 | Table 1 RMSE 7.944/7.761/7.334/7.113 | `reproduce.py` matches `data/expected.json`; original `d2_evaluation.md` | Track B, combined-possession normalized rate |
-| Weekly beats three declared baselines in original paired game bootstrap | Original D2 evaluation/bootstrap; quick reproduction | Conditional saved models; original promotion criterion is not production activation |
-| Development legacy calibration slope 0.471 | Previous recalibration output and reproduced CSV regression | Post hoc study design; fit uses development labels only |
-| Rescaled legacy RMSE 7.471; prior-minus-legacy -0.137, weekly-minus-prior -0.221 | Previous recalibration output; quick reproduction | Unisolated accounting plus regularisation contrast; every rating model rescaled |
+| Weekly beats three declared baselines in original paired game bootstrap, Track B intervals [-0.950,-0.711] home only, [-0.757,-0.533] legacy, [-0.282,-0.159] reconciled | Original D2 evaluation/bootstrap; quick reproduction | Conditional saved models; original promotion criterion is not production activation |
+| Development calibration slopes 0.471 legacy, 0.897 prior-season reconciled, 0.997 weekly | Previous recalibration output and reproduced CSV regression | Post hoc study design; fit uses development labels only |
+| Rescaled legacy RMSE 7.471; prior-minus-legacy -0.137, weekly-minus-prior -0.221, weekly-minus-legacy -0.359 | Previous recalibration output; quick reproduction | Unisolated accounting plus regularisation contrast; every rating model rescaled |
 | Nominal 80% weekly interval coverage 77% | Frozen residual quantiles + evaluation outcomes | Undercoverage is retained, not hidden or recalibrated on evaluation |
 | Calendar-cluster robustness, all 7/14/28 day lengths | New `supplement_results.json`, both tracks | Post hoc nonoverlapping season-stratified clusters; recurrent teams/fitting uncertainty unresolved |
 | Relative contrast size reverses after calibration | New joint paired-draw gain-size contrast in supplement | Track B as frozen +0.204577; rescaled -0.083956, accounting-plus-regularisation gain minus update gain. Exploratory unadjusted intervals, not causal allocation |
@@ -20,7 +20,8 @@ Original code/evaluation: `e3140577b`; original evaluation contract: `420003edd`
 | Track B WEIGHT=480 projected minutes | Frozen `build_track_b` source and evaluation CSV | Not game possessions; pooled error is unweighted by WEIGHT |
 | Track B 15 development/4 holdout unmatched rows | New supplement population counts | Distinct from upstream excluded or no-valid-lineup games |
 | Author name/affiliation | Operator response 2026-10-01 | Geoffrey Hadfield, World model Sports LLC, CEO/founder |
-| Public source release / conference submission | No evidence | No configured remote, empty source folder, placeholder URL; do not claim complete or submitted |
+| Public repository / derived-data release | PUBLICATION_DECISION.md records the public URL and the authorization | Repository is public; the derived-data redistribution question is explicitly unresolved and no permission was obtained; no source-data release exists |
+| Conference submission | No evidence | No Sloan form submission and no receipt exists; do not claim submitted |
 
 ## Scientific findings left open
 
