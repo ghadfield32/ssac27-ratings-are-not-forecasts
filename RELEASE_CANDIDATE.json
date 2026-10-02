@@ -1,0 +1,66 @@
+{
+  "$comment": "Release-candidate identity for the PMI local candidate. This file is deliberately NOT in SHA256SUMS, together with REPRODUCTION_RECEIPT.json: a file cannot contain the digest of the commit that contains it. The candidate's identity is therefore content-addressed (payload manifest) plus an annotated tag, not a self-referential hash. Publication status is governed by PUBLICATION_DECISION.md.",
+
+  "status": "LOCAL_CANDIDATE_READY_FOR_OPERATOR_REVIEW",
+
+  "identity": "PMI",
+  "title": "Ratings Are Not Forecasts: Accounting, Calibration, and Information Timing in NBA Player-Impact Forecasting",
+  "author": "Geoffrey Hadfield",
+  "affiliation": "World model Sports LLC",
+  "repository_slug_suggestion": "pmi-ratings-forecasts",
+
+  "addressable_identity": {
+    "annotated_tag": "ssac27-pmi-rc-20261001",
+    "how_to_resolve": "git rev-parse ssac27-pmi-rc-20261001",
+    "note": "the tag is created at the freeze boundary; its target commit is the candidate"
+  },
+
+  "content_identity": {
+    "payload_manifest": "SHA256SUMS",
+    "payload_manifest_sha256": "a86007b6170199bb4adce90ce2d55930f90d4bf13e6cefc76bf3ff57ce1cf3a0",
+    "payload_files": 66,
+    "gitlink_entries": 1,
+    "excluded_from_manifest": ["SHA256SUMS", "REPRODUCTION_RECEIPT.json", "RELEASE_CANDIDATE.json"]
+  },
+
+  "reviewed_hashes": {
+    "abstract.md": "d7429ed27b16c598e90b2ea2382e40f6719c22ef2aa875a19c843ee867f4b66e",
+    "MANUSCRIPT.md": "1733a1ca6102211295b66c205e9611f29c174cf6891fce05a54ad119300d05d0",
+    "supplement_analysis.py": "5ee695524201cd6f4c0551afeabeb530d988bdfd7a73b55271ca6c523d1622db",
+    "input_bindings.json": "56e0d89c46526ee2d84a50fe208d3f670ab6bed24d1a00e81d5dafe8ee128403",
+    "supplement/supplement_results.json": "b3341e455526bfd5fbf9b5153e7272adc9fcacfaa813a6958bea564875520994"
+  },
+
+  "reviewed_source_commit": "42f363919f235148394f2f6e36f728c6b06f8a47",
+
+  "reproduction": {
+    "level_verified": "L1_reported_statistics_replay",
+    "receipt": "REPRODUCTION_RECEIPT.json",
+    "clean_clone_passed": true,
+    "deterministic_vs_reviewed": true
+  },
+
+  "publication_decision": "NOT_APPROVED_FOR_PUBLICATION",
+  "public_remote": null,
+  "open_gates": [
+    "G1_data_redistribution_rights",
+    "G2_empty_source_data_gitlink",
+    "G3_no_hermetic_lock",
+    "G4_operator_approval"
+  ],
+
+  "release_hygiene_artifacts_added_2026_10_01": [
+    "RELEASE_STATUS.yaml",
+    "PUBLICATION_DECISION.md",
+    "THIRD_PARTY_NOTICES.md",
+    "DATA_INVENTORY.json",
+    "REPRODUCE.md",
+    "REVIEW.md",
+    "SHA256SUMS",
+    "REPRODUCTION_RECEIPT.json",
+    "RELEASE_CANDIDATE.json",
+    "figures/README.md"
+  ],
+
+  "caveat": "The release-hygiene artifacts above are NOT covered by the independent review recorded in REVIEW.md, which reviewed the scientific artifact. They still need a read-only non-author review at the freeze boundary."
+}

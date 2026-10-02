@@ -1,0 +1,82 @@
+{
+  "receipt": "clean-clone reproduction",
+  "artifact": "PMI local release candidate",
+  "level": "L1_reported_statistics_replay",
+  "executed_at": "2026-10-01",
+  "executed_by": "agent session (non-author of the science; see REVIEW.md for the science review)",
+
+  "environment": {
+    "python": "3.12",
+    "numpy": "2.3.5",
+    "pandas": "2.3.3",
+    "note": "Matches requirements-verified.txt. This is a direct-dependency snapshot, NOT a transitive lock. A hermetic fresh-environment claim is not supported (gate G3).",
+    "host": "author workstation; not a container-isolated environment"
+  },
+
+  "method": {
+    "isolation": "git clone of the frozen candidate into a separate directory; commands run from an unrelated working directory (C:/c/tmp) to prove no dependence on the package path",
+    "clone_source": "local frozen candidate repository",
+    "remote_in_clone": "none relevant; the clone's origin is the local path, not a network host",
+    "network_used": false
+  },
+
+  "results": [
+    {
+      "command": "python reproduce.py",
+      "exit_code": 0,
+      "last_line": "OK: every value matches the committed results",
+      "checks": "pooled and per-season RMSE, holdout 80% interval coverage, and paired game-bootstrap promotion intervals vs data/expected.json"
+    },
+    {
+      "command": "python supplement_analysis.py --package <clone> --output <tmp>",
+      "exit_code": 0,
+      "last_line": "OK: both tracks analysed; input hashes unchanged; results explicitly post hoc",
+      "note": "Binds the four inputs to input_bindings.json before writing and rechecks after."
+    },
+    {
+      "command": "python -m pytest test_supplement.py -q",
+      "exit_code": 0,
+      "summary": "14 passed in 0.61s"
+    }
+  ],
+
+  "determinism": {
+    "regenerated_supplement_results_sha256": "b3341e455526bfd5fbf9b5153e7272adc9fcacfaa813a6958bea564875520994",
+    "equals_reviewed_value": true,
+    "conclusion": "The regenerated results are byte-identical to the independently reviewed results."
+  },
+
+  "bound_input_hashes_reproduced_in_clone": {
+    "data/expected.json": "60574fda6307db7c043a2e994449cb97f65625ef00566d1b869aa352091e149d",
+    "data/frozen_parameters.json": "27fff863b7b1f1ad8d291add2fb58059ac6bf93e6bc8dddf3399d195269e70f2",
+    "data/pmi_games_track_a.csv": "705ea1426a4df5e7a25c93884bff50a8df7eb2e1d8409e78132b87756a583b25",
+    "data/pmi_games_track_b.csv": "56140b6a42e7ddbd85c4ea1fa8d39e55873819a784132a4da5a4cab27f047bea"
+  },
+
+  "hygiene_verified_in_clone": {
+    "absolute_host_paths_in_tracked_files": false,
+    "developer_filesystem_references": false,
+    "credential_like_strings": false,
+    "untracked_required_inputs": false,
+    "depends_on_c_or_d_paths": false,
+    "depends_on_monorepo_checkout": false
+  },
+
+  "defect_found_and_fixed_by_this_run": {
+    "id": "PMI-RC-L1",
+    "severity": "blocker for clean-clone reproduction",
+    "description": "Global core.autocrlf=true plus '* text=auto eol=lf' normalised CRLF to LF on commit. 22 files - including all four bound inputs, abstract.md, and supplement/supplement_results.json - were therefore stored with bytes different from the ones their recorded SHA-256 values describe. The byte-binding gate refused in every fresh clone.",
+    "how_found": "by cloning the candidate and running the gates, not by inspecting it in place",
+    "why_reproduce.py_missed_it": "reproduce.py reads values through pandas rather than hashing bytes, so normalization never affected it",
+    "fix": "set '* -text -eol' and renormalize so committed bytes are the reviewed bytes",
+    "verified": "all reviewed hashes now reproduce from a fresh clone; sha256sums regenerated"
+  },
+
+  "what_this_does_not_prove": [
+    "L3 raw-source refit: never executed",
+    "permission to redistribute the derived evaluation tables",
+    "a hermetic fresh-environment install (no transitive lock)",
+    "that the spent 2023-24/2024-25 holdout is fresh validation",
+    "an anonymous clone from a public network URL (no public remote exists)"
+  ]
+}
