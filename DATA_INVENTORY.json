@@ -1,20 +1,5 @@
-/**
- * DATA_INVENTORY — PMI
- *
- * File-level classification of candidate tracked artifacts. Every candidate
- * tracked file must carry exactly one class. `PUBLICATION_DECISION_REQUIRED`
- * means the file's presence in a public release is an operator decision, not an
- * engineering one.
- *
- * Classes:
- *   ORIGINAL_WMS            - written by World Model Sports LLC
- *   THIRD_PARTY_RAW         - raw third-party provider content
- *   DERIVED                 - computed from third-party content by WMS
- *   AGGREGATE               - reduced summary carrying no row-level provider content
- *   PRIVATE_ONLY            - must not be tracked in a public candidate
- *   PUBLICATION_DECISION_REQUIRED - present locally; public release needs approval
- */
 {
+  "_about": "File-level classification of candidate tracked artifacts for PMI. Every candidate tracked file carries exactly one class. PUBLICATION_DECISION_REQUIRED means the file's presence in a public release is an operator decision, not an engineering one. Classes: ORIGINAL_WMS (written by World Model Sports LLC); THIRD_PARTY_RAW (raw third-party provider content); DERIVED (computed from third-party content by WMS); AGGREGATE (reduced summary carrying no row-level provider content); PRIVATE_ONLY (must not be tracked in a public candidate); PUBLICATION_DECISION_REQUIRED (present locally; public release needs approval).",
   "inventory_version": "2026-10-01",
   "note": "Attribution is not permission. MIT covers original code only.",
 
