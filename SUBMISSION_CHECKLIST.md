@@ -22,7 +22,8 @@
 - [ ] Decide the exact permissible data release and document third-party permission/disposition. Company affiliation and academic intent do not automatically establish redistribution rights.
 - [ ] Confirm the released supporting data meet conference requirements, including the saved-forecast versus raw-refit distinction.
 - [ ] Supply/create a real accessible public repository URL. Current package has no remote.
-- [ ] Resolve the empty `source_data/` gitlink and `YOUR-ACCOUNT` URL through a reviewed release change. Do not list them as working reproduction.
+- [x] Removed the empty `source_data/` gitlink and its unconfigured placeholder remote, and replaced them with `source_data/README.md`. The candidate has zero gitlinks.
+- [x] Added a transitive dependency lock (`pyproject.toml` + `uv.lock`) and verified it rebuilds the exact environment and runs the full suite.
 - [ ] Publish only the reviewed permitted payload; verify access anonymously at the immutable release revision/tag.
 - [ ] Check final form fields and copy the exact corrected abstract; choose basketball track. Confirm all final authors and required contact fields.
 - [ ] Submit before **Oct. 1, 2026, 11:59 p.m. Eastern** and retain the actual receipt, timestamp, submitted text and repository revision.

@@ -19,10 +19,11 @@ evidence that only the operator can supply.
 
 | Gate | State | Why it blocks publication |
 |---|---|---|
-| G1 — data redistribution rights | open | The tracked evaluation tables are NBA.com-derived (`DATA.md`: attribution, not permission). `RIGHTS.md` states the package is **not publication-cleared**. A MIT code licence cannot grant third-party data rights. |
-| G2 — `source_data` gitlink | open | The submodule is an empty `160000` gitlink (`88473250…`) with the **placeholder** remote `github.com/YOUR-ACCOUNT/ssac27-pmi-source-data.git`. Pushing this state would publish a broken/placeholder reference as if it were a data repository. |
-| G3 — hermetic environment | open | `requirements-verified.txt` is a direct-dependency snapshot, not a transitive lock. A fresh-clone reproduction cannot yet be called hermetic. |
-| G4 — operator approval | open | This file. |
+| G1 — data redistribution rights | **open** | The tracked evaluation tables are NBA.com-derived (`DATA.md`: attribution, not permission). `RIGHTS.md` states the package is **not publication-cleared**. A MIT code licence cannot grant third-party data rights. |
+| G2 — `source_data` gitlink | **RESOLVED in RC2** | The empty `160000` gitlink with an unconfigured placeholder remote was removed, together with `.gitmodules`, and replaced by `source_data/README.md`. The candidate has zero gitlinks. |
+| G3 — hermetic environment | **RESOLVED in RC2** | `pyproject.toml` + transitive `uv.lock` (13 packages) were added and verified to build the exact versions and run the full suite. |
+| G4 — operator approval | **open** | This file. |
+| G5 — independent review of the hygiene layer | **open** | The RC2 release-hygiene artifacts have not yet had a read-only non-author review. |
 
 ## What is already true (and is not a reason to publish)
 

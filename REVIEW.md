@@ -55,6 +55,7 @@ This closes a local defect review, not any submission or publication gate.
 - The release-hygiene artifacts added 2026-10-01 (`RELEASE_STATUS.yaml`,
   `PUBLICATION_DECISION.md`, `THIRD_PARTY_NOTICES.md`, `REPRODUCE.md`, this
   file, `DATA_INVENTORY.md`) — those are **not** covered by the review above.
-- The clean-clone Level-1 reproduction (recorded in `REPRODUCTION_RECEIPT.json`).
-
+- The clean-clone Level-1 reproduction (recorded in `REPRODUCTION_RECEIPT.json`).- The RC2 changes (removed `source_data` gitlink, `pyproject.toml` + `uv.lock`,
+  the rewritten `DATA_INVENTORY.json`). These are tracked as gate G5 and must be
+  covered by the RC2 freeze review before publication.
 The reviewer edited no files.

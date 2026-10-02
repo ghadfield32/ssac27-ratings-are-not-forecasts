@@ -59,9 +59,10 @@ previously fitted runs and expects a complete source package:
 python rebuild_tables.py
 ```
 
-The default linked-source path is **currently unavailable in this package**
-because `source_data/` is empty and `.gitmodules` has a placeholder remote. Do
-not run a submodule command expecting a working public data repository.
+The default linked-source path is **not available in this package**: the upstream
+source it needs is not bundled. The placeholder submodule that used to sit here
+was removed in RC2; `source_data/README.md` replaces it. Do not run a submodule
+command — there is no submodule.
 
 What was actually done (see `LOCAL_SOURCE_RECONSTRUCTION.json`): a separate
 existing local source checkout at revision
@@ -85,13 +86,23 @@ has never been run and must not be claimed.**
 
 ## Environment
 
-`requirements.txt` (runtime), `requirements-verified.txt` (the direct-dependency
-snapshot of the environment that reproduced the results), `requirements-dev.txt`
-(tests), `requirements-rebuild.txt` (Level 2).
+**Locked and hermetic-ready (RC2):** `pyproject.toml` + `uv.lock`. The lock is
+transitive — 13 packages: `numpy==2.3.5`, `pandas==2.3.3`, `python-dateutil`,
+`pytz`, `six`, `tzdata`, `pytest` and its deps.
 
-`requirements-verified.txt` pins `numpy==2.3.5` and `pandas==2.3.3`. It is a
-**direct-dependency snapshot, not a complete transitive lock** — a hermetic
-fresh-clone claim is not yet supported (gate G3).
+```bash
+uv sync --frozen --python 3.12          # runtime only
+uv sync --frozen --extra dev --python 3.12   # + pytest, to run the suite
+```
+
+This environment is verified to build and to run `reproduce.py`, the supplement,
+and all 14 tests. It does not depend on any other checkout.
+
+`requirements.txt`, `requirements-dev.txt`, `requirements-figures.txt` and
+`requirements-rebuild.txt` remain as plain-pip alternatives. `requirements-verified.txt`
+is retained only as the historical direct-dependency snapshot of the environment
+that first reproduced the results (numpy 2.3.5 / pandas 2.3.3); prefer `uv.lock`,
+which is what makes the environment reproducible.
 
 ---
 

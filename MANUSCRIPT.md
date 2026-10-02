@@ -67,7 +67,7 @@ Table 1 reports the operational Track B. The weekly candidate has the lowest fro
 
 In diagnostic Track A, weekly RMSE is 7.076 versus 7.301 for prior-season reconciled ratings. Realized participation is withheld from the operational result. Track differences should not be interpreted as a clean treatment effect.
 
-The weekly residual-quantile interval covers 77.0% of evaluation games rather than the nominal 80%. Retaining that undercoverage is essential: point accuracy does not establish calibrated uncertainty. No evaluation-fitted interval repair is presented as prospective validation.
+The weekly residual-quantile interval covers 77.0% of evaluation games rather than the nominal 80%. Retaining that undercoverage is essential: point accuracy does not establish calibrated uncertainty. No evaluation-fitted interval repair is presented as prospective validation. The distribution of interval widths, coverage and tail misses is shown in Figure 2.
 
 ## 6. Post hoc calibration and robustness
 
@@ -75,7 +75,7 @@ After reading the evaluation, we fitted linear forecast scale and intercept on d
 
 The new supplement adds joint calendar-cluster sensitivity, preserving all 7-, 14- and 28-day results. Nonoverlapping blocks are anchored to Monday within each season, paired model squared errors travel together, and blocks are resampled independently within season. Original season game weights are fixed when combining each resampled season mean. There are 2,000 resamples with seed 20261001. These are exploratory fixed-prediction sensitivities, not a replacement for the original frozen inference or a complete solution to dependence.
 
-For the operational weekly-minus-prior contrast, calendar RMSE intervals are [-0.291, -0.151], [-0.303, -0.143] and [-0.303, -0.155] at 7, 14 and 28 days. After development rescaling, prior-minus-legacy intervals are [-0.190, -0.082], [-0.183, -0.096] and [-0.189, -0.093]. The improvement direction survives these declared sensitivity lengths.
+For the operational weekly-minus-prior contrast, calendar RMSE intervals are [-0.291, -0.151], [-0.303, -0.143] and [-0.303, -0.155] at 7, 14 and 28 days. After development rescaling, prior-minus-legacy intervals are [-0.190, -0.082], [-0.183, -0.096] and [-0.189, -0.093]. The improvement direction survives these declared sensitivity lengths. Figure 1 shows the development-only calibration and the resulting reordering of the two gains.
 
 We also directly compare the two apparent gains using the same paired bootstrap draws. Define
 
@@ -109,7 +109,7 @@ A controlled follow-up should use a common source/event population, accounting-b
 
 The existing quick reproduction regenerated every reported abstract value locally. The new supplement records input hashes, refuses malformed or missing matched values, retains all declared analyses and verifies that inputs did not change. Its unit tests cover refusal, development-only scale fitting, hand-calculated interval scoring and paired season-stratified resampling.
 
-This is saved-forecast reproduction. It is distinct from regenerating tables from archived fitted runs and from refitting ratings from raw observations. The inspected source submodule is empty and has a placeholder URL. The pipeline source code does not make that release complete. A permission-cleared, accessible data inventory and public repository are still needed. No conference submission receipt exists in the inspected record.
+This is saved-forecast reproduction. It is distinct from regenerating tables from archived fitted runs and from refitting ratings from raw observations. No upstream source is bundled: the placeholder source submodule was removed in RC2 and replaced by `source_data/README.md`. The pipeline source code does not make that release complete. A permission-cleared, accessible data inventory and public repository are still needed. No conference submission receipt exists in the inspected record.
 
 ## 10. Conclusion
 

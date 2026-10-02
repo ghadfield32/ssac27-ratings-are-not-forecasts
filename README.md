@@ -8,9 +8,11 @@ This update accompanies the existing saved-forecast package. It adds a corrected
 
 ## Reproduce saved-forecast results
 
-The existing package's `reproduce.py` needs numpy and pandas. Run it from any directory with the package path:
+The existing package's `reproduce.py` needs numpy and pandas. A locked
+environment is provided; run it from any directory with the package path:
 
 ```powershell
+uv sync --frozen --extra dev --python 3.12
 python path/to/package/reproduce.py
 ```
 
@@ -35,7 +37,7 @@ The legacy comparator is the authors' earlier implementation, not a public RAPM 
 ## Reproduction levels
 
 1. **Saved forecasts to results:** executed and verified locally using the existing evaluation CSVs.
-2. **Archived fitted runs to evaluation tables:** the existing `rebuild_tables.py` expects a complete source package. The inspected local `source_data/` directory is empty and its URL is a placeholder. The default linked-source path is currently unavailable in that package. On Oct. 1 a separate existing local source checkout at revision 88473250c289ff8019a9ae6a389107d6d12d98c3 was verified against all 11,959 manifest entries and used to reconstruct both 10,466-row, 20-column tables to tolerance 1e-9. Only the runner's SRC assignment was redirected in memory; its scientific functions and original files were unchanged. See LOCAL_SOURCE_RECONSTRUCTION.json. This closes local archived-fits-to-tables reconstruction, not anonymous public-clone or raw-only refit validation.
+2. **Archived fitted runs to evaluation tables:** the existing `rebuild_tables.py` expects a complete source package that is not bundled. The placeholder submodule that used to sit at `source_data/` was removed in RC2 and replaced by `source_data/README.md`. On Oct. 1 a separate existing local source checkout at revision 88473250c289ff8019a9ae6a389107d6d12d98c3 was verified against all 11,959 manifest entries and used to reconstruct both 10,466-row, 20-column tables to tolerance 1e-9. Only the runner's SRC assignment was redirected in memory; its scientific functions and original files were unchanged. See LOCAL_SOURCE_RECONSTRUCTION.json. This closes local archived-fits-to-tables reconstruction, not anonymous public-clone or raw-only refit validation.
 3. **Raw observations to refitted models and results:** not demonstrated by either command above. A future hermetic refit must pin inputs, code, settings, environment and exact output equivalence.
 
 Do not run a submodule command expecting a working public data repository, or claim that an anonymized/derived release automatically satisfies rights or conference requirements. [DATA.md](DATA.md) specifies the boundary.

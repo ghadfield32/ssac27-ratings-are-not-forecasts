@@ -10,22 +10,23 @@
   "repository_slug_suggestion": "pmi-ratings-forecasts",
 
   "addressable_identity": {
-    "annotated_tag": "ssac27-pmi-rc-20261001",
-    "how_to_resolve": "git rev-parse ssac27-pmi-rc-20261001",
+    "annotated_tag": "ssac27-pmi-rc2-20261001",
+    "prior_candidate": { "tag": "ssac27-pmi-rc-20261001", "commit": "9e9a3ff3edd84a4054fd885338eb29887543eeb2" },
+    "how_to_resolve": "git rev-parse ssac27-pmi-rc2-20261001",
     "note": "the tag is created at the freeze boundary; its target commit is the candidate"
   },
 
   "content_identity": {
     "payload_manifest": "SHA256SUMS",
-    "payload_manifest_sha256": "2d3a675305eeba9ff6596f66d98c7e67a3be460344c01e87a4dcb54463a56c76",
-    "payload_files": 67,
-    "gitlink_entries": 1,
+    "payload_manifest_sha256": "03ba7ae666e659112e6c4133095554afef5ba04c4605ca9772bb991b43479cd8",
+    "payload_files": 69,
+    "gitlink_entries": 0,
     "excluded_from_manifest": ["SHA256SUMS", "REPRODUCTION_RECEIPT.json", "RELEASE_CANDIDATE.json"]
   },
 
   "reviewed_hashes": {
     "abstract.md": "d7429ed27b16c598e90b2ea2382e40f6719c22ef2aa875a19c843ee867f4b66e",
-    "MANUSCRIPT.md": "1733a1ca6102211295b66c205e9611f29c174cf6891fce05a54ad119300d05d0",
+    "MANUSCRIPT.md": "23823fb7e3eac1008f3425235b231e4ec4fb5ea29d2b80855fffd928d49ff607",
     "supplement_analysis.py": "5ee695524201cd6f4c0551afeabeb530d988bdfd7a73b55271ca6c523d1622db",
     "input_bindings.json": "56e0d89c46526ee2d84a50fe208d3f670ab6bed24d1a00e81d5dafe8ee128403",
     "supplement/supplement_results.json": "b3341e455526bfd5fbf9b5153e7272adc9fcacfaa813a6958bea564875520994"
@@ -44,9 +45,20 @@
   "public_remote": null,
   "open_gates": [
     "G1_data_redistribution_rights",
+    "G4_operator_approval",
+    "G5_independent_review_of_hygiene_layer"
+  ],
+  "resolved_in_rc2": [
     "G2_empty_source_data_gitlink",
-    "G3_no_hermetic_lock",
-    "G4_operator_approval"
+    "G3_no_hermetic_lock"
+  ],
+
+  "rc2_changes": [
+    "removed the empty source_data gitlink and its placeholder .gitmodules; replaced with source_data/README.md",
+    "added pyproject.toml + transitive uv.lock (13 packages), verified to rebuild the environment and run the suite",
+    "rewrote DATA_INVENTORY.json as a complete per-artifact publication inventory",
+    "added figure references in the manuscript",
+    "recorded the RC1 candidate as historical"
   ],
 
   "release_hygiene_artifacts_added_2026_10_01": [

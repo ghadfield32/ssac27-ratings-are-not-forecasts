@@ -9,8 +9,12 @@
     "python": "3.12",
     "numpy": "2.3.5",
     "pandas": "2.3.3",
-    "note": "Matches requirements-verified.txt. This is a direct-dependency snapshot, NOT a transitive lock. A hermetic fresh-environment claim is not supported (gate G3).",
-    "host": "author workstation; not a container-isolated environment"
+    "pytest": "9.1.1",
+    "lock": "uv.lock (transitive, 13 packages) with pyproject.toml",
+    "build": "uv sync --frozen --extra dev --python 3.12",
+    "note": "RC2 replaced the direct-dependency snapshot with a transitive lock. The lock is verified to build the exact versions above and to run reproduce.py, the supplement, and all 14 tests. requirements-verified.txt is retained only as the historical snapshot.",
+    "host": "author workstation; not a container-isolated environment",
+    "test_isolation": "pytest was run with a dedicated --basetemp. The host's shared pytest temp directory contains locked entries from unrelated suites; without a dedicated basetemp, pytest's teardown reports a spurious PermissionError after the tests have already passed. This does not affect the package."
   },
 
   "method": {
@@ -70,6 +74,12 @@
     "why_reproduce.py_missed_it": "reproduce.py reads values through pandas rather than hashing bytes, so normalization never affected it",
     "fix": "set '* -text -eol' and renormalize so committed bytes are the reviewed bytes",
     "verified": "all reviewed hashes now reproduce from a fresh clone; sha256sums regenerated"
+  },
+
+  "rc2_changes": {
+    "source_data_gitlink": "removed. The empty 160000 gitlink and its placeholder .gitmodules were deleted and replaced by source_data/README.md. The candidate now has zero gitlinks, so a clone cannot imply a second repository.",
+    "hermetic_environment": "pyproject.toml + transitive uv.lock added and verified.",
+    "publication_inventory": "DATA_INVENTORY.json now enumerates every tracked artifact with origin, raw/derived status, L1 necessity, provider-content presence, and proposed disposition."
   },
 
   "what_this_does_not_prove": [

@@ -25,9 +25,11 @@ status:
   holdout_spent: true            # 2023-24 and 2024-25 are exposed; not untouched validation
   abstract_frozen: true          # 402 words incl. title/body/table; four sections; one table
   clean_reproduction_passed: true    # evidence: REPRODUCTION_RECEIPT.json (clean clone, 2026-10-01)
-  independent_review_passed: true    # INDEPENDENT_REVIEW.md: APPROVE, PMI-R01 closed
-  release_hygiene_review_passed: false  # the 2026-10-01 hygiene artifacts are NOT yet reviewed
-  rights_review_passed: false        # RIGHTS.md is explicitly NOT publication-cleared
+  independent_review_passed: true    # INDEPENDENT_REVIEW.md: APPROVE, PMI-R01 closed (science/RC1 layer)
+  release_hygiene_review_passed: false  # the RC2 hygiene artifacts are NOT yet reviewed; see REVIEW.md
+  rights_inventory_complete: true    # DATA_INVENTORY.json enumerates every tracked artifact
+  rights_review_passed: false        # RIGHTS.md is explicitly NOT publication-cleared; gate G1 open
+  hermetic_environment: true         # pyproject.toml + transitive uv.lock; verified by clean-clone run
   user_publication_approval: false   # P6 — Geoffrey's explicit approval. NOT GIVEN.
   public_repository_created: false
   public_reproduction_passed: false
@@ -41,11 +43,15 @@ reproduction_levels:
 identities:
   source_main: e9aa1568b3344bab5bde0e2ae0babcbd75e78822
   reviewed_source_commit: 42f363919f235148394f2f6e36f728c6b06f8a47
-  source_gitlink_revision: 88473250c289ff8019a9ae6a389107d6d12d98c3
+  source_gitlink_revision: 88473250c289ff8019a9ae6a389107d6d12d98c3  # historical; the gitlink itself was removed in RC2
+  rc1_commit: 9e9a3ff3edd84a4054fd885338eb29887543eeb2
+  rc1_tag: ssac27-pmi-rc-20261001
+  rc2_commit: null           # set at the RC2 freeze
+  rc2_tag: null              # set at the RC2 freeze
   abstract_sha256: d7429ed27b16c598e90b2ea2382e40f6719c22ef2aa875a19c843ee867f4b66e
-  manuscript_sha256: 1733a1ca6102211295b66c205e9611f29c174cf6891fce05a54ad119300d05d0
+  manuscript_sha256: 23823fb7e3eac1008f3425235b231e4ec4fb5ea29d2b80855fffd928d49ff607
   data_manifest: input_bindings.json
-  release_commit: null       # set by RELEASE_CANDIDATE.json
+  release_commit: null       # set by RELEASE_CANDIDATE.json at the freeze boundary
   public_tag: null
   public_remote: null        # deliberately none; see PUBLICATION_DECISION.md
 
@@ -53,12 +59,20 @@ blockers:
   - id: PMI-G1
     what: data redistribution rights
     detail: "Tracked evaluation tables are NBA.com-derived. RIGHTS.md = not publication-cleared. Operator decision required."
+    state: OPEN
   - id: PMI-G2
     what: empty source_data gitlink
-    detail: "mode 160000 sha 88473250… with placeholder remote github.com/YOUR-ACCOUNT/ssac27-pmi-source-data.git. Inert; must be resolved or removed before any public push."
+    detail: "RESOLVED in RC2: gitlink and placeholder .gitmodules removed and replaced with source_data/README.md. Candidate now has zero gitlinks."
+    state: RESOLVED
   - id: PMI-G3
-    what: no hermetic environment lock
-    detail: "requirements-verified.txt self-describes as a direct-dependency snapshot, not a transitive lock."
+    what: hermetic environment lock
+    detail: "RESOLVED in RC2: pyproject.toml + transitive uv.lock (13 packages) verified to build numpy 2.3.5 / pandas 2.3.3 / pytest 9.1.1. requirements-verified.txt remains only as a historical snapshot."
+    state: RESOLVED
   - id: PMI-G4
     what: operator publication approval
     detail: "P6. Nothing public until Geoffrey approves an exact commit."
+    state: OPEN
+  - id: PMI-G5
+    what: independent review of the RC2 hygiene layer
+    detail: "The RC2 release-hygiene artifacts are not yet covered by an independent read-only review. Required before publication."
+    state: OPEN

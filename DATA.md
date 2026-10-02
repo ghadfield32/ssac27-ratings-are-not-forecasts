@@ -33,13 +33,13 @@ The executed possession release policy admits named source-absence **and source-
 
 ## Three distinct reproduction claims
 
-Saved-forecast reproduction is executed. The default linked-source reconstruction path remains unavailable because `source_data/` is empty and `.gitmodules` has a placeholder. Separate local archived-fit reconstruction has now passed as recorded below; anonymous public-source reconstruction remains unverified. Raw-data refitting is not demonstrated by `rebuild_tables.py`: that command consumes previously fitted runs. Neither the presence of fitting source code nor a previous archival restore is a fresh public clean-room refit.
+Saved-forecast reproduction is executed. The linked-source reconstruction path is **not** available in this package: the upstream source it needs is not bundled. The placeholder submodule that used to sit at `source_data/` was removed in RC2 and replaced by `source_data/README.md`. Separate local archived-fit reconstruction has now passed as recorded below; anonymous public-source reconstruction remains unverified. Raw-data refitting is not demonstrated by `rebuild_tables.py`: that command consumes previously fitted runs. Neither the presence of fitting source code nor a previous archival restore is a fresh public clean-room refit.
 
 ## Release decisions still required
 
 The author must resolve a permissible inventory and a real accessible supporting repository. The conference requests research data and makes authors responsible for third-party permissions: [official rules](https://www.sloansportsconference.com/research-paper-competition). No academic exemption, anonymization exemption, company/non-profit equivalence or permission to publish raw NBA content is inferred here. The author's supplied affiliation is World model Sports LLC.
 
-Two reviewable options remain: a permitted derived-evaluation release with an explicit description of its reproduction limit, subject to conference acceptance of that scope; or a permission-cleared source/refit release with the full chain. If neither clears the applicable requirements, the submission must remain blocked. Do not publish the empty source submodule as proof of either option.
+Two reviewable options remain: a permitted derived-evaluation release with an explicit description of its reproduction limit, subject to conference acceptance of that scope; or a permission-cleared source/refit release with the full chain. If neither clears the applicable requirements, the submission must remain blocked. The former placeholder submodule has been removed so nothing suggests a second repository exists.
 
 ## Local reconstruction evidence added Oct. 1
 

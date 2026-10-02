@@ -1,0 +1,20 @@
+[project]
+name = "pmi-ratings-forecasts"
+version = "1.0.0"
+description = "Reproduction package for \"Ratings Are Not Forecasts: Accounting, Calibration, and Information Timing in NBA Player-Impact Forecasting\" (SSAC27 abstract candidate)."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+dependencies = [
+    "numpy==2.3.5",
+    "pandas==2.3.3",
+]
+
+[project.optional-dependencies]
+# The synthetic regression suite and figure generation.
+dev = ["pytest>=8.0"]
+
+[tool.uv]
+# This repository is a reproduction package, not an installable library:
+# nothing is built or installed, only the environment is locked.
+package = false
