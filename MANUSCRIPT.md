@@ -22,6 +22,8 @@ The accounting rebuild covers 2015-16 through 2024-25 using NBA.com-derived obse
 
 The rebuilt pipeline attributes possessions and verifies that credited points match box-score points for accepted games. Named source-absence and source-order exclusions are declared. There are 8-61 excluded games per season; other failures outside the declared policy fail a season. In 2024-25 all eight exclusions are source-order failures. Describing them as absent play-by-play feeds would be incorrect. Scoring reconciliation does not establish perfect physical-possession identification; the declared same-team-repeat tolerance remains relevant.
 
+The possession-ratio range 0.48-0.56 and the 8-61 per-season exclusion count are asserted from the owner run-doc, which is outside this package. They are **not reproducible from the artifacts distributed here**; the reproduction level this package supports does not re-derive them. Treat them as recorded provenance rather than independent measurement.
+
 The exported evaluation tables contain 10,466 rows per track. Across models, 8,017 development and 2,430 evaluation games are matched. Track B's 19 unmatched exported rows consist of 15 development and four evaluation games. These rows are separate from upstream source exclusions and no-valid-lineup gaps; the exported rows are not an all-scheduled-games coverage denominator. A future operational evaluation must retain every scheduled opportunity and score the fallback on unavailable cases.
 
 Statistics underlying the work originate from NBA.com. This update reads existing artifacts without redistributing source data. The public inventory, third-party permissions and accessible repository remain unresolved. See DATA.md for units, provenance and reproduction levels.

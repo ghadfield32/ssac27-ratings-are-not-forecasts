@@ -27,7 +27,9 @@ CLI was executed with output captured in memory; JSON and Markdown matched the
 saved results exactly, with inputs unchanged. Four applicable read-only pytest
 tests passed; ten fixture-writing tests were not rerun. Canonical title agrees
 across abstract/manuscript/README. Reviewer word count: 402 including
-title/body/table after stripping Markdown. Byte identity was correctly
+title/body/table after stripping Markdown, as of the abstract revision reviewed
+then; the abstract was revised afterwards and now measures 425 ordinary / 403
+aggressive. Byte identity was correctly
 distinguished from historical information availability.
 
 Reviewed revisions (SHA-256):

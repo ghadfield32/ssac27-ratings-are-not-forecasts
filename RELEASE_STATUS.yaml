@@ -38,8 +38,8 @@ identities:
   rc2_tag: ssac27-pmi-rc2-20261001
   abstract_sha256: 2f86a51f3c6a75ea39ed6b0c15017d1d20ad1321918b1f095d0bfa0bf3376d23
   abstract_txt_sha256: f67a225f1c5bb16d96d767e0e85b4d46b79f211debf774290a25a847dc6a8fa5
-  manuscript_sha256: 218140a942c66452079d32a829498b5367cd1d769a770944e78b41e2728775f1
-  claim_ledger_sha256: 0a9bd652044f68590c3c5a26a0117eeebfc47a27ce7947fb4f76b53fb71b9838
+  manuscript_sha256: aadd48c7703027131609e4976c6706d9768f32b11307ae5ac125b6cf6ecf8bfa
+  claim_ledger_sha256: 2b13ccf62a49d1f3d79ebdad9ed472e5f2126a8f10ea7f867b71b03eeb764436
   published_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a
   public_remote: https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts
   public_branch: main

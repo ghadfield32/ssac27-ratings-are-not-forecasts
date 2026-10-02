@@ -33,7 +33,7 @@ refused before output creation.
 - Four applicable read-only pytest tests passed. Ten fixture-writing tests were
   not rerun by the reviewer.
 - Canonical title agrees across abstract/manuscript/README.
-- Word count: 402 (including title, body, and table, after stripping Markdown).
+- Word count: 402 including title/body/table after stripping Markdown — **as of this review's abstract revision**. The abstract was revised afterwards (see the focused review below), so the current counts are 425 ordinary / 403 aggressive.
 - Byte identity is correctly distinguished from historical information availability.
 
 ## Reviewed revisions (SHA-256)
@@ -176,4 +176,66 @@ The candidate was **NOT_APPROVED_FOR_PUBLICATION** at review time, pending the
 operator's own decision (gate G1). It was subsequently published under explicit
 operator authorization; G1 remains an open standing risk, not a cleared gate.
 See `PUBLICATION_DECISION.md` for the current publication record.
+
+---
+
+# Focused review of the revised abstract (2026-10-01)
+
+Scope: the abstract revision only, plus a regression check that nothing else
+moved. Reviewer: a fresh, non-author, read-only session with an independent
+context, which recomputed every number with its own code rather than through
+`reproduce.py`.
+
+## Verdict: APPROVE — zero BLOCKER/MAJOR
+
+The revision changed wording, not findings, and the reviewer confirmed it does
+**not** introduce or strengthen any claim. It verified that the package still
+argues against a solo-accounting reading (`not an isolated accounting treatment`,
+`cannot isolate accounting from regularisation`) and that nothing compares
+against public RAPM implementations.
+
+## Independently recomputed (all matched)
+
+Frozen RMSEs 7.944 / 7.761 / 7.334 / 7.113 and rescaled 7.471; the three
+weekly-minus-baseline intervals −0.9504..−0.7114, −0.7570..−0.5329,
+−0.2821..−0.1591; development slopes 0.471 / 0.897 / 0.997; rescaled contrasts
+0.1374 (0.0883–0.1870), 0.2214 (0.1576–0.2824), 0.3587 (0.2747–0.4412);
+coverage 0.76996; population 8,017 / 2,430.
+
+**The sign convention was confirmed independently:** the stored intervals are
+`RMSE(weekly) − RMSE(baseline)`, which matches the new `Weekly-minus-baseline`
+wording. The reviewer also confirmed Table 1 reports Track B, not Track A.
+
+## Limitation audit against the previous revision
+
+No limitation was dropped. All of these survive: accounting not isolated,
+post-hoc labelling, saved-forecast conditioning, no betting market, no decision
+value, diagnoses-our-build, spent holdout. (The spent-holdout caveat is absent
+from *both* revisions — pre-existing, carried in the supplement's limitations —
+not a regression introduced here.)
+
+## Reproduction in a throwaway clone at this commit
+
+`reproduce.py` exit 0; `supplement_analysis.py` exit 0; **14 tests passed**;
+regenerated `supplement_results.json` byte-identical to `b3341e45…`; `SHA256SUMS`
+71/71 with 0 mismatches.
+
+## Findings from this review
+
+| ID | Severity | Finding | Closure |
+|---|---|---|---|
+| PMI-ABS-01 | MINOR | `0.48-0.56` and `8-61` are not reproducible from within the package; they trace only to the owner run-doc. | `CLAIM_LEDGER.md` and `MANUSCRIPT.md` now say so explicitly. |
+| PMI-ABS-02 | MINOR | `REVIEW.md` / `INDEPENDENT_REVIEW.md` still stated "402 words", which no longer matched any count. | Framed as the count at that review; current 425 / 403 stated. |
+| PMI-ABS-03 | MINOR | `SUBMISSION_CHECKLIST.md` claimed two word counts but stated none. | Both counts now stated. |
+| PMI-ABS-04 | INFO | The `0.28` lower endpoint is round-half-up from a 0.275 source value. | Left as-is; the rounding under-claims rather than over-claims. |
+
+The reviewer also noted that this commit's own message gave inconsistent word
+counts for the previous revision. The substantive claim (that the revision gained
+margin) holds: 425 ordinary / 403 aggressive, both under the 500 limit.
+
+## What this review could not verify
+
+The authoritative values behind `0.48-0.56` and `8-61` (the owner run-doc is
+outside the package); L2/L3; upstream NBA.com fidelity; and G1 rights.
+
 

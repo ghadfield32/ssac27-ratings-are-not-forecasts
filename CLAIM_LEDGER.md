@@ -4,8 +4,8 @@ Original code/evaluation: `e3140577b`; original evaluation contract: `420003edd`
 
 | Claim | Evidence | Qualification |
 |---|---|---|
-| Legacy counts 0.48-0.56 of box possession estimates | Owner RUNDOC section 3a/3e | Estimates/proxies, not independent physical-possession truth |
-| 8-61 excluded games per season | Owner RUNDOC source-absence-v2 table/reason counts | Includes source order; 2024-25 eight are source-order, not absent feeds |
+| Legacy counts 0.48-0.56 of box possession estimates | Owner RUNDOC section 3a/3e | Estimates/proxies, not independent physical-possession truth; **not reproducible from this package** — the source run-doc is outside it |
+| 8-61 excluded games per season | Owner RUNDOC source-absence-v2 table/reason counts | Includes source order; 2024-25 eight are source-order, not absent feeds; **not reproducible from this package** — the source run-doc is outside it |
 | Scored points/attribution checks | Owner RUNDOC season-release validation | Within admitted source/policy; not all-scheduled coverage or perfect measurement |
 | Weekly fitting strictly earlier than issuance | Owner RUNDOC section 3f; frozen fitting/evaluation source | Historical event-date replay; external available-at receipts not proved |
 | 8,017 development/2,430 evaluation matched games | `data/*.csv`, frozen report; both reproduced | Selected admitted/matched population |
