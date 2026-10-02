@@ -14,9 +14,16 @@ from reportlab.lib.pagesizes import LETTER
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.lib import colors
+from reportlab import rl_config
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
 )
+
+# Deterministic output: reportlab otherwise embeds the current time in the PDF
+# metadata (CreationDate/ID), so the same abstract.txt would produce a different
+# file hash on every run. This artifact is committed and manifest-covered, so it
+# must regenerate byte-identically.
+rl_config.invariant = 1
 
 HERE = Path(__file__).resolve().parent
 SRC = HERE / "abstract.txt"
