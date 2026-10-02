@@ -7,7 +7,7 @@ separate non-author read-only session with a fresh context. It is artifact-autho
 independence within the same harness family — **not** an external conference
 peer review, and **not** a second GitHub identity.
 
-- Reviewer run: `/root/pmi_submission_review`, read-only, assignment declared.
+- Reviewer run ID: `pmi_submission_review` (read-only, assignment declared).
 - Exact resolved model/provider revision: not exposed.
 - Source of record: `INDEPENDENT_REVIEW.md` (kept alongside the reviewed package).
 

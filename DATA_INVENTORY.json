@@ -103,7 +103,7 @@
     "raw rotations / lineups",
     "bulk box scores",
     "player-level NBA source tables",
-    "private preservation archive (D:\\c\\ssac27_pmi_preservation)",
+    "the private preservation archive (kept off-repository, on the authoring host)",
     "credentials, caches, secrets",
     "absolute local paths"
   ],
