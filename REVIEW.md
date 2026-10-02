@@ -60,6 +60,7 @@ This closes a local defect review, not any submission or publication gate.
 - The clean-clone Level-1 reproduction (recorded in `REPRODUCTION_RECEIPT.json`).
 - The RC2 changes (removed `source_data` gitlink, `pyproject.toml` + `uv.lock`,
   the rewritten `DATA_INVENTORY.json`). These are tracked as gate G5.
+
 The reviewer edited no files.
 
 ---
@@ -74,8 +75,8 @@ non-author, read-only session with an independent context.
 
 | Phase | Verdict |
 |---|---|
-| Initial freeze review | **REVISE** — 2 MAJOR, 5 MINOR, 3 INFO |
-| Focused remediation | see the closure table below |
+| Initial freeze review | **REVISE** — 2 MAJOR, 4 MINOR, 3 INFO (9 findings) |
+| Focused remediation review | **APPROVE** — both MAJORs closed; 4 new MINOR/INFO delta findings, all then closed |
 
 The reviewer reproduced the entire scientific layer independently — recomputing
 every reported quantity from `data/pmi_games_track_b.csv` with its own code
@@ -96,7 +97,7 @@ surgery.
 |---|---|---|---|
 | PMI-RC2-01 | MAJOR | Gate G1 rested on `RIGHTS.md`, which was **not tracked and never existed** in this repository (it was cited from a different location). A gate cannot rest on a missing authority. | Added `RIGHTS.md` as the in-package rights authority. `git grep RIGHTS.md` now resolves. |
 | PMI-RC2-02 | MAJOR | `rebuild_tables.py` still instructed `git submodule update --init` and exited telling the reader to run it, contradicting the RC2 submodule removal. | Docstring and exit message now state the source is external and not a submodule. |
-| PMI-RC2-03 | MINOR | Inventory counts wrong (68 vs 72 tracked; 22 vs 23 `pipeline/**`). | Recomputed from `git ls-files`: 72 tracked, 23 `pipeline/**`, 69 payload files. |
+| PMI-RC2-03 | MINOR | Inventory counts wrong (68 vs 72 tracked; 22 vs 23 `pipeline/**`). | Recomputed from `git ls-files`: 74 tracked, 23 `pipeline/**`, 71 payload files. |
 | PMI-RC2-04 | MINOR | `PUBLICATION_DECISION.md` said "four gates are open" while its table showed three. | Corrected to three (G1, G4, G5). |
 | PMI-RC2-05 | MINOR | README claimed the environment was unverified in a fresh clone, and carried a stale placeholder sentence. | Both corrected; the RC2 artifacts were added to the file table. |
 | PMI-RC2-06 | MINOR | `REVIEW.md` had two bullets merged on one line and referenced a nonexistent `DATA_INVENTORY.md`. | Split and corrected to `.json`. |
@@ -121,6 +122,56 @@ surgery.
 and gate-language drift, then the candidate's science and L1 release gates are in
 a state I would approve."*
 
-Both MAJORs and all MINORs are closed above. The candidate remains
-**NOT_APPROVED_FOR_PUBLICATION** pending the operator's own decision (gate G1).
+Both MAJORs and all MINORs are closed above.
+
+## Focused remediation review (2026-10-01)
+
+A separate read-only non-author session reviewed the remediation commit itself,
+checking each finding against the repository rather than against prose.
+
+**Verdict: APPROVE.** Both MAJORs were closed on the underlying inconsistency:
+
+| Finding | Verdict | Closing evidence |
+|---|---|---|
+| PMI-RC2-01 | **CLOSED** | `RIGHTS.md` is tracked; all 10 citations resolve; it states `NOT PUBLICATION-CLEARED` and grants nothing. |
+| PMI-RC2-02 | **CLOSED** | No imperative submodule instruction remains; running `rebuild_tables.py` exits 1 with the corrected external-source message. |
+| PMI-RC2-03 | **CLOSED** | All four counts now match `git ls-files` (74 tracked, 23 `pipeline/**`, 71 payload, 0 gitlinks). |
+| PMI-RC2-04 | **CLOSED** | `PUBLICATION_DECISION.md`, `RELEASE_STATUS.yaml` and `RELEASE_CANDIDATE.json` agree: G1/G4/G5 open, G2/G3 resolved. |
+| PMI-RC2-05 | **CLOSED** | README boundary sentence corrected; stale placeholder sentence gone; RC2 artifacts listed. |
+| PMI-RC2-06 | **CLOSED** | Bullets split; no `.md` phantom outside this remediation table. |
+| PMI-RC2-07 | **CLOSED** | Receipt line qualified as a host venv, not a container image. |
+| PMI-RC2-08 | **Reported** | Tag created at the freeze boundary, after this review. |
+
+The reviewer also independently confirmed the science layer unchanged and still
+reproducing from a throwaway clone: `reproduce.py` exit 0, supplement exit 0
+regenerating `b3341e45…`, 14 tests passed, `SHA256SUMS` 71/71 with 0 mismatches,
+`abstract.md` still `d7429ed2…`, and the evaluation tables still 10,466 rows.
+
+### Delta findings found by the remediation review, and their closure
+
+| ID | Severity | Finding | Closure |
+|---|---|---|---|
+| RC2R-01 | MINOR | An absolute host path had leaked into `REPRODUCTION_RECEIPT.json`, making two of its own hygiene claims false. | Path replaced with a relative description; both claims re-verified true. |
+| RC2R-02 | MINOR | The `PMI-RC2-03` closure cell cited stale intermediate counts (72/69). | Updated to 74/71. |
+| RC2R-03 | INFO | The verdict row said 5 MINOR while the table listed 4. | Corrected to 4 MINOR / 9 findings. |
+| RC2R-04 | INFO | Two residual Markdown nits in this file. | Corrected. |
+
+RC2R-01 is the same defect class as the MAJOR it followed: a document asserting
+something untrue about itself. It was introduced by the remediation and caught by
+reviewing the remediation — which is the argument for reviewing the delta rather
+than accepting a closure on the strength of added sentences.
+
+## What the RC2 review could not verify
+
+- **L2** — the private source checkout at `88473250…` is not present, so the
+  11,959-entry manifest verification and the 1e-9 table reconstruction could not
+  be re-run. Taken on record, as the package itself states.
+- **L3** — never executed; nothing claims otherwise.
+- **Upstream NBA.com fidelity** — by design: L1 replays the derived tables only.
+- **G1 rights** — a legal/operator judgment, outside scientific verification.
+- **`uv sync --frozen`** — the lock was verified statically; a network install
+  was not executed by the reviewer.
+
+The candidate remains **NOT_APPROVED_FOR_PUBLICATION** pending the operator's own
+decision (gate G1).
 

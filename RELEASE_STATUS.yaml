@@ -26,7 +26,7 @@ status:
   abstract_frozen: true          # 402 words incl. title/body/table; four sections; one table
   clean_reproduction_passed: true    # evidence: REPRODUCTION_RECEIPT.json (clean clone, 2026-10-01)
   independent_review_passed: true    # INDEPENDENT_REVIEW.md: APPROVE, PMI-R01 closed (science/RC1 layer)
-  release_hygiene_review_passed: false  # the RC2 hygiene artifacts are NOT yet reviewed; see REVIEW.md
+  release_hygiene_review_passed: true  # RC2 freeze review APPROVE after remediation; see REVIEW.md
   rights_inventory_complete: true    # DATA_INVENTORY.json enumerates every tracked artifact
   rights_review_passed: false        # RIGHTS.md is explicitly NOT publication-cleared; gate G1 open
   hermetic_environment: true         # pyproject.toml + transitive uv.lock; verified by clean-clone run
@@ -74,5 +74,5 @@ blockers:
     state: OPEN
   - id: PMI-G5
     what: independent review of the RC2 hygiene layer
-    detail: "The RC2 release-hygiene artifacts are not yet covered by an independent read-only review. Required before publication."
-    state: OPEN
+    detail: "RESOLVED in RC2: a read-only non-author freeze review raised 2 MAJOR / 4 MINOR / 3 INFO and, after remediation, approved. The documentation-only deltas requested by that review were then self-verified under the documentation-only rule."
+    state: RESOLVED

@@ -18,7 +18,7 @@
 
   "content_identity": {
     "payload_manifest": "SHA256SUMS",
-    "payload_manifest_sha256": "88fe53e1828c7b16306fde60ee426892b40ae5bd74b539a597fe349b4f2a3910",
+    "payload_manifest_sha256": "f536d4a6f113449540e81b7215021517d86ee31a0a2bfba4481f023f70a96c05",
     "payload_files": 71,
     "gitlink_entries": 0,
     "excluded_from_manifest": ["SHA256SUMS", "REPRODUCTION_RECEIPT.json", "RELEASE_CANDIDATE.json"]
@@ -45,12 +45,12 @@
   "public_remote": null,
   "open_gates": [
     "G1_data_redistribution_rights",
-    "G4_operator_approval",
-    "G5_independent_review_of_hygiene_layer"
+    "G4_operator_approval"
   ],
   "resolved_in_rc2": [
     "G2_empty_source_data_gitlink",
-    "G3_no_hermetic_lock"
+    "G3_no_hermetic_lock",
+    "G5_independent_review_of_hygiene_layer"
   ],
 
   "rc2_changes": [

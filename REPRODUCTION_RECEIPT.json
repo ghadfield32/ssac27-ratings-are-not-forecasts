@@ -17,9 +17,9 @@
     "test_isolation": "pytest was run with a dedicated --basetemp. The host's shared pytest temp directory contains locked entries from unrelated suites; without a dedicated basetemp, pytest's teardown reports a spurious PermissionError after the tests have already passed. This does not affect the package."
   },
 
-    "method": {
-    "isolation": "git clone of the frozen candidate into a separate directory; commands run from a working directory outside the package (a host scratch path, not a path inside the package) to prove no dependence on the package location",
-    "clone_source": "the local frozen candidate repository at D:\\c\\ssac27_public\\pmi",
+  "method": {
+    "isolation": "git clone of the frozen candidate into a separate directory; commands run from a working directory outside the package to prove no dependence on the package location",
+    "clone_source": "the local frozen candidate repository, cloned to a path outside the package",
     "remote_in_clone": "the clone's origin is the local repository path; no network host is involved",
     "network_used": false
   },

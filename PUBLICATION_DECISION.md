@@ -14,16 +14,15 @@ publication bytes is outside the authorization of any agent session.**
 
 ## Why it is not approved
 
-Three gates are open. None of them is a code defect; they are decisions or
-review the operator or a reviewer must complete.
+Two gates are open. Neither is a code defect: both are decisions only you can make.
 
 | Gate | State | Why it blocks publication |
 |---|---|---|
-| G1 — data redistribution rights | **open** | The tracked evaluation tables are NBA.com-derived (`DATA.md`: attribution, not permission). `RIGHTS.md` states the package is **not publication-cleared**. A MIT code licence cannot grant third-party data rights. |
+| G1 — data redistribution rights | **open** | The tracked evaluation tables are NBA.com-derived (`DATA.md`: attribution, not permission). `RIGHTS.md` records the package as **not publication-cleared**. A MIT code licence cannot grant third-party data rights. |
 | G2 — `source_data` gitlink | **RESOLVED in RC2** | The empty `160000` gitlink with an unconfigured placeholder remote was removed, together with `.gitmodules`, and replaced by `source_data/README.md`. The candidate has zero gitlinks. |
 | G3 — hermetic environment | **RESOLVED in RC2** | `pyproject.toml` + transitive `uv.lock` (13 packages) were added and verified to build the exact versions and run the full suite. |
 | G4 — operator approval | **open** | This file. |
-| G5 — independent review of the hygiene layer | **open** | The RC2 release-hygiene artifacts have not yet had a read-only non-author review. |
+| G5 — independent review of the hygiene layer | **RESOLVED in RC2** | A read-only non-author freeze review raised 2 MAJOR / 4 MINOR / 3 INFO and, after focused remediation, approved. See `REVIEW.md` and `INDEPENDENT_REVIEW.md`. |
 
 ## What is already true (and is not a reason to publish)
 
