@@ -1,75 +1,53 @@
 # Ratings Are Not Forecasts: Accounting, Calibration, and Information Timing in NBA Player-Impact Forecasting
 
-Geoffrey Hadfield, World model Sports LLC (CEO/founder).
+Geoffrey Hadfield, World Model Sports LLC (CEO/founder).
 
-Local supporting-package revision for the SSAC27 abstract competition. **Not submitted or publication-cleared.** A public repository URL and a permissible data release are unresolved. No submission receipt is recorded.
+This is the public supporting repository for the SSAC27 abstract candidate. The reviewed release candidate is tag `ssac27-pmi-rc2-20261001` at commit `a5110b1190d18d30c378b9ef30f21d132ecf636a`. The repository has been anonymously cloned and its reported-statistics reproduction rerun successfully. **The paper has not been submitted to Sloan; no submission receipt exists.**
 
-This update accompanies the existing saved-forecast package. It adds a corrected abstract, a substantive manuscript draft, claim bindings, post hoc robustness analyses, figures and an explicit release checklist. It does not replace the saved predictions, original frozen parameters or expected results.
+A standing data-rights risk remains open: the tracked evaluation tables are derived from NBA.com data, and this repository does not claim a redistribution licence for those derived tables. See [RIGHTS.md](RIGHTS.md), [DATA.md](DATA.md), and [PUBLICATION_DECISION.md](PUBLICATION_DECISION.md). Publication occurred on explicit operator authorization with that risk recorded rather than silently cleared.
 
-## Reproduce saved-forecast results
+## What this repository supports
 
-The existing package's `reproduce.py` needs numpy and pandas. A locked
-environment is provided; run it from any directory with the package path:
+The package reproduces the saved-forecast results reported in the abstract and the post hoc robustness supplement. It does not claim a raw-source refit, betting-market superiority, coaching effects, or financial/operational returns.
+
+## Reproduce the reported results
+
+Use Python 3.12 and the locked environment:
 
 ```powershell
 uv sync --frozen --extra dev --python 3.12
-python path/to/package/reproduce.py
+python reproduce.py
+python supplement_analysis.py --package . --output ./tmp/supplement
+python -m pytest test_supplement.py -q -p no:cacheprovider
 ```
 
-It checks the original pooled/per-season RMSE, coverage, paired game-bootstrap intervals and the previously executed development-only rescaling against `data/expected.json`. It must end with `OK: every value matches the committed results`.
-
-Run this update's supplement without modifying the existing package:
-
-```powershell
-python supplement_analysis.py --package path/to/package --output path/to/output/supplement
-```
-
-The supplement validates both evaluation tables, refuses missing/inconsistent season, phase, game identity or calendar-year metadata, and binds its four input files to the exact reviewed SHA-256 values in `input_bindings.json` before writing results. It rechecks hashes after execution. The calendar-year check permits exceptional COVID schedules; exact dates are pinned by the byte binding, not inferred from a normal October-to-June calendar. It produces `supplement_results.json` and `SUPPLEMENT_RESULTS.md`. All analyses are labelled post hoc. It adds MSE/MAE, a proper 80% interval score, widths and tail misses, development-defined calibration bins, existing subgroup diagnostics, and 7/14/28-day calendar-cluster sensitivity. No rating model is fitted or promoted. Byte identity is not proof of historical information availability.
+`reproduce.py` must finish with `OK: every value matches the committed results`. The supplement validates the bound inputs before and after analysis, and the test suite contains 14 regression checks. See [REPRODUCTION_RECEIPT.json](REPRODUCTION_RECEIPT.json).
 
 ## Study boundary
 
-The distributed synthetic regression suite runs with `python -m pytest test_supplement.py -q`. It has passed all 14 tests in a fresh clone of this package, using the environment built from `pyproject.toml` + `uv.lock`. See `REPRODUCTION_RECEIPT.json`.
+The operational target is home net points per 100 combined possessions, not an ordinary point spread. Track B projects participation from earlier team games; Track A uses realized participation and is diagnostic. The original models and offsets were frozen before the 2023-24/2024-25 evaluation read. Later recalibration, robustness analysis, and manuscript revisions are post hoc; those seasons are now exposed.
 
-The operational target is home net points per 100 combined possessions, not an ordinary point spread. Track B projects participation using earlier team games. Track A uses realized participation and is diagnostic only. The original models and offsets were frozen before the 2023-24/2024-25 evaluation read. Every later recalibration, robustness analysis and manuscript revision is post hoc; those seasons are now exposed.
-
-The legacy comparator is the authors' earlier implementation, not a public RAPM implementation. Accounting and regularisation changed together. Neither market superiority, coaching effects nor financial/operational returns were measured.
+The legacy comparator is the author's earlier implementation, not a public RAPM implementation. Possession accounting and regularisation changed together, so the paper does not attribute their full difference to accounting alone.
 
 ## Reproduction levels
 
-1. **Saved forecasts to results:** executed and verified locally using the existing evaluation CSVs.
-2. **Archived fitted runs to evaluation tables:** the existing `rebuild_tables.py` expects a complete source package that is not bundled. The placeholder submodule that used to sit at `source_data/` was removed in RC2 and replaced by `source_data/README.md`. On Oct. 1 a separate existing local source checkout at revision 88473250c289ff8019a9ae6a389107d6d12d98c3 was verified against all 11,959 manifest entries and used to reconstruct both 10,466-row, 20-column tables to tolerance 1e-9. Only the runner's SRC assignment was redirected in memory; its scientific functions and original files were unchanged. See LOCAL_SOURCE_RECONSTRUCTION.json. This closes local archived-fits-to-tables reconstruction, not anonymous public-clone or raw-only refit validation.
-3. **Raw observations to refitted models and results:** not demonstrated by either command above. A future hermetic refit must pin inputs, code, settings, environment and exact output equivalence.
+1. **Saved forecasts to reported statistics — executed.** Uses the tracked evaluation tables and frozen parameters.
+2. **Archived fitted runs to evaluation tables — executed locally, not from this public source alone.** See [LOCAL_SOURCE_RECONSTRUCTION.json](LOCAL_SOURCE_RECONSTRUCTION.json).
+3. **Raw observations to refitted models and results — not demonstrated.** Do not infer this from the presence of pipeline source code.
 
-Do not run a submodule command expecting a working public data repository, or claim that an anonymized/derived release automatically satisfies rights or conference requirements. [DATA.md](DATA.md) specifies the boundary.
+## Data and rights
 
-## Files in this revision
+Tracked evaluation tables are included because they are required for the public L1 replay. They are derived from NBA.com data and contain no raw play-by-play, rotations, lineup stints, bulk box scores, or player-level provider tables. Their redistribution status is **not claimed to be cleared**. Read [RIGHTS.md](RIGHTS.md) before reusing or redistributing them.
 
-| File | Purpose |
-|---|---|
-| `abstract.md` | Submission candidate; title/body/table together must remain below 500 words |
-| `MANUSCRIPT.md` | Evidence-bound manuscript draft; not a formatted full-paper submission |
-| `CLAIM_LEDGER.md` | Exact evidence and limitation for each material claim |
-| `PRIOR_WORK.md` | Closest primary precedents and permitted novelty wording |
-| `DATA.md` | Data inventory, provenance and unresolved release decisions |
-| `supplement_analysis.py` | Standalone saved-forecast diagnostics |
-| `supplement/` | Executed supplemental results and figures |
-| `FUTURE_STUDY_CONTRACT.md` | Controlled comparison and untouched future validation; unexecuted |
-| `SUBMISSION_CHECKLIST.md` | Local checks and remaining operator/external gates |
-| `AUTHORS.json` | Operator-supplied author metadata; public URL/receipt unset |
-| `RIGHTS.md` | Rights and data disposition; not publication-cleared (gate G1) |
-| `INDEPENDENT_REVIEW.md` | Reviews of record (RC1 science, RC2 freeze) |
-| `RELEASE_STATUS.yaml` | Single source of truth for release state |
-| `PUBLICATION_DECISION.md` | The publication gate; currently NOT_APPROVED_FOR_PUBLICATION |
-| `DATA_INVENTORY.json` | Per-artifact publication inventory |
-| `REPRODUCTION_RECEIPT.json` | Clean-clone reproduction evidence |
-| `SHA256SUMS` | Payload manifest |
-| `pyproject.toml`, `uv.lock` | Locked reproduction environment |
-| `source_data/README.md` | What upstream data was used privately and why it is not bundled |
+## Review trail
 
-## Prior work
+- Exact reviewed RC2 tag: `ssac27-pmi-rc2-20261001`
+- Independent review record: [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md)
+- Release review and remediation: [REVIEW.md](REVIEW.md)
+- Claim bindings: [CLAIM_LEDGER.md](CLAIM_LEDGER.md)
+- Prior-work comparison: [PRIOR_WORK.md](PRIOR_WORK.md)
+- Release state: [RELEASE_STATUS.yaml](RELEASE_STATUS.yaml)
 
-Ridge RAPM and out-of-sample testing precede this study (Sill, 2010). L-RAPM uses weekly expanding-window prediction for lineup/possession outcomes (Petridis and Pelechrinis, 2026). This paper's defensible contribution is a case study of accounting, forecast scale, participation information and comparison fairness, not the invention of those established methods. See [PRIOR_WORK.md](PRIOR_WORK.md).
+## Submission status
 
-## Publication
-
-The current local package has no configured remote. Publication is a separate operator-controlled action after the exact payload, third-party data permissions and conference compliance are resolved. Include prominent NBA.com attribution where permitted. A code licence cannot grant rights to third-party data. Rights are recorded in RIGHTS.md and remain unresolved (gate G1); the candidate has zero gitlinks and no submodule.
+**Not submitted.** The public repository and anonymous reproduction are complete; Sloan submission remains a separate operator action. Use [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md) before filing the form.
