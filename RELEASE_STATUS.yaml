@@ -46,8 +46,8 @@ identities:
   source_gitlink_revision: 88473250c289ff8019a9ae6a389107d6d12d98c3  # historical; the gitlink itself was removed in RC2
   rc1_commit: 9e9a3ff3edd84a4054fd885338eb29887543eeb2
   rc1_tag: ssac27-pmi-rc-20261001
-  rc2_commit: null           # set at the RC2 freeze
-  rc2_tag: null              # set at the RC2 freeze
+  rc2_tag: ssac27-pmi-rc2-20261001   # the annotated tag is the authoritative RC2 identity
+  rc2_commit: null                   # a commit cannot name the commit that contains it; resolve via `git rev-parse ssac27-pmi-rc2-20261001`
   abstract_sha256: d7429ed27b16c598e90b2ea2382e40f6719c22ef2aa875a19c843ee867f4b66e
   manuscript_sha256: 23823fb7e3eac1008f3425235b231e4ec4fb5ea29d2b80855fffd928d49ff607
   data_manifest: input_bindings.json

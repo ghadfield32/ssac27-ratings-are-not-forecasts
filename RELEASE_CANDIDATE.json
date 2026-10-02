@@ -18,7 +18,7 @@
 
   "content_identity": {
     "payload_manifest": "SHA256SUMS",
-    "payload_manifest_sha256": "f536d4a6f113449540e81b7215021517d86ee31a0a2bfba4481f023f70a96c05",
+    "payload_manifest_sha256": "09b6ea924d85cbfb11969f82bf4d5612db64547de53aa67c22906f4e5b286b01",
     "payload_files": 71,
     "gitlink_entries": 0,
     "excluded_from_manifest": ["SHA256SUMS", "REPRODUCTION_RECEIPT.json", "RELEASE_CANDIDATE.json"]
