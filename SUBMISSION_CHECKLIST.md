@@ -16,6 +16,8 @@
 - [x] Broken source-data gitlink removed.
 - [x] Hermetic `pyproject.toml` + `uv.lock` added and verified.
 - [x] Independent science/release review completed with remediation.
+- [x] Focused independent review of the revised abstract completed: APPROVE, zero BLOCKER/MAJOR.
+- [x] Exact submission snapshot tagged as `ssac27-abstract-submission-20261001` at commit `0afe1de4bef1700a613d26cd3970bf4b7464aed8`.
 - [x] Public repository created.
 - [x] Reviewed tag `ssac27-pmi-rc2-20261001` published.
 - [x] Anonymous public clone succeeded.
