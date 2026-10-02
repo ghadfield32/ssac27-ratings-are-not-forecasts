@@ -1,88 +1,72 @@
 # Universal release status — PMI
-#
-# Single source of truth for "how done is this paper". This file exists so that
-# "done" is never ambiguous between: model done / paper done / reviewed /
-# public / submitted.
-#
-# Rule: a `true` here must name the evidence that established it. A field that
-# has not been checked is `false`, not omitted. An absent field reads as "not
-# applicable"; an explicit `false` reads as "checked and the answer is no".
 
 paper:
   title: "Ratings Are Not Forecasts: Accounting, Calibration, and Information Timing in NBA Player-Impact Forecasting"
   author: Geoffrey Hadfield
-  affiliation: World model Sports LLC
+  affiliation: World Model Sports LLC
   role: CEO/founder
   identity: PMI
-  repository_slug: pmi-ratings-forecasts
-  author_confirmation: "operator supplied 2026-10-01; confirm paper-specific coauthors before release"
+  repository_slug: ssac27-ratings-are-not-forecasts
 
 status:
-  # The frozen reported experiment (models, offsets, split) was fixed before the
-  # 2023-24/2024-25 holdout was read. That is what "science_frozen" means here.
-  # It does NOT mean the holdout is reusable: see holdout_spent.
   science_frozen: true
-  holdout_spent: true            # 2023-24 and 2024-25 are exposed; not untouched validation
-  abstract_frozen: true          # 402 words incl. title/body/table; four sections; one table
-  clean_reproduction_passed: true    # evidence: REPRODUCTION_RECEIPT.json (clean clone, 2026-10-01)
-  independent_review_passed: true    # INDEPENDENT_REVIEW.md: APPROVE, PMI-R01 closed (science/RC1 layer)
-  release_hygiene_review_passed: true  # RC2 freeze review APPROVE after remediation; see REVIEW.md
-  rights_inventory_complete: true    # DATA_INVENTORY.json enumerates every tracked artifact
-  rights_review_passed: false        # RIGHTS.md records no redistribution licence; gate G1 remains OPEN at publication
-  hermetic_environment: true         # pyproject.toml + transitive uv.lock; verified by clean-clone run
-  user_publication_approval: true    # granted by explicit operator instruction 2026-10-01
-  public_repository_created: true    # https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts
-  public_reproduction_passed: true   # anonymous clone verified; see REPRODUCTION_RECEIPT.json
-  submitted: false                   # no Sloan submission or receipt exists
+  holdout_spent: true
+  abstract_frozen: true
+  clean_reproduction_passed: true
+  independent_review_passed: true
+  release_hygiene_review_passed: true
+  rights_inventory_complete: true
+  rights_review_passed: false
+  hermetic_environment: true
+  user_publication_approval: true
+  public_repository_created: true
+  public_reproduction_passed: true
+  submitted: false
 
 reproduction_levels:
-  L1_reported_statistics_replay: true       # reproduce.py from the four tracked data files
-  L2_evaluation_table_reconstruction: true  # LOCAL_SOURCE_RECONSTRUCTION.json, local source checkout
-  L3_raw_source_refit: false                # never executed; do not imply it from code presence
+  L1_reported_statistics_replay: true
+  L2_evaluation_table_reconstruction: true
+  L3_raw_source_refit: false
 
 identities:
   source_main: e9aa1568b3344bab5bde0e2ae0babcbd75e78822
   reviewed_source_commit: 42f363919f235148394f2f6e36f728c6b06f8a47
-  source_gitlink_revision: 88473250c289ff8019a9ae6a389107d6d12d98c3  # historical; the gitlink itself was removed in RC2
+  historical_source_gitlink_revision: 88473250c289ff8019a9ae6a389107d6d12d98c3
   rc1_commit: 9e9a3ff3edd84a4054fd885338eb29887543eeb2
   rc1_tag: ssac27-pmi-rc-20261001
-  rc2_tag: ssac27-pmi-rc2-20261001   # the annotated tag is the authoritative RC2 identity
-  rc2_commit: null                   # a commit cannot name the commit that contains it; resolve via `git rev-parse ssac27-pmi-rc2-20261001`
+  rc2_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a
+  rc2_tag: ssac27-pmi-rc2-20261001
   abstract_sha256: d7429ed27b16c598e90b2ea2382e40f6719c22ef2aa875a19c843ee867f4b66e
   manuscript_sha256: 23823fb7e3eac1008f3425235b231e4ec4fb5ea29d2b80855fffd928d49ff607
-  published_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a   # the reviewed RC2 commit that was pushed
+  published_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a
   public_remote: https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts
   public_branch: main
-  public_tag: ssac27-pmi-rc2-20261001   # points at published_commit; the reviewed bytes
-  post_publication_record_commits: true  # this file and PUBLICATION_DECISION.md were updated after the tag to record the publication; the review tags remain on the reviewed bytes
+  public_tag: ssac27-pmi-rc2-20261001
   data_manifest: input_bindings.json
-  release_commit: null       # set by RELEASE_CANDIDATE.json at the freeze boundary
-  public_tag: null
-  public_remote: null        # deliberately none; see PUBLICATION_DECISION.md
 
 blockers:
   - id: PMI-G1
     what: data redistribution rights
-    detail: "OPEN. The tracked evaluation tables are NBA.com-derived and RIGHTS.md records no licence to redistribute them. No permission was obtained. Publication proceeded on explicit operator authorization 2026-10-01 with this risk stated; if it is later judged impermissible, remove the four data files from the repository and the manifest rather than claiming a retroactive permission."
+    detail: "OPEN standing risk. The tracked evaluation tables are NBA.com-derived and no redistribution licence is asserted. Publication proceeded on explicit operator authorization with the risk disclosed."
     state: OPEN
-    severity: standing_risk_not_a_blocker_we_cleared
+    severity: standing_risk
   - id: PMI-G2
     what: empty source_data gitlink
-    detail: "RESOLVED in RC2: gitlink and placeholder .gitmodules removed and replaced with source_data/README.md. Candidate now has zero gitlinks."
+    detail: "RESOLVED in RC2: the placeholder gitlink was removed and replaced by source_data/README.md."
     state: RESOLVED
   - id: PMI-G3
-    what: hermetic environment lock
-    detail: "RESOLVED in RC2: pyproject.toml + transitive uv.lock (13 packages) verified to build numpy 2.3.5 / pandas 2.3.3 / pytest 9.1.1. requirements-verified.txt remains only as a historical snapshot."
+    what: hermetic environment
+    detail: "RESOLVED in RC2: pyproject.toml + transitive uv.lock verified in clean clone."
     state: RESOLVED
   - id: PMI-G4
     what: operator publication approval
-    detail: "GRANTED 2026-10-01 by explicit operator instruction. Published commit a5110b11, tag ssac27-pmi-rc2-20261001."
+    detail: "GRANTED 2026-10-01 by explicit operator instruction."
     state: GRANTED
   - id: PMI-G5
-    what: independent review of the RC2 hygiene layer
-    detail: "RESOLVED in RC2: a read-only non-author freeze review raised 2 MAJOR / 4 MINOR / 3 INFO and, after remediation, approved."
+    what: independent RC2 hygiene review
+    detail: "RESOLVED after review, remediation, and focused approval."
     state: RESOLVED
   - id: PMI-G6
     what: Sloan submission
-    detail: "OPEN. No abstract submission or receipt exists. The public repository URL is now available for the form."
+    detail: "OPEN. No Sloan submission receipt exists."
     state: OPEN
