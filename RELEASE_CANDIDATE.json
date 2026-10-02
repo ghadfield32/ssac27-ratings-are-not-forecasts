@@ -1,7 +1,7 @@
 {
   "$comment": "Release-candidate identity for the PMI local candidate. This file is deliberately NOT in SHA256SUMS, together with REPRODUCTION_RECEIPT.json: a file cannot contain the digest of the commit that contains it. The candidate's identity is therefore content-addressed (payload manifest) plus an annotated tag, not a self-referential hash. Publication status is governed by PUBLICATION_DECISION.md.",
   "status": "PUBLISHED_UNDER_OPERATOR_AUTHORIZATION",
-  "state_note": "The historical RC2 snapshot remains immutable under ssac27-pmi-rc2-20261001. The revised abstract/manuscript/claim-ledger delta received a focused independent review with verdict APPROVE and zero BLOCKER/MAJOR. The exact submission snapshot is tag ssac27-abstract-submission-20261001 at commit 0afe1de4bef1700a613d26cd3970bf4b7464aed8. Sloan has not been submitted; G1 data-redistribution rights remains an explicitly unresolved standing risk.",
+  "state_note": "The historical RC2 snapshot remains immutable under ssac27-pmi-rc2-20261001. A first revised abstract passed a focused independent review (APPROVE, zero BLOCKER/MAJOR) and was tagged ssac27-abstract-submission-20261001 at 0afe1de4. A SECOND revision then reframed the abstract to lead with the insight (a large apparent improvement can partly reflect forecast scale) while restoring every disclosure the reframe initially dropped; that second revision has NOT yet had an independent review, and the submission tag still points at the first revision. Sloan has not been submitted; G1 data-redistribution rights remains an explicitly unresolved standing risk.",
   "identity": "PMI",
   "title": "Ratings Are Not Forecasts: Accounting, Calibration, and Information Timing in NBA Player-Impact Forecasting",
   "author": "Geoffrey Hadfield",
@@ -21,7 +21,7 @@
   },
   "content_identity": {
     "payload_manifest": "SHA256SUMS",
-    "payload_manifest_sha256": "cc743bf9003e841278c34b17d5615921fddbaf3d85e408551cee6134263bbf19",
+    "payload_manifest_sha256": "446fc94b7e240a35e81ae1249137aaa5411f55a430b1c2da8a994c3874cd6e79",
     "payload_files": 71,
     "gitlink_entries": 0,
     "excluded_from_manifest": [
@@ -32,10 +32,10 @@
     "note": "digest of the current working tree's manifest, not of the RC2 snapshot above"
   },
   "current_hashes_after_post_review_improvement": {
-    "abstract.md": "2f86a51f3c6a75ea39ed6b0c15017d1d20ad1321918b1f095d0bfa0bf3376d23",
-    "abstract.txt": "f67a225f1c5bb16d96d767e0e85b4d46b79f211debf774290a25a847dc6a8fa5",
-    "MANUSCRIPT.md": "aadd48c7703027131609e4976c6706d9768f32b11307ae5ac125b6cf6ecf8bfa",
-    "CLAIM_LEDGER.md": "2b13ccf62a49d1f3d79ebdad9ed472e5f2126a8f10ea7f867b71b03eeb764436",
+    "abstract.md": "dfd2ef23fedf2eff60d3d24061e46e0dfc164c57b187ee71d4accc4c9758259f",
+    "abstract.txt": "c13d0479a377b8e101a2126a51f1470474f9115047762fbc841572fd36a0a2a0",
+    "MANUSCRIPT.md": "f8d4b7c8482dab1673c6d48adde2baccec88503f4073af997809dad4c8a7e9fb",
+    "CLAIM_LEDGER.md": "4deed12647b3ddf5ffd36baa545eddcb9c65a11a11624a9364e26ce0b1af85cf",
     "supplement_analysis.py": "5ee695524201cd6f4c0551afeabeb530d988bdfd7a73b55271ca6c523d1622db",
     "input_bindings.json": "56e0d89c46526ee2d84a50fe208d3f670ab6bed24d1a00e81d5dafe8ee128403",
     "supplement/supplement_results.json": "b3341e455526bfd5fbf9b5153e7272adc9fcacfaa813a6958bea564875520994"

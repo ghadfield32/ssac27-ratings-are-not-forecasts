@@ -36,10 +36,10 @@ identities:
   rc1_tag: ssac27-pmi-rc-20261001
   rc2_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a
   rc2_tag: ssac27-pmi-rc2-20261001
-  abstract_sha256: 2f86a51f3c6a75ea39ed6b0c15017d1d20ad1321918b1f095d0bfa0bf3376d23
-  abstract_txt_sha256: f67a225f1c5bb16d96d767e0e85b4d46b79f211debf774290a25a847dc6a8fa5
-  manuscript_sha256: aadd48c7703027131609e4976c6706d9768f32b11307ae5ac125b6cf6ecf8bfa
-  claim_ledger_sha256: 2b13ccf62a49d1f3d79ebdad9ed472e5f2126a8f10ea7f867b71b03eeb764436
+  abstract_sha256: dfd2ef23fedf2eff60d3d24061e46e0dfc164c57b187ee71d4accc4c9758259f
+  abstract_txt_sha256: c13d0479a377b8e101a2126a51f1470474f9115047762fbc841572fd36a0a2a0
+  manuscript_sha256: f8d4b7c8482dab1673c6d48adde2baccec88503f4073af997809dad4c8a7e9fb
+  claim_ledger_sha256: 4deed12647b3ddf5ffd36baa545eddcb9c65a11a11624a9364e26ce0b1af85cf
   published_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a
   public_remote: https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts
   public_branch: main

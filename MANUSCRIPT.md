@@ -115,7 +115,9 @@ This is saved-forecast reproduction. It is distinct from regenerating tables fro
 
 ## 10. Conclusion
 
-In a frozen historical comparison, weekly reconciled ratings forecast game outcomes better than the three declared baselines. Development-only rescaling substantially reduces the legacy model's disadvantage and changes the apparent ordering of rebuilding and updating gains. The useful lesson is a disciplined comparison of accounting, information timing, participation and calibration. Stronger competitive baselines, isolated accounting evidence, fresh validation, operational utility and a complete permissible reproduction package remain necessary before making broader claims.
+In a frozen historical comparison, weekly reconciled ratings forecast game outcomes better than the three declared baselines. The more useful finding is that the legacy forecast was badly scaled: its development calibration slope was 0.471, against 0.897 for prior-season reconciled and 0.997 for weekly ratings. Development-only rescaling therefore substantially reduces the legacy model's disadvantage and changes the apparent ordering of rebuilding and updating gains. A large apparent improvement in player-impact forecasting can thus partly reflect forecast scale rather than better player information, which is why the title's distinction matters: a rating is not a forecast.
+
+The practical consequence is that player ratings should be evaluated as complete pregame forecasting systems — reconciled units, calibrated forecast scale, projected participation and past-only information — rather than as model scores compared in isolation. Stronger competitive baselines, isolated accounting evidence, fresh validation, operational utility and a complete permissible reproduction package remain necessary before making broader claims.
 
 ## References
 
