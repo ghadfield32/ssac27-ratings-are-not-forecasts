@@ -1,41 +1,48 @@
 # PMI SSAC27 submission checklist
 
-**Current decision: NOT READY TO SUBMIT.** The corrected text and local saved-forecast analyses are prepared, but the public repository/data-release gate remains open. No A grade, publication or submission is claimed.
+**Current decision: PUBLIC REPOSITORY READY; SLOAN NOT YET SUBMITTED.** The reviewed RC2 candidate is public, anonymous public-clone reproduction passed, and no submission receipt exists. The standing data-redistribution risk in `RIGHTS.md` remains unresolved and should be reviewed before filing.
 
-## Prepared local deliverables
+## Completed
 
-- [x] Author: Geoffrey Hadfield, World model Sports LLC, CEO/founder, supplied by the operator.
-- [x] Introduction/Methods/Results/Conclusion and one table in the abstract.
-- [x] Abstract below 500 words: 402 whitespace words / 438 conservative lexical words including title, headings, caption and table at this revision; verify again after edits.
-- [x] The abstract uses **one table only**. The two supplemental figures belong to the manuscript/supporting material; attaching both to the abstract as well would exceed its combined figure/table allowance.
-- [x] Existing quick reproduction executed; every committed value matched.
-- [x] New supplement executed on both existing tables, preserving input hashes.
-- [x] Tests cover invalid/missing inputs, timing, development-only scale, interval score and paired calendar resampling; 14 passed in 0.67s in the current author-run suite, including season/date/identity corruption and immutable input binding.
-- [x] Source-absence/source-order wording corrected; no claim every exclusion is a missing feed.
-- [x] Track B WEIGHT correctly documented as projected minutes, not possessions.
-- [x] Calibration, weekly-update prior work, actual-participation oracle, unisolated accounting/regularisation, post hoc exposure and interval undercoverage disclosed.
-- [x] Substantive manuscript, claim ledger, targeted primary comparison and future-study design prepared.
-- [x] Separate non-author initial review identified one MAJOR metadata-validation defect; focused remediation approved the local artifact with zero unresolved in-scope BLOCKER/MAJOR findings. Exact reviewed supplement and abstract hashes are recorded in the parent packet's INDEPENDENT_REVIEW.md and verification receipt. This is not conference/publication approval.
+- [x] Author: Geoffrey Hadfield, World Model Sports LLC, CEO/founder.
+- [x] Final title and four-section abstract prepared.
+- [x] Abstract under 500 words under both ordinary and conservative local counts.
+- [x] One abstract table only.
+- [x] Original saved-forecast reproduction passes.
+- [x] Supplemental analysis passes and is labelled post hoc.
+- [x] 14 package regression tests pass.
+- [x] Track B `WEIGHT` documented as projected minutes rather than possessions.
+- [x] Accounting/regularisation confounding, calibration, updating, oracle participation, post hoc exposure, and interval undercoverage disclosed.
+- [x] Broken source-data gitlink removed.
+- [x] Hermetic `pyproject.toml` + `uv.lock` added and verified.
+- [x] Independent science/release review completed with remediation.
+- [x] Public repository created.
+- [x] Reviewed tag `ssac27-pmi-rc2-20261001` published.
+- [x] Anonymous public clone succeeded.
+- [x] Public manifest verified 71/71.
+- [x] Public `reproduce.py` exit 0.
+- [x] Public supplement exit 0.
+- [x] Public tests: 14 passed.
+- [x] Public supplement reproduction deterministic.
 
-## Required external/operator gates
+## Still open before/at submission
 
-- [ ] Decide the exact permissible data release and document third-party permission/disposition. Company affiliation and academic intent do not automatically establish redistribution rights.
-- [ ] Confirm the released supporting data meet conference requirements, including the saved-forecast versus raw-refit distinction.
-- [ ] Supply/create a real accessible public repository URL. Current package has no remote.
-- [x] Removed the empty `source_data/` gitlink and its unconfigured placeholder remote, and replaced them with `source_data/README.md`. The candidate has zero gitlinks.
-- [x] Added a transitive dependency lock (`pyproject.toml` + `uv.lock`) and verified it rebuilds the exact environment and runs the full suite.
-- [ ] Publish only the reviewed permitted payload; verify access anonymously at the immutable release revision/tag.
-- [ ] Check final form fields and copy the exact corrected abstract; choose basketball track. Confirm all final authors and required contact fields.
-- [ ] Submit before **Oct. 1, 2026, 11:59 p.m. Eastern** and retain the actual receipt, timestamp, submitted text and repository revision.
+- [ ] Review and explicitly accept or change the standing data-rights decision in `RIGHTS.md`. The tracked evaluation tables are NBA.com-derived and no redistribution licence is asserted.
+- [ ] Open the public repository logged out and inspect it as a reviewer.
+- [ ] Open the exact abstract from the public repository and verify title/text/table.
+- [ ] Enter the repository URL in the Sloan form.
+- [ ] Confirm all final authors/contact fields.
+- [ ] Submit before the deadline and retain the actual confirmation/receipt.
+- [ ] Record submitted timestamp, exact abstract hash, repository commit/tag, and confirmation ID.
 
-Dates and rule source: [official competition page](https://www.sloansportsconference.com/research-paper-competition), checked Oct. 1. If invited, the full manuscript is due Dec. 4, 2026. The local manuscript is a draft; it has not been formatted or accepted against an invitation's full-paper instructions.
+## Not required for the abstract submission
 
-## Improvement work not completed by editorial fixes
+These remain future scientific/full-paper work rather than blockers to reproducing the frozen abstract:
+- factorial separation of accounting and regularisation;
+- stronger calibrated external controls;
+- raw-source hermetic refit;
+- fresh untouched future validation;
+- prospective available-at receipts;
+- demonstrated operational or financial utility.
 
-- [ ] Comparable accounting/regularisation factorial and competitive calibrated controls.
-- [ ] Permission-cleared hermetic raw-data refit and fresh environment verification.
-- [ ] Genuine available-at pregame receipts and untouched future validation.
-- [ ] Model-refitting/recurrent-team uncertainty and prospectively declared multiplicity controls.
-- [ ] Demonstrated practical workflow benefit under a measured budget.
-
-These are scientific scope decisions, not boxes that can be checked by writing a plan. The current grade is not automatically raised. FUTURE_STUDY_CONTRACT.md defines the next discriminating work.
+Official rules: https://www.sloansportsconference.com/research-paper-competition
