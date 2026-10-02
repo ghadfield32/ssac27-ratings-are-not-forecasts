@@ -1,61 +1,81 @@
 # Publication decision — PMI
 
-status: NOT_APPROVED_FOR_PUBLICATION
-public_remote: none
-approved_by: null
-approved_at: null
-release_candidate_commit: null
-public_tag: null
+status: PUBLISHED_ON_OPERATOR_AUTHORIZATION
+public_remote: https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts
+approved_by: Geoffrey Hadfield
+approved_at: 2026-10-01
+release_candidate_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a
+public_tag: ssac27-pmi-rc2-20261001
+authorization: "explicit operator instruction, 2026-10-01: 'complete this with full authorization and then push to main'"
 
-This file is the P6 gate. It is the last thing that changes before any public
-repository is created. Until `approved_by` and `approved_at` are set by Geoffrey
-Hadfield, **creating a public repository, adding a GitHub remote, or pushing
-publication bytes is outside the authorization of any agent session.**
+This file was the P6 gate. It recorded `NOT_APPROVED_FOR_PUBLICATION` while the
+candidate was local, and is updated here as the record of what was published.
 
-## Why it is not approved
+## What was published, and from what
 
-Two gates are open. Neither is a code defect: both are decisions only you can make.
+- The **exact reviewed RC2 commit** `a5110b11` / tag `ssac27-pmi-rc2-20261001`
+  was pushed with no cleanup commits, no rewriting, and no "while we're here"
+  edits. Everything before this record update is byte-identical to the reviewed
+  candidate.
+- The **public tag `ssac27-pmi-rc2-20261001` still points at `a5110b11`** — the
+  reviewed bytes. Updating the *record* does not move the reviewed tag.
+- Anonymous read access and full reproduction were verified from the public URL
+  (see `REPRODUCTION_RECEIPT.json`).
 
-| Gate | State | Why it blocks publication |
-|---|---|---|
-| G1 — data redistribution rights | **open** | The tracked evaluation tables are NBA.com-derived (`DATA.md`: attribution, not permission). `RIGHTS.md` records the package as **not publication-cleared**. A MIT code licence cannot grant third-party data rights. |
-| G2 — `source_data` gitlink | **RESOLVED in RC2** | The empty `160000` gitlink with an unconfigured placeholder remote was removed, together with `.gitmodules`, and replaced by `source_data/README.md`. The candidate has zero gitlinks. |
-| G3 — hermetic environment | **RESOLVED in RC2** | `pyproject.toml` + transitive `uv.lock` (13 packages) were added and verified to build the exact versions and run the full suite. |
-| G4 — operator approval | **open** | This file. |
-| G5 — independent review of the hygiene layer | **RESOLVED in RC2** | A read-only non-author freeze review raised 2 MAJOR / 4 MINOR / 3 INFO and, after focused remediation, approved. See `REVIEW.md` and `INDEPENDENT_REVIEW.md`. |
+## Gate state at publication
 
-## What is already true (and is not a reason to publish)
+| Gate | State |
+|---|---|
+| G1 — data redistribution rights | **OPEN — an unresolved standing risk, not a blocker we cleared** |
+| G2 — `source_data` gitlink | resolved in RC2 |
+| G3 — hermetic environment | resolved in RC2 |
+| G4 — operator approval | **granted** 2026-10-01 |
+| G5 — independent review of the hygiene layer | resolved in RC2 |
 
-- The frozen reported experiment reproduces from the four tracked data files (`reproduce.py`).
+## G1 is the thing to read carefully
+
+The tracked evaluation tables are NBA.com-derived, and `RIGHTS.md` records no
+licence to redistribute them. **No permission was obtained.** The publish
+decision was the operator's, taken with that risk stated and unresolved.
+
+If the operator later judges the derived-data release impermissible, the remedy
+is to remove those four files from the repository and the manifest — not to
+retroactively claim a permission. The science and the L1 reproduction do not
+depend on resolving it in either direction; the *public data distribution* does.
+
+## Remaining operator-only actions
+
+1. Decide G1 explicitly: keep, replace with a permitted derived release, or remove.
+2. Add the repository URL to the Sloan form and submit (see `SUBMISSION_CHECKLIST.md`).
+3. Retain the submission receipt, timestamp, and the exact submitted abstract hash.
+
+
+## Historical: why this file read NOT_APPROVED_FOR_PUBLICATION
+
+While the candidate was local, this file recorded `NOT_APPROVED_FOR_PUBLICATION`
+with `public_remote: none`, and it was the last file that would change before a
+public repository was created. That is the correct state for a local candidate,
+and it is preserved here so the record is auditable.
+
+What was already true before publication (and was not by itself a reason to
+publish):
+
+- The frozen reported experiment reproduced from the four tracked data files.
 - Local archived-fits→tables reconstruction passed (`LOCAL_SOURCE_RECONSTRUCTION.json`, L2).
-- The artifact passed a non-author review (`INDEPENDENT_REVIEW.md`: APPROVE, one MAJOR closed).
-- Tests pass; provenance hashes verify; no absolute paths and no credentials are tracked.
+- The artifact passed non-author reviews (`REVIEW.md`, `INDEPENDENT_REVIEW.md`).
+- Tests passed, provenance hashes verified, no absolute paths and no credentials tracked.
 
-These establish that the *candidate is reviewable*. They do not establish that the
-*content is publishable*. Reviewability is a precondition for this decision, not a
-substitute for it.
+Those established that the candidate was *reviewable*. Publication was a separate
+operator decision, taken explicitly on 2026-10-01 with G1 unresolved.
 
-## The two reviewable release options
+## The two reviewable release options (unchanged)
 
-The author must choose one, because Sloan makes authors responsible for
-third-party permissions:
+Sloan makes authors responsible for third-party permissions, so one of these
+remains the substantive choice:
 
-1. **Derived-evaluation release.** Publish only the derived per-game evaluation
-   tables with an explicit statement of the reproduction limit (L1, plus L2
-   described as local-only). Requires the conference to accept that scope.
-2. **Permission-cleared source/refit release.** Publish the full chain including
-   source and a hermetic refit. Requires actual third-party permission and a
-   resolved `source_data` reference.
+1. **Derived-evaluation release** — publish only the derived per-game tables with
+   the reproduction limit stated. This is what is currently published.
+2. **Permission-cleared source/refit release** — obtain actual third-party
+   permission and publish the full chain including source and a hermetic refit.
 
 If neither clears the applicable requirement, the submission stays blocked.
-
-## How to approve
-
-After inspecting the repository, give the explicit instruction:
-
-> Approve PMI release candidate `<commit>` for public publication.
-
-Then — and only then — set `approved_by`, `approved_at`, and
-`release_candidate_commit` above, create the public repository from that exact
-commit, and record `public_tag`. No cleanup commits between approval and
-publication unless they are reviewed too.

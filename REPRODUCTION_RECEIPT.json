@@ -82,6 +82,23 @@
     "publication_inventory": "DATA_INVENTORY.json now enumerates every tracked artifact with origin, raw/derived status, L1 necessity, provider-content presence, and proposed disposition."
   },
 
+  "public_clone_verification": {
+    "public_url": "https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts",
+    "tag": "ssac27-pmi-rc2-20261001",
+    "commit": "a5110b1190d18d30c378b9ef30f21d132ecf636a",
+    "method": "git clone with the credential helper disabled, to prove anonymous public read access",
+    "environment": "uv sync --frozen --extra dev --python 3.12 from the public clone's own uv.lock",
+    "results": {
+      "anonymous_clone": "succeeded",
+      "manifest": "71/71 verified, 0 mismatched",
+      "reproduce_py": "exit 0, OK: every value matches the committed results",
+      "supplement": "exit 0, OK: both tracks analysed; input hashes unchanged",
+      "tests": "14 passed",
+      "deterministic": "regenerated supplement_results.json equals the reviewed b3341e45… exactly"
+    },
+    "verified_at": "2026-10-01"
+  },
+
   "what_this_does_not_prove": [
     "L3 raw-source refit: never executed",
     "permission to redistribute the derived evaluation tables",

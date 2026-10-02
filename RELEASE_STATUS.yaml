@@ -28,12 +28,12 @@ status:
   independent_review_passed: true    # INDEPENDENT_REVIEW.md: APPROVE, PMI-R01 closed (science/RC1 layer)
   release_hygiene_review_passed: true  # RC2 freeze review APPROVE after remediation; see REVIEW.md
   rights_inventory_complete: true    # DATA_INVENTORY.json enumerates every tracked artifact
-  rights_review_passed: false        # RIGHTS.md is explicitly NOT publication-cleared; gate G1 open
+  rights_review_passed: false        # RIGHTS.md records no redistribution licence; gate G1 remains OPEN at publication
   hermetic_environment: true         # pyproject.toml + transitive uv.lock; verified by clean-clone run
-  user_publication_approval: false   # P6 — Geoffrey's explicit approval. NOT GIVEN.
-  public_repository_created: false
-  public_reproduction_passed: false
-  submitted: false
+  user_publication_approval: true    # granted by explicit operator instruction 2026-10-01
+  public_repository_created: true    # https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts
+  public_reproduction_passed: true   # anonymous clone verified; see REPRODUCTION_RECEIPT.json
+  submitted: false                   # no Sloan submission or receipt exists
 
 reproduction_levels:
   L1_reported_statistics_replay: true       # reproduce.py from the four tracked data files
@@ -50,6 +50,11 @@ identities:
   rc2_commit: null                   # a commit cannot name the commit that contains it; resolve via `git rev-parse ssac27-pmi-rc2-20261001`
   abstract_sha256: d7429ed27b16c598e90b2ea2382e40f6719c22ef2aa875a19c843ee867f4b66e
   manuscript_sha256: 23823fb7e3eac1008f3425235b231e4ec4fb5ea29d2b80855fffd928d49ff607
+  published_commit: a5110b1190d18d30c378b9ef30f21d132ecf636a   # the reviewed RC2 commit that was pushed
+  public_remote: https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts
+  public_branch: main
+  public_tag: ssac27-pmi-rc2-20261001   # points at published_commit; the reviewed bytes
+  post_publication_record_commits: true  # this file and PUBLICATION_DECISION.md were updated after the tag to record the publication; the review tags remain on the reviewed bytes
   data_manifest: input_bindings.json
   release_commit: null       # set by RELEASE_CANDIDATE.json at the freeze boundary
   public_tag: null
@@ -58,8 +63,9 @@ identities:
 blockers:
   - id: PMI-G1
     what: data redistribution rights
-    detail: "Tracked evaluation tables are NBA.com-derived. RIGHTS.md = not publication-cleared. Operator decision required."
+    detail: "OPEN. The tracked evaluation tables are NBA.com-derived and RIGHTS.md records no licence to redistribute them. No permission was obtained. Publication proceeded on explicit operator authorization 2026-10-01 with this risk stated; if it is later judged impermissible, remove the four data files from the repository and the manifest rather than claiming a retroactive permission."
     state: OPEN
+    severity: standing_risk_not_a_blocker_we_cleared
   - id: PMI-G2
     what: empty source_data gitlink
     detail: "RESOLVED in RC2: gitlink and placeholder .gitmodules removed and replaced with source_data/README.md. Candidate now has zero gitlinks."
@@ -70,9 +76,13 @@ blockers:
     state: RESOLVED
   - id: PMI-G4
     what: operator publication approval
-    detail: "P6. Nothing public until Geoffrey approves an exact commit."
-    state: OPEN
+    detail: "GRANTED 2026-10-01 by explicit operator instruction. Published commit a5110b11, tag ssac27-pmi-rc2-20261001."
+    state: GRANTED
   - id: PMI-G5
     what: independent review of the RC2 hygiene layer
-    detail: "RESOLVED in RC2: a read-only non-author freeze review raised 2 MAJOR / 4 MINOR / 3 INFO and, after remediation, approved. The documentation-only deltas requested by that review were then self-verified under the documentation-only rule."
+    detail: "RESOLVED in RC2: a read-only non-author freeze review raised 2 MAJOR / 4 MINOR / 3 INFO and, after remediation, approved."
     state: RESOLVED
+  - id: PMI-G6
+    what: Sloan submission
+    detail: "OPEN. No abstract submission or receipt exists. The public repository URL is now available for the form."
+    state: OPEN
