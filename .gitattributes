@@ -2,8 +2,9 @@
 *.csv text eol=lf
 
 # The four bound inputs are hashed byte-for-byte by supplement_analysis.py against
-# input_bindings.json. `text`/`eol` filtering normalises CRLF to LF in the
-# repository and in every clone, which changes their SHA-256 and breaks the
-# binding. Store these exactly as reviewed.
-*.csv -text
-*.json -text
+# input_bindings.json. Any `text`/`eol` filtering normalises CRLF to LF in the
+# repository and in every clone, changing their SHA-256 and breaking the binding.
+# `eol` must be unset as well as `text`, because setting `eol` implies text
+# conversion even when `text` is unset. Store these four files exactly as reviewed.
+*.csv -text -eol
+*.json -text -eol
