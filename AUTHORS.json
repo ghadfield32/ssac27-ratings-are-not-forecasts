@@ -2,11 +2,12 @@
   "authors": [
     {
       "name": "Geoffrey Hadfield",
-      "affiliation": "World model Sports LLC",
+      "affiliation": "World Model Sports LLC",
       "role": "CEO/founder"
     }
   ],
-  "source": "Operator response in this session, 2026-10-01",
-  "public_repository_url": null,
+  "source": "Operator confirmation, 2026-10-01",
+  "public_repository_url": "https://github.com/ghadfield32/ssac27-ratings-are-not-forecasts",
+  "reviewed_release_tag": "ssac27-pmi-rc2-20261001",
   "submission_receipt": null
 }
