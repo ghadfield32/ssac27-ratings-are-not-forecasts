@@ -26,7 +26,7 @@
 
   "content_identity": {
     "payload_manifest": "SHA256SUMS",
-    "payload_manifest_sha256": "5a6ddce01055b36d1df5401163b1620d0b7f5b7c23f9d2f586c9d511d42e90ae",
+    "payload_manifest_sha256": "7fb442f4e8cfdf02adea474710f7c5263d920ec7e6d633742f332cce843fb5c6",
     "payload_files": 71,
     "gitlink_entries": 0,
     "excluded_from_manifest": ["SHA256SUMS", "REPRODUCTION_RECEIPT.json", "RELEASE_CANDIDATE.json"],
@@ -34,8 +34,8 @@
   },
 
   "current_hashes_after_post_review_improvement": {
-    "abstract.md": "8404f77c5f3cfbb805c32d047a248bf58060ace4e21dec5099e2b1c60ded409e",
-    "abstract.txt": "a2199908444aee31b60d391309e1b5fe95b9eb3ecfc6c14de7d5e5ea209a3c1e",
+    "abstract.md": "2f86a51f3c6a75ea39ed6b0c15017d1d20ad1321918b1f095d0bfa0bf3376d23",
+    "abstract.txt": "f67a225f1c5bb16d96d767e0e85b4d46b79f211debf774290a25a847dc6a8fa5",
     "MANUSCRIPT.md": "218140a942c66452079d32a829498b5367cd1d769a770944e78b41e2728775f1",
     "CLAIM_LEDGER.md": "0a9bd652044f68590c3c5a26a0117eeebfc47a27ce7947fb4f76b53fb71b9838",
     "supplement_analysis.py": "5ee695524201cd6f4c0551afeabeb530d988bdfd7a73b55271ca6c523d1622db",
@@ -59,8 +59,8 @@
     "G6_sloan_submission_not_made"
   ],
   "pending": [
-    "independent re-review of the post-review abstract/manuscript/ledger improvements",
-    "regenerate SHA256SUMS for the improved tree"
+    "independent focused re-review of this revised abstract before submission",
+    "create the submission tag ssac27-abstract-submission-20261001 after that review and the final manifest"
   ],
   "resolved_in_rc2": [
     "G2_empty_source_data_gitlink",

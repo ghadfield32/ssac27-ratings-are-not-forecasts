@@ -47,6 +47,10 @@ severities, evidence and closure are recorded in `REVIEW.md`.
 
 ## What neither review covers
 
-Rights clearance (`RIGHTS.md` remains not publication-cleared), a real public
-URL, conference-form verification, and the L2/L3 reproduction levels. Local
-review is not conference or publication approval.
+Rights clearance (`RIGHTS.md` records no redistribution licence; gate G1 remained
+open at publication), conference-form verification, and the L2/L3 reproduction
+levels. Local review is not conference or publication approval.
+
+Both reviews above were performed while no public repository existed. The package
+was published afterwards under explicit operator authorization; the reviews' own
+scope and conclusions are unchanged.

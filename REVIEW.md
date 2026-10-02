@@ -49,8 +49,8 @@ refused before output creation.
 
 This closes a local defect review, not any submission or publication gate.
 
-- Rights / data inventory (`RIGHTS.md` is now the in-package authority; it remains not publication-cleared).
-- A real accessible support repository and public URL.
+- Rights / data inventory (`RIGHTS.md` is the in-package authority; it records no redistribution licence, so gate G1 remained open at review time).
+- A real accessible support repository and public URL **at review time** (none existed then; the repository was subsequently published under operator authorization).
 - Final conference-form verification.
 - The release-hygiene artifacts added 2026-10-01 (`RELEASE_STATUS.yaml`,
   `PUBLICATION_DECISION.md`, `THIRD_PARTY_NOTICES.md`, `REPRODUCE.md`, this
@@ -172,6 +172,8 @@ than accepting a closure on the strength of added sentences.
 - **`uv sync --frozen`** — the lock was verified statically; a network install
   was not executed by the reviewer.
 
-The candidate remains **NOT_APPROVED_FOR_PUBLICATION** pending the operator's own
-decision (gate G1).
+The candidate was **NOT_APPROVED_FOR_PUBLICATION** at review time, pending the
+operator's own decision (gate G1). It was subsequently published under explicit
+operator authorization; G1 remains an open standing risk, not a cleared gate.
+See `PUBLICATION_DECISION.md` for the current publication record.
 

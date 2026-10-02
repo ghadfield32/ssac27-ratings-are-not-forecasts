@@ -101,9 +101,8 @@
 
   "what_this_does_not_prove": [
     "L3 raw-source refit: never executed",
-    "permission to redistribute the derived evaluation tables",
+    "permission to redistribute the derived evaluation tables: no licence was obtained; publication proceeded under explicit operator authorization with that risk recorded (gate G1)",
     "the environment is a host-level venv on the author's workstation, not a container image: the lock pins packages, not the operating system",
-    "that the spent 2023-24/2024-25 holdout is fresh validation",
-    "an anonymous clone from a public network URL (no public remote exists)"
+    "that the spent 2023-24/2024-25 holdout is fresh validation"
   ]
 }
