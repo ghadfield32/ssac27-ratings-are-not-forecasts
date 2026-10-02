@@ -24,8 +24,9 @@ status:
   science_frozen: true
   holdout_spent: true            # 2023-24 and 2024-25 are exposed; not untouched validation
   abstract_frozen: true          # 402 words incl. title/body/table; four sections; one table
-  clean_reproduction_passed: false   # set by REPRODUCTION_RECEIPT.json after a clean-clone run
+  clean_reproduction_passed: true    # evidence: REPRODUCTION_RECEIPT.json (clean clone, 2026-10-01)
   independent_review_passed: true    # INDEPENDENT_REVIEW.md: APPROVE, PMI-R01 closed
+  release_hygiene_review_passed: false  # the 2026-10-01 hygiene artifacts are NOT yet reviewed
   rights_review_passed: false        # RIGHTS.md is explicitly NOT publication-cleared
   user_publication_approval: false   # P6 — Geoffrey's explicit approval. NOT GIVEN.
   public_repository_created: false
