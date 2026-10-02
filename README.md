@@ -42,6 +42,8 @@ Tracked evaluation tables are included because they are required for the public 
 ## Review trail
 
 - Exact reviewed RC2 tag: `ssac27-pmi-rc2-20261001`
+- Exact abstract submission snapshot: `ssac27-abstract-submission-20261001` → `0afe1de4bef1700a613d26cd3970bf4b7464aed8`
+- Focused review of the revised abstract: **APPROVE — zero BLOCKER/MAJOR**
 - Independent review record: [INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md)
 - Release review and remediation: [REVIEW.md](REVIEW.md)
 - Claim bindings: [CLAIM_LEDGER.md](CLAIM_LEDGER.md)
